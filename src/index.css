@@ -1,99 +1,196 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
+/* SanctumCap Design System - Color Variables */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Primary Brand Color - Royal Blue Gradient */
+    --primary: 24 39 90;           /* #18275A */
+    --primary-50: 240 242 247;     /* #f0f2f7 */
+    --primary-100: 217 224 237;    /* #d9e0ed */
+    --primary-200: 179 193 219;    /* #b3c1db */
+    --primary-300: 140 162 201;    /* #8ca2c9 */
+    --primary-400: 102 131 183;    /* #6683b7 */
+    --primary-500: 24 39 90;       /* #18275A - Base */
+    --primary-600: 21 34 72;       /* #152248 */
+    --primary-700: 18 29 62;       /* #121d3e */
+    --primary-800: 15 24 52;       /* #0f1834 */
+    --primary-900: 12 19 42;       /* #0c132a */
+    --primary-950: 8 14 32;        /* #080e20 */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Core Brand Colors */
+    /* Deep Midnight Blue */
+    --midnight: 15 26 60;          /* #0F1A3C */
+    --midnight-50: 240 241 245;    /* #f0f1f5 */
+    --midnight-100: 217 220 230;   /* #d9dce6 */
+    --midnight-200: 179 185 205;   /* #b3b9cd */
+    --midnight-300: 140 150 180;   /* #8c96b4 */
+    --midnight-400: 102 115 155;   /* #66739b */
+    --midnight-500: 15 26 60;      /* #0F1A3C - Base */
+    --midnight-600: 13 22 53;      /* #0d1635 */
+    --midnight-700: 11 18 46;      /* #0b122e */
+    --midnight-800: 9 14 39;       /* #090e27 */
+    --midnight-900: 7 10 32;       /* #070a20 */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Luxe Metallic Gold */
+    --gold: 212 175 55;            /* #D4AF37 */
+    --gold-50: 253 252 247;        /* #fdfcf7 */
+    --gold-100: 250 246 230;       /* #faf6e6 */
+    --gold-200: 245 237 204;       /* #f5edcc */
+    --gold-300: 240 228 179;       /* #f0e4b3 */
+    --gold-400: 235 219 153;       /* #ebdb99 */
+    --gold-500: 212 175 55;        /* #D4AF37 - Base */
+    --gold-600: 193 159 50;        /* #c19f32 */
+    --gold-700: 174 143 45;        /* #ae8f2d */
+    --gold-800: 155 127 40;        /* #9b7f28 */
+    --gold-900: 136 111 35;        /* #886f23 */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Rich Charcoal */
+    --charcoal: 28 28 45;          /* #1C1C2D */
+    --charcoal-50: 241 241 242;    /* #f1f1f2 */
+    --charcoal-100: 220 220 223;   /* #dcdcdf */
+    --charcoal-200: 185 185 191;   /* #b9b9bf */
+    --charcoal-300: 150 150 159;   /* #96969f */
+    --charcoal-400: 115 115 127;   /* #73737f */
+    --charcoal-500: 28 28 45;      /* #1C1C2D - Base */
+    --charcoal-600: 25 25 40;      /* #191928 */
+    --charcoal-700: 22 22 35;      /* #161623 */
+    --charcoal-800: 19 19 30;      /* #13131e */
+    --charcoal-900: 16 16 25;      /* #101019 */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Cool Platinum */
+    --platinum: 230 230 235;       /* #E6E6EB */
+    --platinum-50: 254 254 254;    /* #fefefe */
+    --platinum-100: 252 252 253;   /* #fcfcfd */
+    --platinum-200: 249 249 251;   /* #f9f9fb */
+    --platinum-300: 246 246 249;   /* #f6f6f9 */
+    --platinum-400: 243 243 247;   /* #f3f3f7 */
+    --platinum-500: 230 230 235;   /* #E6E6EB - Base */
+    --platinum-600: 207 207 212;   /* #cfcfd4 */
+    --platinum-700: 184 184 189;   /* #b8b8bd */
+    --platinum-800: 161 161 166;   /* #a1a1a6 */
+    --platinum-900: 138 138 143;   /* #8a8a8f */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Warm Sandstone */
+    --sandstone: 191 169 128;      /* #BFA980 */
+    --sandstone-50: 250 249 247;   /* #faf9f7 */
+    --sandstone-100: 243 240 232;  /* #f3f0e8 */
+    --sandstone-200: 231 225 209;  /* #e7e1d1 */
+    --sandstone-300: 219 210 186;  /* #dbd2ba */
+    --sandstone-400: 207 195 163;  /* #cfc3a3 */
+    --sandstone-500: 191 169 128;  /* #BFA980 - Base */
+    --sandstone-600: 172 152 115;  /* #ac9873 */
+    --sandstone-700: 153 135 102;  /* #998766 */
+    --sandstone-800: 134 118 89;   /* #867659 */
+    --sandstone-900: 115 101 76;   /* #73654c */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Deep Maroon */
+    --maroon: 90 46 46;            /* #5A2E2E */
+    --maroon-50: 246 242 242;      /* #f6f2f2 */
+    --maroon-100: 232 218 218;     /* #e8dada */
+    --maroon-200: 209 181 181;     /* #d1b5b5 */
+    --maroon-300: 186 144 144;     /* #ba9090 */
+    --maroon-400: 163 107 107;     /* #a36b6b */
+    --maroon-500: 90 46 46;        /* #5A2E2E - Base */
+    --maroon-600: 81 41 41;        /* #512929 */
+    --maroon-700: 72 36 36;        /* #482424 */
+    --maroon-800: 63 31 31;        /* #3f1f1f */
+    --maroon-900: 54 26 26;        /* #361a1a */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Slate Gray */
+    --slate: 139 140 146;          /* #8B8C92 */
+    --slate-50: 248 248 249;       /* #f8f8f9 */
+    --slate-100: 238 238 239;      /* #eeeeef */
+    --slate-200: 221 221 224;      /* #dddde0 */
+    --slate-300: 204 204 209;      /* #ccccD1 */
+    --slate-400: 187 187 194;      /* #bbbbc2 */
+    --slate-500: 139 140 146;      /* #8B8C92 - Base */
+    --slate-600: 125 126 131;      /* #7d7e83 */
+    --slate-700: 111 112 116;      /* #6f7074 */
+    --slate-800: 97 98 101;        /* #616265 */
+    --slate-900: 83 84 86;         /* #535456 */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Semantic Colors */
+    --success: 16 185 129;         /* #10b981 */
+    --success-light: 209 250 229;  /* #d1fae5 */
+    --success-dark: 4 120 87;      /* #047857 */
 
+    --warning: 245 158 11;         /* #f59e0b */
+    --warning-light: 254 243 199;  /* #fef3c7 */
+    --warning-dark: 217 119 6;     /* #d97706 */
+
+    --error: 239 68 68;            /* #ef4444 */
+    --error-light: 254 226 226;    /* #fee2e2 */
+    --error-dark: 220 38 38;       /* #dc2626 */
+
+    --info: var(--primary);
+    --info-light: var(--primary-100);
+    --info-dark: var(--primary-700);
+
+    /* Background System */
+    --background: var(--midnight);          /* Primary dark background */
+    --foreground: var(--platinum);          /* Primary text color */
+    
+    --bg-secondary: var(--charcoal);        /* Secondary background */
+    --bg-tertiary: var(--primary-800);     /* Tertiary background */
+    --bg-accent: var(--primary);           /* Accent background */
+
+    /* Card and Surface Colors */
+    --card: var(--charcoal);
+    --card-foreground: var(--platinum);
+
+    --popover: var(--charcoal);
+    --popover-foreground: var(--platinum);
+
+    /* Interactive Elements */
+    --muted: var(--slate);
+    --muted-foreground: var(--slate-400);
+
+    --accent: var(--gold);
+    --accent-foreground: var(--midnight);
+
+    --destructive: var(--error);
+    --destructive-foreground: var(--platinum);
+
+    /* Borders and Inputs */
+    --border: var(--slate-700);
+    --input: var(--charcoal);
+    --ring: var(--gold);
+
+    /* Radius */
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar (for future use) */
+    --sidebar-background: var(--charcoal);
+    --sidebar-foreground: var(--platinum);
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: var(--platinum);
+    --sidebar-accent: var(--gold);
+    --sidebar-accent-foreground: var(--midnight);
+    --sidebar-border: var(--slate-700);
+    --sidebar-ring: var(--gold);
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+  /* Light theme override (if needed) */
+  .light {
+    --background: var(--platinum);
+    --foreground: var(--midnight);
+    --card: 255 255 255;
+    --card-foreground: var(--midnight);
+    --popover: 255 255 255;
+    --popover-foreground: var(--midnight);
+    --muted: var(--platinum-200);
+    --muted-foreground: var(--slate-600);
+    --border: var(--platinum-300);
+    --input: var(--platinum-200);
+    --accent: var(--primary);
+    --accent-foreground: var(--platinum);
   }
 }
 
+/* Base styling */
 @layer base {
   * {
     @apply border-border;
@@ -101,5 +198,106 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+  }
+
+  /* Typography */
+  .font-display {
+    font-family: 'Inter Display', 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .font-body {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  /* Animation utilities */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  .smooth-animation {
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  /* Typography animations */
+  .text-reveal {
+    overflow: hidden;
+    display: inline-block;
+  }
+
+  .char-animation {
+    display: inline-block;
+    transform: translateY(100%);
+  }
+
+  /* Screen reader only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    
+    .animated-counter::after {
+      content: " (animated)";
+      font-size: 0.8em;
+      opacity: 0.7;
+    }
+  }
+
+  /* Focus styles */
+  .focus-visible {
+    outline: 2px solid hsl(var(--gold));
+    outline-offset: 2px;
+    border-radius: var(--radius);
+  }
+}
+
+/* Custom gradient utilities */
+@layer utilities {
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--midnight)) 100%);
+  }
+
+  .bg-gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--sandstone)) 100%);
+  }
+
+  .bg-gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--midnight)) 0%, hsl(var(--primary)) 50%, hsl(var(--charcoal)) 100%);
+  }
+
+  .overlay-dark {
+    background: linear-gradient(180deg, rgba(15, 26, 60, 0.8) 0%, rgba(28, 28, 45, 0.9) 100%);
+  }
+
+  .glass-morphism {
+    backdrop-filter: blur(20px);
+    background: rgba(28, 28, 45, 0.8);
+    border: 1px solid rgba(230, 230, 235, 0.1);
   }
 }
