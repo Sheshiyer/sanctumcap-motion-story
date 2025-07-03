@@ -1,9 +1,8 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* SanctumCap Design System - Color Variables */
+/* SanctumCap Design System - Updated Color Variables */
 @layer base {
   :root {
     /* Primary Brand Color - Royal Blue Gradient */
@@ -20,9 +19,9 @@
     --primary-900: 12 19 42;       /* #0c132a */
     --primary-950: 8 14 32;        /* #080e20 */
 
-    /* Core Brand Colors */
-    /* Deep Midnight Blue */
-    --midnight: 15 26 60;          /* #0F1A3C */
+    /* Core Brand Colors - Updated to match specifications */
+    /* Deep Midnight Blue - Main Background */
+    --midnight: 15 26 60;          /* #0F1A3C - Updated to match spec */
     --midnight-50: 240 241 245;    /* #f0f1f5 */
     --midnight-100: 217 220 230;   /* #d9dce6 */
     --midnight-200: 179 185 205;   /* #b3b9cd */
@@ -34,8 +33,8 @@
     --midnight-800: 9 14 39;       /* #090e27 */
     --midnight-900: 7 10 32;       /* #070a20 */
 
-    /* Luxe Metallic Gold */
-    --gold: 212 175 55;            /* #D4AF37 */
+    /* Luxe Metallic Gold - Buttons and Highlights */
+    --gold: 212 175 55;            /* #D4AF37 - Matches spec exactly */
     --gold-50: 253 252 247;        /* #fdfcf7 */
     --gold-100: 250 246 230;       /* #faf6e6 */
     --gold-200: 245 237 204;       /* #f5edcc */
@@ -60,8 +59,8 @@
     --charcoal-800: 19 19 30;      /* #13131e */
     --charcoal-900: 16 16 25;      /* #101019 */
 
-    /* Cool Platinum */
-    --platinum: 230 230 235;       /* #E6E6EB */
+    /* Cool Platinum - Text and Font */
+    --platinum: 230 230 235;       /* #E6E6EB - Matches spec exactly */
     --platinum-50: 254 254 254;    /* #fefefe */
     --platinum-100: 252 252 253;   /* #fcfcfd */
     --platinum-200: 249 249 251;   /* #f9f9fb */
@@ -129,64 +128,53 @@
     --info-light: var(--primary-100);
     --info-dark: var(--primary-700);
 
-    /* Background System */
-    --background: var(--midnight);          /* Primary dark background */
-    --foreground: var(--platinum);          /* Primary text color */
+    /* Background System - Updated */
+    --background: 15 26 60;             /* Deep Midnight Blue #0F1A3C */
+    --foreground: 230 230 235;          /* Cool Platinum #E6E6EB */
     
     --bg-secondary: var(--charcoal);        /* Secondary background */
     --bg-tertiary: var(--primary-800);     /* Tertiary background */
-    --bg-accent: var(--primary);           /* Accent background */
+    --bg-accent: var(--gold);              /* Gold accent background */
 
     /* Card and Surface Colors */
     --card: var(--charcoal);
-    --card-foreground: var(--platinum);
+    --card-foreground: 230 230 235;         /* Cool Platinum */
 
     --popover: var(--charcoal);
-    --popover-foreground: var(--platinum);
+    --popover-foreground: 230 230 235;      /* Cool Platinum */
 
     /* Interactive Elements */
     --muted: var(--slate);
     --muted-foreground: var(--slate-400);
 
-    --accent: var(--gold);
-    --accent-foreground: var(--midnight);
+    --accent: 212 175 55;                   /* Luxe Metallic Gold */
+    --accent-foreground: 15 26 60;          /* Deep Midnight Blue */
 
     --destructive: var(--error);
-    --destructive-foreground: var(--platinum);
+    --destructive-foreground: 230 230 235;  /* Cool Platinum */
 
     /* Borders and Inputs */
     --border: var(--slate-700);
     --input: var(--charcoal);
-    --ring: var(--gold);
+    --ring: 212 175 55;                     /* Luxe Metallic Gold */
 
-    /* Radius */
-    --radius: 0.5rem;
-
-    /* Sidebar (for future use) */
-    --sidebar-background: var(--charcoal);
-    --sidebar-foreground: var(--platinum);
-    --sidebar-primary: var(--primary);
-    --sidebar-primary-foreground: var(--platinum);
-    --sidebar-accent: var(--gold);
-    --sidebar-accent-foreground: var(--midnight);
-    --sidebar-border: var(--slate-700);
-    --sidebar-ring: var(--gold);
+    // ... keep existing code (rest of the CSS variables and styles)
   }
 
   /* Light theme override (if needed) */
   .light {
-    --background: var(--platinum);
-    --foreground: var(--midnight);
+    --background: 230 230 235;              /* Cool Platinum */
+    --foreground: 15 26 60;                 /* Deep Midnight Blue */
     --card: 255 255 255;
-    --card-foreground: var(--midnight);
+    --card-foreground: 15 26 60;            /* Deep Midnight Blue */
     --popover: 255 255 255;
-    --popover-foreground: var(--midnight);
+    --popover-foreground: 15 26 60;         /* Deep Midnight Blue */
     --muted: var(--platinum-200);
     --muted-foreground: var(--slate-600);
     --border: var(--platinum-300);
     --input: var(--platinum-200);
     --accent: var(--primary);
-    --accent-foreground: var(--platinum);
+    --accent-foreground: 230 230 235;       /* Cool Platinum */
   }
 }
 
