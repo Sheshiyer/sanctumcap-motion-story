@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -158,7 +159,18 @@
     --input: var(--charcoal);
     --ring: 212 175 55;                     /* Luxe Metallic Gold */
 
-    // ... keep existing code (rest of the CSS variables and styles)
+    /* Radius */
+    --radius: 0.5rem;
+
+    /* Sidebar (for future use) */
+    --sidebar-background: var(--charcoal);
+    --sidebar-foreground: var(--platinum);
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: var(--platinum);
+    --sidebar-accent: var(--gold);
+    --sidebar-accent-foreground: var(--midnight);
+    --sidebar-border: var(--slate-700);
+    --sidebar-ring: var(--gold);
   }
 
   /* Light theme override (if needed) */
