@@ -7,131 +7,131 @@
 @layer base {
   :root {
     /* Primary Brand Color - Royal Blue Gradient */
-    --primary: 24 39 90;           /* #18275A */
-    --primary-50: 240 242 247;     /* #f0f2f7 */
-    --primary-100: 217 224 237;    /* #d9e0ed */
-    --primary-200: 179 193 219;    /* #b3c1db */
-    --primary-300: 140 162 201;    /* #8ca2c9 */
-    --primary-400: 102 131 183;    /* #6683b7 */
-    --primary-500: 24 39 90;       /* #18275A - Base */
-    --primary-600: 21 34 72;       /* #152248 */
-    --primary-700: 18 29 62;       /* #121d3e */
-    --primary-800: 15 24 52;       /* #0f1834 */
-    --primary-900: 12 19 42;       /* #0c132a */
-    --primary-950: 8 14 32;        /* #080e20 */
+    --primary: 218 60% 22%;           /* #18275A converted to HSL */
+    --primary-50: 225 38% 96%;       /* #f0f2f7 */
+    --primary-100: 224 24% 89%;      /* #d9e0ed */
+    --primary-200: 225 25% 78%;      /* #b3c1db */
+    --primary-300: 222 25% 67%;      /* #8ca2c9 */
+    --primary-400: 220 27% 56%;      /* #6683b7 */
+    --primary-500: 218 60% 22%;      /* #18275A - Base */
+    --primary-600: 218 55% 18%;      /* #152248 */
+    --primary-700: 217 55% 16%;      /* #121d3e */
+    --primary-800: 216 55% 13%;      /* #0f1834 */
+    --primary-900: 214 55% 11%;      /* #0c132a */
+    --primary-950: 213 60% 8%;       /* #080e20 */
 
     /* Core Brand Colors - Updated to match specifications */
     /* Deep Midnight Blue - Main Background */
-    --midnight: 15 26 60;          /* #0F1A3C - Updated to match spec */
-    --midnight-50: 240 241 245;    /* #f0f1f5 */
-    --midnight-100: 217 220 230;   /* #d9dce6 */
-    --midnight-200: 179 185 205;   /* #b3b9cd */
-    --midnight-300: 140 150 180;   /* #8c96b4 */
-    --midnight-400: 102 115 155;   /* #66739b */
-    --midnight-500: 15 26 60;      /* #0F1A3C - Base */
-    --midnight-600: 13 22 53;      /* #0d1635 */
-    --midnight-700: 11 18 46;      /* #0b122e */
-    --midnight-800: 9 14 39;       /* #090e27 */
-    --midnight-900: 7 10 32;       /* #070a20 */
+    --midnight: 218 60% 15%;         /* #0F1A3C - Updated to HSL */
+    --midnight-50: 225 38% 96%;      /* #f0f1f5 */
+    --midnight-100: 224 24% 89%;     /* #d9dce6 */
+    --midnight-200: 225 25% 78%;     /* #b3b9cd */
+    --midnight-300: 222 25% 67%;     /* #8c96b4 */
+    --midnight-400: 220 27% 56%;     /* #66739b */
+    --midnight-500: 218 60% 15%;     /* #0F1A3C - Base */
+    --midnight-600: 218 60% 13%;     /* #0d1635 */
+    --midnight-700: 218 62% 11%;     /* #0b122e */
+    --midnight-800: 217 63% 9%;      /* #090e27 */
+    --midnight-900: 216 65% 7%;      /* #070a20 */
 
     /* Luxe Metallic Gold - Buttons and Highlights */
-    --gold: 212 175 55;            /* #D4AF37 - Matches spec exactly */
-    --gold-50: 253 252 247;        /* #fdfcf7 */
-    --gold-100: 250 246 230;       /* #faf6e6 */
-    --gold-200: 245 237 204;       /* #f5edcc */
-    --gold-300: 240 228 179;       /* #f0e4b3 */
-    --gold-400: 235 219 153;       /* #ebdb99 */
-    --gold-500: 212 175 55;        /* #D4AF37 - Base */
-    --gold-600: 193 159 50;        /* #c19f32 */
-    --gold-700: 174 143 45;        /* #ae8f2d */
-    --gold-800: 155 127 40;        /* #9b7f28 */
-    --gold-900: 136 111 35;        /* #886f23 */
+    --gold: 48 74% 58%;              /* #D4AF37 - Converted to HSL */
+    --gold-50: 51 89% 98%;           /* #fdfcf7 */
+    --gold-100: 50 67% 94%;          /* #faf6e6 */
+    --gold-200: 49 57% 88%;          /* #f5edcc */
+    --gold-300: 48 54% 81%;          /* #f0e4b3 */
+    --gold-400: 47 52% 76%;          /* #ebdb99 */
+    --gold-500: 48 74% 58%;          /* #D4AF37 - Base */
+    --gold-600: 47 72% 53%;          /* #c19f32 */
+    --gold-700: 46 70% 48%;          /* #ae8f2d */
+    --gold-800: 45 68% 43%;          /* #9b7f28 */
+    --gold-900: 44 66% 38%;          /* #886f23 */
 
     /* Rich Charcoal */
-    --charcoal: 28 28 45;          /* #1C1C2D */
-    --charcoal-50: 241 241 242;    /* #f1f1f2 */
-    --charcoal-100: 220 220 223;   /* #dcdcdf */
-    --charcoal-200: 185 185 191;   /* #b9b9bf */
-    --charcoal-300: 150 150 159;   /* #96969f */
-    --charcoal-400: 115 115 127;   /* #73737f */
-    --charcoal-500: 28 28 45;      /* #1C1C2D - Base */
-    --charcoal-600: 25 25 40;      /* #191928 */
-    --charcoal-700: 22 22 35;      /* #161623 */
-    --charcoal-800: 19 19 30;      /* #13131e */
-    --charcoal-900: 16 16 25;      /* #101019 */
+    --charcoal: 240 23% 14%;         /* #1C1C2D */
+    --charcoal-50: 240 4% 95%;       /* #f1f1f2 */
+    --charcoal-100: 240 6% 87%;      /* #dcdcdf */
+    --charcoal-200: 240 8% 74%;      /* #b9b9bf */
+    --charcoal-300: 240 9% 61%;      /* #96969f */
+    --charcoal-400: 240 11% 48%;     /* #73737f */
+    --charcoal-500: 240 23% 14%;     /* #1C1C2D - Base */
+    --charcoal-600: 240 23% 13%;     /* #191928 */
+    --charcoal-700: 240 24% 11%;     /* #161623 */
+    --charcoal-800: 240 25% 10%;     /* #13131e */
+    --charcoal-900: 240 26% 8%;      /* #101019 */
 
     /* Cool Platinum - Text and Font */
-    --platinum: 230 230 235;       /* #E6E6EB - Matches spec exactly */
-    --platinum-50: 254 254 254;    /* #fefefe */
-    --platinum-100: 252 252 253;   /* #fcfcfd */
-    --platinum-200: 249 249 251;   /* #f9f9fb */
-    --platinum-300: 246 246 249;   /* #f6f6f9 */
-    --platinum-400: 243 243 247;   /* #f3f3f7 */
-    --platinum-500: 230 230 235;   /* #E6E6EB - Base */
-    --platinum-600: 207 207 212;   /* #cfcfd4 */
-    --platinum-700: 184 184 189;   /* #b8b8bd */
-    --platinum-800: 161 161 166;   /* #a1a1a6 */
-    --platinum-900: 138 138 143;   /* #8a8a8f */
+    --platinum: 240 7% 91%;          /* #E6E6EB - Converted to HSL */
+    --platinum-50: 240 5% 99%;       /* #fefefe */
+    --platinum-100: 240 8% 98%;      /* #fcfcfd */
+    --platinum-200: 240 13% 98%;     /* #f9f9fb */
+    --platinum-300: 240 18% 97%;     /* #f6f6f9 */
+    --platinum-400: 240 23% 96%;     /* #f3f3f7 */
+    --platinum-500: 240 7% 91%;      /* #E6E6EB - Base */
+    --platinum-600: 240 7% 82%;      /* #cfcfd4 */
+    --platinum-700: 240 7% 73%;      /* #b8b8bd */
+    --platinum-800: 240 7% 64%;      /* #a1a1a6 */
+    --platinum-900: 240 7% 55%;      /* #8a8a8f */
 
     /* Warm Sandstone */
-    --sandstone: 191 169 128;      /* #BFA980 */
-    --sandstone-50: 250 249 247;   /* #faf9f7 */
-    --sandstone-100: 243 240 232;  /* #f3f0e8 */
-    --sandstone-200: 231 225 209;  /* #e7e1d1 */
-    --sandstone-300: 219 210 186;  /* #dbd2ba */
-    --sandstone-400: 207 195 163;  /* #cfc3a3 */
-    --sandstone-500: 191 169 128;  /* #BFA980 - Base */
-    --sandstone-600: 172 152 115;  /* #ac9873 */
-    --sandstone-700: 153 135 102;  /* #998766 */
-    --sandstone-800: 134 118 89;   /* #867659 */
-    --sandstone-900: 115 101 76;   /* #73654c */
+    --sandstone: 44 33% 62%;         /* #BFA980 */
+    --sandstone-50: 44 33% 98%;      /* #faf9f7 */
+    --sandstone-100: 44 33% 93%;     /* #f3f0e8 */
+    --sandstone-200: 44 33% 86%;     /* #e7e1d1 */
+    --sandstone-300: 44 33% 79%;     /* #dbd2ba */
+    --sandstone-400: 44 33% 72%;     /* #cfc3a3 */
+    --sandstone-500: 44 33% 62%;     /* #BFA980 - Base */
+    --sandstone-600: 44 33% 56%;     /* #ac9873 */
+    --sandstone-700: 44 33% 50%;     /* #998766 */
+    --sandstone-800: 44 33% 44%;     /* #867659 */
+    --sandstone-900: 44 33% 38%;     /* #73654c */
 
     /* Deep Maroon */
-    --maroon: 90 46 46;            /* #5A2E2E */
-    --maroon-50: 246 242 242;      /* #f6f2f2 */
-    --maroon-100: 232 218 218;     /* #e8dada */
-    --maroon-200: 209 181 181;     /* #d1b5b5 */
-    --maroon-300: 186 144 144;     /* #ba9090 */
-    --maroon-400: 163 107 107;     /* #a36b6b */
-    --maroon-500: 90 46 46;        /* #5A2E2E - Base */
-    --maroon-600: 81 41 41;        /* #512929 */
-    --maroon-700: 72 36 36;        /* #482424 */
-    --maroon-800: 63 31 31;        /* #3f1f1f */
-    --maroon-900: 54 26 26;        /* #361a1a */
+    --maroon: 0 32% 27%;             /* #5A2E2E */
+    --maroon-50: 0 32% 96%;          /* #f6f2f2 */
+    --maroon-100: 0 32% 88%;         /* #e8dada */
+    --maroon-200: 0 32% 76%;         /* #d1b5b5 */
+    --maroon-300: 0 32% 65%;         /* #ba9090 */
+    --maroon-400: 0 32% 53%;         /* #a36b6b */
+    --maroon-500: 0 32% 27%;         /* #5A2E2E - Base */
+    --maroon-600: 0 32% 24%;         /* #512929 */
+    --maroon-700: 0 32% 21%;         /* #482424 */
+    --maroon-800: 0 32% 19%;         /* #3f1f1f */
+    --maroon-900: 0 32% 16%;         /* #361a1a */
 
     /* Slate Gray */
-    --slate: 139 140 146;          /* #8B8C92 */
-    --slate-50: 248 248 249;       /* #f8f8f9 */
-    --slate-100: 238 238 239;      /* #eeeeef */
-    --slate-200: 221 221 224;      /* #dddde0 */
-    --slate-300: 204 204 209;      /* #ccccD1 */
-    --slate-400: 187 187 194;      /* #bbbbc2 */
-    --slate-500: 139 140 146;      /* #8B8C92 - Base */
-    --slate-600: 125 126 131;      /* #7d7e83 */
-    --slate-700: 111 112 116;      /* #6f7074 */
-    --slate-800: 97 98 101;        /* #616265 */
-    --slate-900: 83 84 86;         /* #535456 */
+    --slate: 225 4% 57%;             /* #8B8C92 */
+    --slate-50: 225 4% 97%;          /* #f8f8f9 */
+    --slate-100: 225 4% 93%;         /* #eeeeef */
+    --slate-200: 225 4% 87%;         /* #dddde0 */
+    --slate-300: 225 4% 81%;         /* #ccccD1 */
+    --slate-400: 225 4% 76%;         /* #bbbbc2 */
+    --slate-500: 225 4% 57%;         /* #8B8C92 - Base */
+    --slate-600: 225 4% 51%;         /* #7d7e83 */
+    --slate-700: 225 4% 44%;         /* #6f7074 */
+    --slate-800: 225 4% 38%;         /* #616265 */
+    --slate-900: 225 4% 33%;         /* #535456 */
 
     /* Semantic Colors */
-    --success: 16 185 129;         /* #10b981 */
-    --success-light: 209 250 229;  /* #d1fae5 */
-    --success-dark: 4 120 87;      /* #047857 */
+    --success: 158 64% 52%;          /* #10b981 */
+    --success-light: 154 75% 87%;    /* #d1fae5 */
+    --success-dark: 160 84% 39%;     /* #047857 */
 
-    --warning: 245 158 11;         /* #f59e0b */
-    --warning-light: 254 243 199;  /* #fef3c7 */
-    --warning-dark: 217 119 6;     /* #d97706 */
+    --warning: 32 95% 44%;           /* #f59e0b */
+    --warning-light: 48 89% 86%;     /* #fef3c7 */
+    --warning-dark: 28 92% 47%;      /* #d97706 */
 
-    --error: 239 68 68;            /* #ef4444 */
-    --error-light: 254 226 226;    /* #fee2e2 */
-    --error-dark: 220 38 38;       /* #dc2626 */
+    --error: 0 84% 60%;              /* #ef4444 */
+    --error-light: 0 86% 97%;        /* #fee2e2 */
+    --error-dark: 0 73% 41%;         /* #dc2626 */
 
     --info: var(--primary);
     --info-light: var(--primary-100);
     --info-dark: var(--primary-700);
 
-    /* Background System - Updated */
-    --background: 15 26 60;             /* Deep Midnight Blue #0F1A3C */
-    --foreground: 230 230 235;          /* Cool Platinum #E6E6EB */
+    /* Background System - Updated to use HSL values */
+    --background: 218 60% 15%;              /* Deep Midnight Blue #0F1A3C */
+    --foreground: 240 7% 91%;               /* Cool Platinum #E6E6EB */
     
     --bg-secondary: var(--charcoal);        /* Secondary background */
     --bg-tertiary: var(--primary-800);     /* Tertiary background */
@@ -139,25 +139,25 @@
 
     /* Card and Surface Colors */
     --card: var(--charcoal);
-    --card-foreground: 230 230 235;         /* Cool Platinum */
+    --card-foreground: 240 7% 91%;          /* Cool Platinum */
 
     --popover: var(--charcoal);
-    --popover-foreground: 230 230 235;      /* Cool Platinum */
+    --popover-foreground: 240 7% 91%;       /* Cool Platinum */
 
     /* Interactive Elements */
     --muted: var(--slate);
     --muted-foreground: var(--slate-400);
 
-    --accent: 212 175 55;                   /* Luxe Metallic Gold */
-    --accent-foreground: 15 26 60;          /* Deep Midnight Blue */
+    --accent: 48 74% 58%;                   /* Luxe Metallic Gold */
+    --accent-foreground: 218 60% 15%;       /* Deep Midnight Blue */
 
     --destructive: var(--error);
-    --destructive-foreground: 230 230 235;  /* Cool Platinum */
+    --destructive-foreground: 240 7% 91%;   /* Cool Platinum */
 
     /* Borders and Inputs */
     --border: var(--slate-700);
     --input: var(--charcoal);
-    --ring: 212 175 55;                     /* Luxe Metallic Gold */
+    --ring: 48 74% 58%;                     /* Luxe Metallic Gold */
 
     /* Radius */
     --radius: 0.5rem;
@@ -175,18 +175,18 @@
 
   /* Light theme override (if needed) */
   .light {
-    --background: 230 230 235;              /* Cool Platinum */
-    --foreground: 15 26 60;                 /* Deep Midnight Blue */
-    --card: 255 255 255;
-    --card-foreground: 15 26 60;            /* Deep Midnight Blue */
-    --popover: 255 255 255;
-    --popover-foreground: 15 26 60;         /* Deep Midnight Blue */
+    --background: 240 7% 91%;               /* Cool Platinum */
+    --foreground: 218 60% 15%;              /* Deep Midnight Blue */
+    --card: 0 0% 100%;
+    --card-foreground: 218 60% 15%;         /* Deep Midnight Blue */
+    --popover: 0 0% 100%;
+    --popover-foreground: 218 60% 15%;      /* Deep Midnight Blue */
     --muted: var(--platinum-200);
     --muted-foreground: var(--slate-600);
     --border: var(--platinum-300);
     --input: var(--platinum-200);
     --accent: var(--primary);
-    --accent-foreground: 230 230 235;       /* Cool Platinum */
+    --accent-foreground: 240 7% 91%;        /* Cool Platinum */
   }
 }
 
