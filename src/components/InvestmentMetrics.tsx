@@ -85,20 +85,35 @@ const AnimatedCounter = ({ value, prefix = '', suffix = '', duration = 2000 }: {
 
 const InvestmentMetrics = () => {
   return (
-    <section className="py-20 bg-charcoal/50">
+    <section id="metrics" className="py-24 bg-gradient-to-b from-midnight to-charcoal/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-platinum mb-4">
-            Investment Performance
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-2 bg-gold/10 border border-gold/20 rounded-full text-gold text-sm font-medium mb-6"
+          >
+            📊 Performance Metrics
+          </motion.div>
+          <h2 className="text-4xl md:text-5xl font-bold text-platinum mb-6 leading-tight">
+            Investment{' '}
+            <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent">
+              Performance
+            </span>
           </h2>
-          <p className="text-xl text-platinum/70 max-w-3xl mx-auto">
-            Delivering exceptional returns through strategic real estate investments
+          <p className="text-xl text-platinum/70 max-w-4xl mx-auto leading-relaxed">
+            Track record of delivering{' '}
+            <span className="text-gold font-semibold">exceptional returns</span>{' '}
+            to our investors across premium real estate developments
           </p>
         </motion.div>
 
@@ -108,44 +123,51 @@ const InvestmentMetrics = () => {
             return (
               <motion.div
                 key={metric.id}
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                initial={{ opacity: 0, y: 40, scale: 0.9 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 whileHover={{ 
-                  y: -10, 
-                  scale: 1.05,
+                  scale: 1.06, 
+                  y: -12,
                   transition: { type: "spring", stiffness: 300, damping: 20 }
                 }}
                 transition={{ 
-                  duration: 0.6, 
-                  delay: index * 0.1,
+                  duration: 0.7, 
+                  delay: index * 0.15,
                   type: "spring",
                   stiffness: 100,
-                  damping: 15
+                  damping: 20
                 }}
                 viewport={{ once: true }}
-                className="bg-midnight/80 backdrop-blur-sm rounded-2xl p-8 text-center border border-gold/20 hover:border-gold/40 transition-all duration-300 group"
+                className="bg-gradient-to-br from-charcoal/80 to-charcoal/60 backdrop-blur-sm rounded-3xl p-8 text-center border border-gold/20 hover:border-gold/50 transition-all duration-500 group shadow-2xl hover:shadow-gold/10 relative overflow-hidden"
               >
+                {/* Background Pattern */}
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Enhanced Icon */}
                 <motion.div
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
-                  className="w-16 h-16 bg-gold/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-gold/30 transition-colors"
+                  className="w-20 h-20 bg-gradient-to-br from-gold/20 to-gold/10 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:from-gold/30 group-hover:to-gold/20 transition-all duration-500 shadow-lg relative z-10"
                 >
-                  <IconComponent className="w-8 h-8 text-gold" />
+                  <IconComponent className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />
                 </motion.div>
 
-                <div className="text-4xl md:text-5xl font-bold text-gold mb-2">
-                  <AnimatedCounter
-                    value={metric.value}
-                    prefix={metric.prefix}
-                    suffix={metric.suffix}
-                  />
+                {/* Enhanced Value with Counter Animation */}
+                <div className="mb-6 relative z-10">
+                  <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gold to-gold-400 bg-clip-text text-transparent mb-3 group-hover:from-gold-400 group-hover:to-gold-600 transition-all duration-300">
+                    <AnimatedCounter
+                      value={metric.value}
+                      prefix={metric.prefix}
+                      suffix={metric.suffix}
+                    />
+                  </div>
+                  <h3 className="text-sm text-platinum/70 uppercase tracking-wider font-semibold group-hover:text-platinum/90 transition-colors duration-300">
+                    {metric.label}
+                  </h3>
                 </div>
 
-                <h3 className="text-lg font-semibold text-platinum mb-2">
-                  {metric.label}
-                </h3>
-
-                <p className="text-platinum/60 text-sm">
+                {/* Enhanced Description */}
+                <p className="text-platinum/70 text-sm leading-relaxed group-hover:text-platinum/90 transition-colors duration-300 relative z-10">
                   {metric.description}
                 </p>
               </motion.div>

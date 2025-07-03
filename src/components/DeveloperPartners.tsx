@@ -70,44 +70,75 @@ const DeveloperPartners = () => {
   const [activeTab, setActiveTab] = useState('communities');
 
   return (
-    <section id="developers" className="py-20 bg-charcoal/50">
+    <section id="developers" className="py-24 bg-gradient-to-b from-charcoal/30 to-charcoal/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-platinum mb-4">
-            Developer Partner Profiles
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-2 bg-gold/10 border border-gold/20 rounded-full text-gold text-sm font-medium mb-6"
+          >
+            🏗️ Our Development Partners
+          </motion.div>
+          <h2 className="text-4xl md:text-5xl font-bold text-platinum mb-6 leading-tight">
+            Developer Partner{' '}
+            <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent">
+              Profiles
+            </span>
           </h2>
-          <p className="text-xl text-platinum/70 max-w-3xl mx-auto">
-            Strategic partnerships delivering exceptional real estate developments
+          <p className="text-xl text-platinum/70 max-w-4xl mx-auto leading-relaxed">
+            Strategic partnerships with proven developers delivering exceptional real estate 
+            developments across <span className="text-gold font-semibold">premium locations</span> in Bengaluru
           </p>
         </motion.div>
 
-        {/* Tab Navigation */}
-        <div className="flex flex-col sm:flex-row justify-center mb-12">
-          <div className="bg-midnight/60 rounded-xl p-2 inline-flex">
-            {developerData.map((category) => (
-              <button
+        {/* Enhanced Tab Navigation */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="flex flex-col sm:flex-row justify-center mb-16"
+        >
+          <div className="bg-midnight/80 backdrop-blur-sm rounded-2xl p-3 inline-flex border border-gold/20 shadow-2xl">
+            {developerData.map((category, index) => (
+              <motion.button
                 key={category.id}
                 onClick={() => setActiveTab(category.id)}
-                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className={`px-8 py-4 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden ${
                   activeTab === category.id
-                    ? 'bg-gold text-midnight shadow-lg'
-                    : 'text-platinum hover:text-gold'
+                    ? 'bg-gradient-to-r from-gold to-gold-600 text-midnight shadow-xl'
+                    : 'text-platinum hover:text-gold hover:bg-gold/10'
                 }`}
               >
-                {category.title}
-              </button>
+                {activeTab === category.id && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute inset-0 bg-gradient-to-r from-gold to-gold-600 rounded-xl"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10 text-sm md:text-base">
+                  {category.title}
+                </span>
+              </motion.button>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        {/* Tab Content */}
-        <div className="relative min-h-[500px]">
+        {/* Enhanced Tab Content */}
+        <div className="relative min-h-[600px]">
           {developerData.map((category) => (
             <motion.div
               key={category.id}
@@ -116,7 +147,7 @@ const DeveloperPartners = () => {
                 opacity: activeTab === category.id ? 1 : 0,
                 y: activeTab === category.id ? 0 : 20
               }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
               className={`absolute inset-0 ${
                 activeTab === category.id ? 'pointer-events-auto' : 'pointer-events-none'
               }`}
@@ -125,54 +156,61 @@ const DeveloperPartners = () => {
                 {category.projects.map((project, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                    initial={{ opacity: 0, y: 40, scale: 0.95 }}
                     animate={{
                       opacity: activeTab === category.id ? 1 : 0,
-                      y: activeTab === category.id ? 0 : 30,
+                      y: activeTab === category.id ? 0 : 40,
                       scale: activeTab === category.id ? 1 : 0.95
                     }}
                     transition={{ 
-                      duration: 0.6, 
-                      delay: activeTab === category.id ? index * 0.1 : 0,
+                      duration: 0.7, 
+                      delay: activeTab === category.id ? index * 0.15 : 0,
                       type: "spring",
-                      stiffness: 120,
-                      damping: 15
+                      stiffness: 100,
+                      damping: 20
                     }}
                     whileHover={{ 
-                      scale: 1.02, 
-                      y: -5,
+                      scale: 1.03, 
+                      y: -8,
                       transition: { type: "spring", stiffness: 300, damping: 20 }
                     }}
-                    className="bg-midnight/80 backdrop-blur-sm rounded-2xl p-8 border border-gold/20 hover:border-gold/40 transition-all duration-300 group"
+                    className="bg-gradient-to-br from-midnight/90 to-midnight/70 backdrop-blur-sm rounded-3xl p-8 border border-gold/20 hover:border-gold/50 transition-all duration-500 group shadow-2xl hover:shadow-gold/10"
                   >
-                    {/* Icon */}
-                    <div className="w-16 h-16 bg-gold/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gold/30 transition-colors">
+                    {/* Enhanced Icon */}
+                    <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-gold/20 to-gold/10 rounded-2xl mb-8 group-hover:from-gold/30 group-hover:to-gold/20 transition-all duration-500 shadow-lg">
                       {category.id === 'communities' ? (
-                        <Building className="w-8 h-8 text-gold" />
+                        <Building className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />
                       ) : (
-                        <Home className="w-8 h-8 text-gold" />
+                        <Home className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />
                       )}
                     </div>
 
-                    {/* Metric */}
-                    <div className="mb-4">
-                      <div className="text-3xl md:text-4xl font-bold text-gold mb-1">
+                    {/* Enhanced Metric */}
+                    <motion.div 
+                      className="mb-6"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    >
+                      <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gold to-gold-400 bg-clip-text text-transparent mb-2">
                         {project.metric}
                       </div>
                       <div className="text-platinum/60 text-sm font-medium">
                         {project.unit}
                       </div>
-                    </div>
+                    </motion.div>
 
-                    {/* Title */}
-                    <h3 className="text-xl font-bold text-platinum mb-3 group-hover:text-gold transition-colors">
+                    {/* Enhanced Title */}
+                    <h3 className="text-xl md:text-2xl font-bold text-platinum mb-4 group-hover:text-gold transition-colors duration-300 leading-tight">
                       {project.title}
                     </h3>
 
-                    {/* Description */}
-                    <p className="text-platinum/70 leading-relaxed">
+                    {/* Enhanced Description */}
+                    <p className="text-platinum/70 leading-relaxed text-base">
                       {project.description}
                     </p>
+                    
+                    {/* Hover Effect Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none" />
                   </motion.div>
                 ))}
               </div>
@@ -180,35 +218,70 @@ const DeveloperPartners = () => {
           ))}
         </div>
 
-        {/* Summary Section */}
+        {/* Enhanced Summary Section */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
-          className="mt-20 bg-midnight/60 rounded-2xl p-8 text-center"
+          className="mt-24"
         >
-          <h3 className="text-2xl font-bold text-platinum mb-6">
-            Why Choose SanctumCap?
-          </h3>
-          <p className="text-lg text-platinum/70 mb-8 max-w-4xl mx-auto">
-            SanctumCap has been delivering consistent real estate investment success in Bengaluru since 2014. 
-            With ₹14 Cr+ investor returns and 32%+ CAGR in select projects, our expertise ensures high-value investments.
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-charcoal/60 rounded-xl p-6">
-              <div className="text-4xl font-bold text-gold mb-2">₹14 Cr+</div>
-              <div className="text-platinum/70">Returns</div>
-              <div className="text-sm text-platinum/50 mt-1">
-                Investor earnings from SanctumCap's projects
-              </div>
-            </div>
-            <div className="bg-charcoal/60 rounded-xl p-6">
-              <div className="text-4xl font-bold text-gold mb-2">32%+</div>
-              <div className="text-platinum/70">CAGR</div>
-              <div className="text-sm text-platinum/50 mt-1">
-                Strong capital growth in top projects
+          <div className="bg-gradient-to-br from-midnight/90 to-midnight/70 backdrop-blur-sm rounded-3xl p-10 border border-gold/30 shadow-2xl relative overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl transform translate-x-32 -translate-y-32" />
+            
+            <div className="relative z-10">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="text-center mb-12"
+              >
+                <div className="inline-block px-4 py-2 bg-gold/10 border border-gold/20 rounded-full text-gold text-sm font-medium mb-4">
+                  📊 Why Choose SanctumCap?
+                </div>
+                <h3 className="text-3xl md:text-4xl font-bold text-platinum mb-4">
+                  Proven{' '}
+                  <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent">
+                    Investment Success
+                  </span>
+                </h3>
+                <p className="text-platinum/70 text-lg max-w-3xl mx-auto">
+                  SanctumCap has been delivering consistent real estate investment success in Bengaluru since 2014. 
+                  With ₹14 Cr+ investor returns and 32%+ CAGR in select projects, our expertise ensures high-value investments.
+                </p>
+              </motion.div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {[
+                  { value: '₹14 Cr+', label: 'Returns', desc: 'Investor earnings from SanctumCap\'s projects', icon: '💰' },
+                  { value: '32%+', label: 'CAGR', desc: 'Strong capital growth in top projects', icon: '📈' }
+                ].map((stat, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    className="bg-charcoal/60 rounded-2xl p-8 text-center group cursor-pointer border border-gold/10 hover:border-gold/30 transition-all duration-300"
+                  >
+                    <div className="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                      {stat.icon}
+                    </div>
+                    <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gold to-gold-400 bg-clip-text text-transparent mb-3 group-hover:from-gold-400 group-hover:to-gold-600 transition-all duration-300">
+                      {stat.value}
+                    </div>
+                    <div className="text-xl text-platinum/90 font-semibold mb-3 group-hover:text-platinum transition-colors duration-300">
+                      {stat.label}
+                    </div>
+                    <div className="text-sm text-platinum/60 group-hover:text-platinum/80 transition-colors duration-300">
+                      {stat.desc}
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </div>

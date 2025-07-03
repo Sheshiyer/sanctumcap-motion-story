@@ -32,8 +32,9 @@ const timelineItems = [
 
 const CompanyJourney = () => {
   return (
-    <section id="company" className="py-20 bg-midnight/50">
+    <section id="journey" className="py-24 bg-gradient-to-b from-charcoal/40 to-charcoal/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -41,11 +42,25 @@ const CompanyJourney = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-platinum mb-4">
-            Investment Growth Over Time
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-2 bg-gold/10 border border-gold/20 rounded-full text-gold text-sm font-medium mb-6"
+          >
+            🚀 Company Timeline
+          </motion.div>
+          <h2 className="text-4xl md:text-5xl font-bold text-platinum mb-6 leading-tight">
+            Our{' '}
+            <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent">
+              Journey
+            </span>
           </h2>
-          <p className="text-xl text-platinum/70 max-w-3xl mx-auto">
-            Our journey of consistent growth and strategic investments in the real estate sector
+          <p className="text-xl text-platinum/70 max-w-4xl mx-auto leading-relaxed">
+            A decade of{' '}
+            <span className="text-gold font-semibold">growth, innovation</span>, and delivering 
+            exceptional real estate investments across Bengaluru
           </p>
         </motion.div>
 
@@ -61,7 +76,7 @@ const CompanyJourney = () => {
             />
           </div>
 
-          <div className="space-y-16 lg:space-y-24">
+          <div className="space-y-20">
             {timelineItems.map((item, index) => {
               const isEven = index % 2 === 0;
               const ref = useRef(null);
@@ -102,46 +117,57 @@ const CompanyJourney = () => {
                     />
                   </div>
 
-                  {/* Content Card */}
+                  {/* Enhanced Content Card */}
                   <div className={`w-full lg:w-5/12 ${isEven ? 'lg:pr-12' : 'lg:pl-12'}`}>
                     <motion.div
                       whileHover={{ scale: 1.02, y: -5 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                      className="bg-charcoal/80 backdrop-blur-sm rounded-2xl p-8 border border-gold/20 hover:border-gold/40 transition-all duration-300"
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      className="bg-gradient-to-br from-midnight/90 to-midnight/70 backdrop-blur-sm rounded-3xl p-10 border border-gold/20 hover:border-gold/40 transition-all duration-500 shadow-2xl hover:shadow-gold/10 relative overflow-hidden group"
                     >
-                      <div className="flex items-center mb-4">
-                        <div className="text-3xl font-bold text-gold mr-4">
-                          {item.year}
+                      {/* Background Pattern */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      
+                      <div className="relative z-10">
+                        <div className="flex items-center mb-6">
+                          <div className="text-3xl font-bold bg-gradient-to-r from-gold to-gold-400 bg-clip-text text-transparent mr-4">
+                            {item.year}
+                          </div>
+                          <div className="text-2xl font-semibold text-gold">
+                            {item.metric}
+                          </div>
                         </div>
-                        <div className="text-2xl font-semibold text-gold">
-                          {item.metric}
-                        </div>
+                        
+                        <h3 className="text-2xl md:text-3xl font-bold text-platinum mb-6 leading-tight group-hover:text-gold transition-colors duration-300">
+                          {item.title}
+                        </h3>
+                        
+                        <p className="text-platinum/70 text-lg leading-relaxed">
+                          {item.description}
+                        </p>
                       </div>
-                      
-                      <h3 className="text-2xl font-bold text-platinum mb-4">
-                        {item.title}
-                      </h3>
-                      
-                      <p className="text-platinum/70 text-lg leading-relaxed">
-                        {item.description}
-                      </p>
                     </motion.div>
                   </div>
 
-                  {/* Image */}
+                  {/* Enhanced Image */}
                   <div className={`w-full lg:w-5/12 mt-8 lg:mt-0 ${isEven ? 'lg:pl-12' : 'lg:pr-12'}`}>
                     <motion.div
                       initial={{ opacity: 0, scale: 1.1 }}
                       animate={isInView ? { opacity: 1, scale: 1 } : {}}
                       transition={{ duration: 0.8, delay: 0.3 + index * 0.2 }}
-                      className="relative rounded-2xl overflow-hidden aspect-video"
+                      whileHover={{ scale: 1.03, y: -8 }}
+                      className="relative rounded-3xl overflow-hidden aspect-video shadow-2xl group"
                     >
+                      <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-midnight/60 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-midnight/80 via-midnight/20 to-transparent" />
+                      <div className="absolute bottom-6 left-6 right-6 z-20">
+                        <div className="text-gold font-semibold text-sm mb-2">{item.year}</div>
+                        <div className="text-platinum font-bold text-lg">{item.title}</div>
+                      </div>
                     </motion.div>
                   </div>
                 </motion.div>
