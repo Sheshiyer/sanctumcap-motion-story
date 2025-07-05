@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import logoIcon from '../assets/logo-icon.png';
 
 const navigationItems = [
   { label: 'Home', href: '#home' },
@@ -39,22 +40,26 @@ const Navigation = () => {
       transition={{ type: "spring", stiffness: 100, damping: 15 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-midnight/95 backdrop-blur-lg shadow-lg' 
-          : 'bg-transparent'
+          ? 'bg-midnight/20 backdrop-blur-xl border-b border-gold/20 shadow-2xl shadow-gold/10' 
+          : 'bg-midnight/10 backdrop-blur-md border-b border-gold/10'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between py-6 px-2">
           {/* Logo */}
           <motion.div
-            className="flex items-center space-x-2"
+            className="flex items-center"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <div className="w-8 h-8 bg-gold rounded-lg flex items-center justify-center">
-              <div className="w-5 h-5 bg-midnight rounded-sm"></div>
+            <div className="relative">
+              <img 
+                src={logoIcon} 
+                alt="SanctumCap" 
+                className="h-10 w-10 object-contain filter drop-shadow-lg"
+              />
+              <div className="absolute inset-0 bg-gold/20 rounded-full blur-xl opacity-50 animate-pulse"></div>
             </div>
-            <span className="text-xl font-bold text-platinum">SanctumCap</span>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -103,7 +108,7 @@ const Navigation = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-charcoal/95 backdrop-blur-lg rounded-lg mt-2 p-4"
+            className="md:hidden bg-midnight/30 backdrop-blur-xl border border-gold/20 rounded-xl mt-2 p-4 shadow-2xl shadow-gold/10"
           >
             {navigationItems.map((item) => (
               <button

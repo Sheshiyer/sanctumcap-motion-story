@@ -138,7 +138,7 @@ const DeveloperPartners = () => {
         </motion.div>
 
         {/* Enhanced Tab Content */}
-        <div className="relative min-h-[600px]">
+        <div className="relative min-h-[600px] mb-16">
           {developerData.map((category) => (
             <motion.div
               key={category.id}
@@ -218,74 +218,7 @@ const DeveloperPartners = () => {
           ))}
         </div>
 
-        {/* Enhanced Summary Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-24"
-        >
-          <div className="bg-gradient-to-br from-midnight/90 to-midnight/70 backdrop-blur-sm rounded-3xl p-10 border border-gold/30 shadow-2xl relative overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent" />
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl transform translate-x-32 -translate-y-32" />
-            
-            <div className="relative z-10">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: true }}
-                className="text-center mb-12"
-              >
-                <div className="inline-block px-4 py-2 bg-gold/10 border border-gold/20 rounded-full text-gold text-sm font-medium mb-4">
-                  📊 Why Choose SanctumCap?
-                </div>
-                <h3 className="text-3xl md:text-4xl font-bold text-platinum mb-4">
-                  Proven{' '}
-                  <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent">
-                    Investment Success
-                  </span>
-                </h3>
-                <p className="text-platinum/70 text-lg max-w-3xl mx-auto">
-                  SanctumCap has been delivering consistent real estate investment success in Bengaluru since 2014. 
-                  With ₹14 Cr+ investor returns and 32%+ CAGR in select projects, our expertise ensures high-value investments.
-                </p>
-              </motion.div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {[
-                  { value: '₹14 Cr+', label: 'Returns', desc: 'Investor earnings from SanctumCap\'s projects', icon: '💰' },
-                  { value: '32%+', label: 'CAGR', desc: 'Strong capital growth in top projects', icon: '📈' }
-                ].map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    className="bg-charcoal/60 rounded-2xl p-8 text-center group cursor-pointer border border-gold/10 hover:border-gold/30 transition-all duration-300"
-                  >
-                    <div className="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                      {stat.icon}
-                    </div>
-                    <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gold to-gold-400 bg-clip-text text-transparent mb-3 group-hover:from-gold-400 group-hover:to-gold-600 transition-all duration-300">
-                      {stat.value}
-                    </div>
-                    <div className="text-xl text-platinum/90 font-semibold mb-3 group-hover:text-platinum transition-colors duration-300">
-                      {stat.label}
-                    </div>
-                    <div className="text-sm text-platinum/60 group-hover:text-platinum/80 transition-colors duration-300">
-                      {stat.desc}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </motion.div>
+
       </div>
     </section>
   );

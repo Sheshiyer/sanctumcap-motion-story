@@ -85,7 +85,7 @@ const AnimatedCounter = ({ value, prefix = '', suffix = '', duration = 2000 }: {
 
 const InvestmentMetrics = () => {
   return (
-    <section id="metrics" className="py-24 bg-gradient-to-b from-midnight to-charcoal/80">
+    <section id="metrics" className="py-24 bg-gradient-to-b from-midnight/60 to-charcoal/40 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div

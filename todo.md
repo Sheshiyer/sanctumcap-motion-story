@@ -1,7 +1,6 @@
 # SANCTUMCAP WEBSITE TRANSFORMATION TODO
 
 ## In Progress
-- [ ] Transform Hero Section with modern design
 - [ ] Fix Developer Partners section spacing and layout
 - [ ] Standardize spacing across all sections
 - [ ] Improve visual hierarchy and typography
@@ -15,6 +14,10 @@
 - [ ] Add visual separators between sections
 
 ## Completed (move to memory.md)
+- [DONE] ~~Transform Hero Section with modern design~~
+- [DONE] ~~Remove marquee delay and fix vertical text layout~~
+- [DONE] ~~Create global vertical text system with contextual content~~
+- [DONE] ~~Implement scroll-triggered vertical text animations~~
 
 ## Key Issues Identified
 1. **Hero Section**: Needs more visual impact, better typography hierarchy
