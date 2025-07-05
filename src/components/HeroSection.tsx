@@ -2,13 +2,14 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { TrendingUp, Globe, Award, Users, Sparkles, Target, Shield, Rocket, BarChart3, Trophy, Star, Shield as ShieldIcon, Lock } from 'lucide-react';
+import { TrendingUp, Globe, Award, Users, Trophy } from 'lucide-react';
 import logoWithText from '../assets/logo-with-text.png';
 import logoCompact from '../assets/logo-compact.png';
 import logoIcon from '../assets/logo-icon.png';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import GlobalVerticalText from './GlobalVerticalText';
+import GeometricMatrix from './GeometricMatrix';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -116,110 +117,123 @@ const HeroSection = () => {
   ];
 
   return (
-    <section ref={heroRef} id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section ref={heroRef} id="home" className="relative min-h-screen overflow-hidden">
       {/* Clean Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-midnight/80 via-primary-900/70 to-charcoal/80" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.05)_0%,transparent_70%)]" />
       </div>
+      
+      {/* Geometric Matrix Background */}
+      <GeometricMatrix className="opacity-100" />
 
-      {/* Marquee Background Text */}
-      <div className="absolute inset-0 z-5 flex items-center justify-center pointer-events-none">
+      {/* Marquee Background Text - Always Visible with Viewport Calculations */}
+      <div className="absolute inset-0 z-5 flex items-center justify-center pointer-events-none overflow-hidden">
         <div className="relative w-full h-full flex items-center">
           {/* Central Horizontal Marquee for Premium Subliminal Messaging */}
           <div 
             ref={marqueeRef}
-            className="absolute whitespace-nowrap text-[15vw] font-black leading-none select-none transform -translate-y-4 bg-gradient-to-r from-gold/15 via-gold-400/15 to-sandstone/15 bg-clip-text text-transparent"
-            style={{ fontFamily: 'Arial Black, sans-serif' }}
+            className="absolute whitespace-nowrap font-black leading-none select-none bg-gradient-to-r from-gold/15 via-gold-400/15 to-sandstone/15 bg-clip-text text-transparent"
+            style={{ 
+              fontFamily: 'Arial Black, sans-serif',
+              fontSize: 'clamp(8rem, 15vw, 20rem)',
+              transform: 'translateY(-2vh)',
+              width: 'max-content'
+            }}
           >
             {marqueeTexts.join(' • ')}
           </div>
         </div>
       </div>
 
-
-
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Logo and Brand - Moved Higher for Better Visibility */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-center mb-8 relative z-20"
-        >
-          {/* Responsive Logo Display */}
-          <div className="mb-6">
-            {/* Large screens - Logo with text */}
-            <img 
-              src={logoWithText} 
-              alt="SanctumCap" 
-              className="hidden lg:block h-24 w-auto mx-auto"
-            />
-            {/* Medium screens - Compact logo */}
-            <img 
-              src={logoCompact} 
-              alt="SanctumCap" 
-              className="hidden md:block lg:hidden h-16 w-auto mx-auto"
-            />
-            {/* Small screens - Icon only */}
-            <div className="md:hidden flex flex-col items-center">
-              <img 
-                src={logoIcon} 
-                alt="SanctumCap" 
-                className="h-16 w-16 mb-2"
-              />
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="text-gold font-semibold text-lg tracking-wider"
-              >
-                SANCTUMCAP
-              </motion.div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Main Headline */}
-        <div className="text-center mb-16">
+      {/* Above the Fold Content - Positioned at 20-30% screen height */}
+      <div className="relative z-10 pt-[20vh] pb-[10vh]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Logo and Trusted Badge - Above the Fold */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mb-6"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-center mb-6 relative z-20"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-gold/10 border border-gold/20 rounded-full text-gold text-sm font-medium mb-6">
-              <Trophy className="w-4 h-4" />
-              Trusted by Global Investors Since 2005
-            </span>
+            {/* Responsive Logo Display */}
+            <div className="mb-4">
+              {/* Large screens - Logo with text */}
+              <img 
+                src={logoWithText} 
+                alt="SanctumCap" 
+                className="hidden lg:block h-20 w-auto mx-auto"
+              />
+              {/* Medium screens - Compact logo */}
+              <img 
+                src={logoCompact} 
+                alt="SanctumCap" 
+                className="hidden md:block lg:hidden h-16 w-auto mx-auto"
+              />
+              {/* Small screens - Icon only */}
+              <div className="md:hidden flex flex-col items-center">
+                <img 
+                  src={logoIcon} 
+                  alt="SanctumCap" 
+                  className="h-14 w-14 mb-2"
+                />
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                  className="text-gold font-semibold text-base tracking-wider"
+                >
+                  SANCTUMCAP
+                </motion.div>
+              </div>
+            </div>
+            
+            {/* Trusted Badge - Immediately below logo */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-gold/10 border border-gold/20 rounded-full text-gold text-sm font-medium">
+                <Trophy className="w-4 h-4" />
+                Trusted by Global Investors Since 2005
+              </span>
+            </motion.div>
           </motion.div>
-          
-          <h1
-            ref={titleRef}
-            className="text-5xl md:text-7xl lg:text-8xl font-black text-platinum mb-8 leading-[0.9] tracking-tight"
-            style={{ fontFamily: 'Arial Black, sans-serif' }}
-          >
-            <span className="block text-platinum/90">HIGH ALPHA</span>
-            <span className="block bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent font-black">
-              REAL ESTATE
-            </span>
-            <span className="block text-platinum/80 text-4xl md:text-5xl lg:text-6xl mt-2">
-              INVESTMENT OPPORTUNITIES
-            </span>
-          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-xl md:text-2xl text-platinum/70 mb-12 max-w-4xl mx-auto leading-relaxed"
-          >
-            Join investors from <span className="text-gold font-semibold">Bharat, USA, Ireland, Japan, and Singapore</span> in 
-            building wealth through strategic real estate investments with proven{' '}
-            <span className="text-gold font-semibold">32%+ CAGR</span> returns.
-          </motion.p>
+          {/* Main Headline - Compact for Above the Fold */}
+          <div className="text-center mb-8">
+            <h1
+              ref={titleRef}
+              className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-platinum mb-4 leading-tight tracking-tight"
+              style={{ fontFamily: 'Arial Black, sans-serif' }}
+            >
+              <span className="block text-platinum/90">HIGH ALPHA</span>
+              <span className="block bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent font-black">
+                REAL ESTATE
+              </span>
+              <span className="block text-platinum/80 text-2xl md:text-3xl lg:text-4xl mt-2">
+                INVESTMENT OPPORTUNITIES
+              </span>
+            </h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="text-base md:text-lg lg:text-xl text-platinum/70 mb-6 max-w-3xl mx-auto leading-relaxed"
+            >
+              Join investors from <span className="text-gold font-semibold">Bharat, USA, Ireland, Japan, and Singapore</span> in 
+              building wealth through strategic real estate investments with proven{' '}
+              <span className="text-gold font-semibold">32%+ CAGR</span> returns.
+            </motion.p>
+          </div>
         </div>
+      </div>
+
+      {/* Below the Fold Content - Metrics and Performance */}
+      <div className="relative z-10 pt-[10vh] pb-[20vh]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Clean Metrics Section */}
         <motion.div
@@ -286,36 +300,37 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Removed CTA Section to prevent overlapping and redundancy */}
-      </div>
+        </div>
 
-      {/* Enhanced Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 0.5 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
-      >
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.2 }}
-          className="text-xs text-platinum/60 mb-3 font-medium tracking-wider"
-        >
-          EXPLORE MORE
-        </motion.p>
+        {/* Enhanced Scroll Indicator */}
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
-          className="w-6 h-10 border-2 border-gold/60 rounded-full flex justify-center cursor-pointer hover:border-gold transition-colors"
-          onClick={() => scrollToSection('#metrics')}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2, duration: 0.5 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
         >
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2.2 }}
+            className="text-xs text-platinum/60 mb-3 font-medium tracking-wider"
+          >
+            EXPLORE MORE
+          </motion.p>
           <motion.div
-            animate={{ y: [0, 12, 0] }}
+            animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
-            className="w-1 h-3 bg-gold rounded-full mt-2"
-          />
+            className="w-6 h-10 border-2 border-gold/60 rounded-full flex justify-center cursor-pointer hover:border-gold transition-colors"
+            onClick={() => scrollToSection('#metrics')}
+          >
+            <motion.div
+              animate={{ y: [0, 12, 0] }}
+              transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
+              className="w-1 h-3 bg-gold rounded-full mt-2"
+            />
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 };
