@@ -109,16 +109,17 @@ const GlobalVerticalText: React.FC = () => {
     <>
       {/* Left Vertical Text with Golden Border */}
       <div 
-        className="fixed top-0 h-screen flex items-center pointer-events-none vertical-text-container"
+        className="fixed inset-y-0 flex items-center justify-center pointer-events-none vertical-text-container"
         style={{
           left: 'clamp(0.5rem, 2vw, 1rem)',
-          maxWidth: 'clamp(2rem, 8vw, 4rem)',
-          zIndex: 40
+          width: 'clamp(2rem, 8vw, 4rem)',
+          height: '100vh',
+          zIndex: 1
         }}
       >
         <div className="relative">
           {/* Golden border with glow effect */}
-          <div className="absolute right-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-yellow-400 to-transparent shadow-[0_0_15px_rgba(251,191,36,0.6)]" />
+          <div className="absolute right-0 inset-y-0 w-px bg-gradient-to-b from-transparent via-yellow-400 to-transparent shadow-[0_0_15px_rgba(251,191,36,0.6)]" style={{ height: '100vh' }} />
           <div 
             ref={leftTextRef}
             className="writing-mode-vertical text-gold/20 font-black tracking-widest select-none"
@@ -126,11 +127,14 @@ const GlobalVerticalText: React.FC = () => {
               fontFamily: 'Arial Black, sans-serif',
               fontSize: 'clamp(0.8rem, 2.5vw, 2rem)',
               paddingRight: 'clamp(0.5rem, 1.5vw, 1.5rem)',
-              lineHeight: '1.2',
+              lineHeight: 'clamp(1.2, 3vw, 2)',
               wordBreak: 'keep-all',
               whiteSpace: 'nowrap',
-              maxHeight: '80vh',
-              overflow: 'hidden'
+              height: '100vh',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center'
             }}
           >
             {currentContent.left.join(' • ')}
@@ -140,16 +144,17 @@ const GlobalVerticalText: React.FC = () => {
       
       {/* Right Vertical Text with Golden Border */}
       <div 
-        className="fixed top-0 h-screen flex items-center pointer-events-none vertical-text-container"
+        className="fixed inset-y-0 flex items-center justify-center pointer-events-none vertical-text-container"
         style={{
           right: 'clamp(0.5rem, 2vw, 1rem)',
-          maxWidth: 'clamp(2rem, 8vw, 4rem)',
-          zIndex: 40
+          width: 'clamp(2rem, 8vw, 4rem)',
+          height: '100vh',
+          zIndex: 1
         }}
       >
         <div className="relative">
           {/* Golden border with glow effect */}
-          <div className="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-yellow-400 to-transparent shadow-[0_0_15px_rgba(251,191,36,0.6)]" />
+          <div className="absolute left-0 inset-y-0 w-px bg-gradient-to-b from-transparent via-yellow-400 to-transparent shadow-[0_0_15px_rgba(251,191,36,0.6)]" style={{ height: '100vh' }} />
           <div 
             ref={rightTextRef}
             className="writing-mode-vertical text-gold/20 font-black tracking-widest select-none"
@@ -157,11 +162,14 @@ const GlobalVerticalText: React.FC = () => {
               fontFamily: 'Arial Black, sans-serif',
               fontSize: 'clamp(0.8rem, 2.5vw, 2rem)',
               paddingLeft: 'clamp(0.5rem, 1.5vw, 1.5rem)',
-              lineHeight: '1.2',
+              lineHeight: 'clamp(1.2, 3vw, 2)',
               wordBreak: 'keep-all',
               whiteSpace: 'nowrap',
-              maxHeight: '80vh',
-              overflow: 'hidden'
+              height: '100vh',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center'
             }}
           >
             {currentContent.right.join(' • ')}
