@@ -40,8 +40,25 @@ const GlobalVerticalText: React.FC = () => {
   const leftTextRef = useRef<HTMLDivElement>(null);
   const rightTextRef = useRef<HTMLDivElement>(null);
   const [currentSection, setCurrentSection] = useState<keyof typeof sectionContent>('hero');
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if screen is mobile size
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
+    // Don't run animations on mobile
+    if (isMobile) {
+      return;
+    }
     // Section detection based on scroll position
     const sections = [
       { id: 'home', key: 'hero' as keyof typeof sectionContent },
@@ -101,7 +118,12 @@ const GlobalVerticalText: React.FC = () => {
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, []);
+  }, [isMobile]);
+
+  // Hide component on mobile devices
+  if (isMobile) {
+    return null;
+  }
 
   const currentContent = sectionContent[currentSection];
 

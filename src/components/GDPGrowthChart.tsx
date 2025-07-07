@@ -27,7 +27,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 const GDPGrowthChart = () => {
   return (
     <section id="growth" className="py-20 bg-midnight/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-x-hidden">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -36,10 +36,10 @@ const GDPGrowthChart = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-platinum mb-4">
-            The Smarter Way to Invest in Bharat's Growth
+            The Smarter Way to Invest in India's Growth
           </h2>
           <p className="text-xl text-platinum/70 max-w-4xl mx-auto">
-            Bharat's GDP is on a rapid growth trajectory, offering unparalleled opportunities for investors. 
+            India's GDP is on a rapid growth trajectory, offering unparalleled opportunities for investors. 
             Bengaluru stands out with its stable real estate market, making it a preferred choice.
           </p>
         </motion.div>

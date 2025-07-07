@@ -72,7 +72,7 @@ const investors = [
 const InvestorPartners = () => {
   return (
     <section id="investors" className="py-24 bg-gradient-to-b from-charcoal/20 to-midnight/40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-x-hidden">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

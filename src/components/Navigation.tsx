@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import logoIcon from '../assets/logo-icon.png';
 
 const navigationItems = [
   { label: 'Home', href: '#home' },
@@ -38,13 +37,13 @@ const Navigation = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 100, damping: 15 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full max-w-[100vw] overflow-x-hidden ${
         isScrolled 
           ? 'bg-midnight/20 backdrop-blur-xl border-b border-gold/20 shadow-2xl shadow-gold/10' 
           : 'bg-midnight/10 backdrop-blur-md border-b border-gold/10'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-[100vw] px-[4vw] md:px-[8vw] lg:px-[10vw] xl:px-[12vw] mx-auto overflow-x-hidden">
         <div className="flex items-center justify-between py-6 px-2">
           {/* Logo */}
           <motion.div
@@ -52,14 +51,12 @@ const Navigation = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <div className="relative">
-              <img 
-                src={logoIcon} 
-                alt="SanctumCap" 
-                className="h-10 w-10 object-contain filter drop-shadow-lg"
-              />
-              <div className="absolute inset-0 bg-gold/20 rounded-full blur-xl opacity-50 animate-pulse"></div>
-            </div>
+            <h1 
+              className="text-2xl font-black bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent tracking-tight"
+              style={{ fontFamily: 'Arial Black, sans-serif' }}
+            >
+              SANCTUMCAP
+            </h1>
           </motion.div>
 
           {/* Desktop Navigation */}
