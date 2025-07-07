@@ -11,7 +11,7 @@ import GDPGrowthChart from '@/components/GDPGrowthChart';
 import DeveloperPartners from '@/components/DeveloperPartners';
 import ContactSection from '@/components/ContactSection';
 import SilkBackground from '@/components/SilkBackground';
-import GlobalVerticalText from '@/components/GlobalVerticalText';
+// import GlobalVerticalText from '@/components/GlobalVerticalText'; // Removed
 import logoIcon from '@/assets/logo-icon.png';
 
 const Index = () => {
@@ -27,8 +27,7 @@ const Index = () => {
         className="opacity-30"
       />
       
-      {/* Global Vertical Text - Persists across all sections */}
-      <GlobalVerticalText />
+      {/* Global Vertical Text - Removed */}
       
       <Navigation />
       

@@ -8,7 +8,7 @@ import logoCompact from '../assets/logo-compact.png';
 import logoIcon from '../assets/logo-icon.png';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import GlobalVerticalText from './GlobalVerticalText';
+// import GlobalVerticalText from './GlobalVerticalText'; // Removed
 import GeometricMatrix from './GeometricMatrix';
 
 gsap.registerPlugin(ScrollTrigger);
