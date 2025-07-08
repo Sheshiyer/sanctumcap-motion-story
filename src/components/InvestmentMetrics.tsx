@@ -85,8 +85,8 @@ const AnimatedCounter = ({ value, prefix = '', suffix = '', duration = 2000 }: {
 
 const InvestmentMetrics = () => {
   return (
-    <section id="metrics" className="py-16 md:py-20 lg:py-24 bg-gradient-to-b from-midnight/60 to-charcoal/40 relative">
-      <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-x-hidden">
+    <section id="metrics" className="py-16 md:py-20 lg:py-24 relative w-full">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -130,7 +130,7 @@ const InvestmentMetrics = () => {
           <div className="absolute inset-0 opacity-5 bg-[conic-gradient(from_0deg_at_50%_50%,rgba(212,175,55,0.1)_0deg,transparent_60deg,rgba(212,175,55,0.05)_120deg,transparent_180deg)] rounded-3xl" />
           
           {/* Metrics Bento Grid */}
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 p-8">
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
             {metrics.map((metric, index) => {
               const IconComponent = metric.icon;
               return (
@@ -151,37 +151,22 @@ const InvestmentMetrics = () => {
                     rotateY: 5,
                     rotateX: 5
                   }}
-                  className="group relative bg-gradient-to-br from-midnight/90 via-charcoal/80 to-primary-900/70 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-gold/25 hover:border-gold/60 transition-all duration-500 shadow-2xl hover:shadow-[0_25px_50px_-12px_rgba(212,175,55,0.25)] overflow-hidden min-h-[260px] sm:min-h-[280px] md:min-h-[300px] lg:min-h-[320px] flex flex-col justify-between transform-gpu"
+                  className="group relative bg-gradient-to-br from-midnight/90 via-charcoal/80 to-primary-900/70 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-gold/25 hover:border-gold/60 transition-all duration-500 shadow-2xl hover:shadow-[0_25px_50px_-12px_rgba(212,175,55,0.25)] min-h-[280px] md:min-h-[320px] flex flex-col transform-gpu"
                   style={{
                     transformStyle: 'preserve-3d'
                   }}
                 >
-                  {/* Enhanced Texture Overlays */}
-                  <div className="absolute inset-0 opacity-8 bg-[radial-gradient(circle_at_30%_30%,rgba(212,175,55,0.4)_0%,transparent_60%)] group-hover:opacity-15 transition-opacity duration-500" />
+                  {/* Enhanced Texture Overlays - Removed for clean background */}
+                  {/* <div className="absolute inset-0 opacity-8 bg-[radial-gradient(circle_at_30%_30%,rgba(212,175,55,0.4)_0%,transparent_60%)] group-hover:opacity-15 transition-opacity duration-500" />
                   <div className="absolute inset-0 opacity-3 bg-[linear-gradient(45deg,rgba(255,255,255,0.15)_25%,transparent_25%,transparent_75%,rgba(255,255,255,0.15)_75%)] bg-[length:24px_24px] group-hover:opacity-8 transition-opacity duration-500" />
-                  <div className="absolute inset-0 opacity-5 bg-[conic-gradient(from_45deg_at_50%_50%,rgba(212,175,55,0.1)_0deg,transparent_90deg,rgba(212,175,55,0.05)_180deg,transparent_270deg)] group-hover:opacity-12 transition-opacity duration-500" />
+                  <div className="absolute inset-0 opacity-5 bg-[conic-gradient(from_45deg_at_50%_50%,rgba(212,175,55,0.1)_0deg,transparent_90deg,rgba(212,175,55,0.05)_180deg,transparent_270deg)] group-hover:opacity-12 transition-opacity duration-500" /> */}
                   
-                  {/* Animated Border Glow */}
-                  <motion.div
-                    className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    style={{
-                      background: 'linear-gradient(45deg, rgba(212,175,55,0.2), transparent, rgba(212,175,55,0.1), transparent)',
-                      backgroundSize: '200% 200%'
-                    }}
-                    animate={{
-                      backgroundPosition: ['0% 0%', '100% 100%', '0% 0%']
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: 'linear'
-                    }}
-                  />
+                  {/* Animated Border Glow - Removed */}
                   
                   {/* Content */}
                   <div className="relative z-10 flex flex-col h-full">
                     {/* Enhanced Icon Section */}
-                    <div className="flex items-center justify-center mb-6 md:mb-8">
+                    <div className="flex items-center justify-start mb-6 md:mb-8">
                       <motion.div
                         whileHover={{ 
                           rotate: 360,
@@ -207,7 +192,7 @@ const InvestmentMetrics = () => {
                     </div>
 
                     {/* Enhanced Value and Label Section */}
-                    <div className="text-center mb-6 md:mb-8 flex-grow flex flex-col justify-center">
+                    <div className="text-left mb-6 md:mb-8 flex-grow flex flex-col justify-start">
                       <motion.div 
                         className="font-black mb-3 md:mb-4 leading-tight relative"
                         style={{ 
@@ -230,22 +215,7 @@ const InvestmentMetrics = () => {
                           suffix={metric.suffix}
                         />
                         
-                        {/* Shimmer Effect */}
-                        <motion.div
-                          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100"
-                          animate={{
-                            x: ['-100%', '100%']
-                          }}
-                          transition={{
-                            duration: 1.5,
-                            repeat: Infinity,
-                            repeatDelay: 2
-                          }}
-                          style={{
-                            background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)',
-                            transform: 'skewX(-20deg)'
-                          }}
-                        />
+                        {/* Shimmer Effect - Removed */}
                       </motion.div>
                       
                       <motion.h3 
@@ -269,7 +239,7 @@ const InvestmentMetrics = () => {
                     {/* Enhanced Description Section */}
                     <div className="mt-auto">
                       <motion.p 
-                        className="text-platinum/70 leading-relaxed group-hover:text-platinum/90 transition-colors duration-500 text-center font-medium"
+                        className="text-platinum/70 leading-relaxed group-hover:text-platinum/90 transition-colors duration-500 text-left font-medium"
                         style={{ fontSize: 'clamp(0.7rem, 1.3vw, 0.85rem)' }}
                         whileHover={{ scale: 1.02 }}
                         transition={{ duration: 0.2 }}
@@ -279,7 +249,7 @@ const InvestmentMetrics = () => {
                     </div>
                     
                     {/* Enhanced Decorative Element */}
-                    <div className="flex justify-center mt-4 md:mt-6">
+                    <div className="flex justify-start mt-4 md:mt-6">
                       <motion.div
                         className="relative w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-gold/25 to-gold/5 border-2 border-gold/40 flex items-center justify-center opacity-60 group-hover:opacity-100 transition-all duration-500 shadow-lg group-hover:shadow-xl group-hover:shadow-gold/20"
                         whileHover={{ 

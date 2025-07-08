@@ -26,7 +26,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 const GDPGrowthChart = () => {
   return (
-    <section id="growth" className="py-20 bg-midnight/30">
+    <section id="growth" className="py-20">
       <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-x-hidden">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

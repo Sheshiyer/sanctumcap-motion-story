@@ -195,9 +195,9 @@ const GeometricMatrix: React.FC<GeometricMatrixProps> = ({ className = '' }) => 
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-      drawGrid();
-      drawBaseDots(); // Always visible base dots
-      // drawDots(); // Pulsing animation dots - removed
+      // drawGrid(); // Removed grid lines
+      // drawBaseDots(); // Removed base dots
+      // drawDots(); // Removed pulsing dots
       animationRef.current = requestAnimationFrame(animate);
     };
 

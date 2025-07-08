@@ -39,7 +39,6 @@ const GlobalInvestorMap = () => {
   return (
     <section className="relative py-20 w-full max-w-[100vw] overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-midnight/90 via-primary-900/80 to-charcoal/90" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.03)_0%,transparent_70%)]" />
       
       <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto relative z-10 overflow-x-hidden">
@@ -148,6 +147,12 @@ const GlobalInvestorMap = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              const element = document.querySelector('#contact');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
             className="bg-gradient-to-r from-gold to-gold-600 text-midnight font-bold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
           >
             Start Your Investment Journey

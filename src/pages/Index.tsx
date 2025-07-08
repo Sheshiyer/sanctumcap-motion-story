@@ -16,7 +16,7 @@ import logoIcon from '@/assets/logo-icon.png';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background relative w-full max-w-[100vw] overflow-x-hidden">
+    <div className="min-h-screen bg-background relative w-full">
       {/* Global Silk Background */}
       <SilkBackground 
         speed={2}
@@ -31,8 +31,8 @@ const Index = () => {
       
       <Navigation />
       
-      {/* Main Content Container with responsive margins to avoid vertical text overlap */}
-      <div className="w-full max-w-[100vw] px-[4vw] md:px-[8vw] lg:px-[10vw] xl:px-[12vw] mx-auto overflow-x-hidden">
+      {/* Main Content Container */}
+      <div className="w-full">
         <HeroSection />
         <div className="py-12"></div>
         <GlobalInvestorMap />
@@ -53,8 +53,8 @@ const Index = () => {
       </div>
       
       {/* Footer */}
-      <footer className="bg-midnight py-12 border-t border-gold/20 w-full max-w-[100vw] overflow-x-hidden">
-        <div className="w-full max-w-[100vw] px-[4vw] md:px-[8vw] lg:px-[10vw] xl:px-[12vw] mx-auto overflow-x-hidden">
+      <footer className="bg-midnight py-12 border-t border-gold/20 w-full">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-3 mb-4 md:mb-0">
               <img 

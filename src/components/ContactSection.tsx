@@ -38,7 +38,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-midnight/40 relative">
+    <section id="contact" className="py-20 relative">
       <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-x-hidden">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

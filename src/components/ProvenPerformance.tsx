@@ -27,7 +27,7 @@ const ProvenPerformance = () => {
   ];
 
   return (
-    <section className="relative py-20 bg-gradient-to-b from-midnight/50 to-slate-900/30">
+    <section className="relative py-20">
       <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-x-hidden">
         {/* Clean Metrics Section */}
         <motion.div

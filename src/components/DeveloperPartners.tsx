@@ -70,7 +70,7 @@ const DeveloperPartners = () => {
   const [activeTab, setActiveTab] = useState('communities');
 
   return (
-    <section id="developers" className="py-24 bg-gradient-to-b from-charcoal/30 to-charcoal/60">
+    <section id="developers" className="py-24">
       <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-x-hidden">
         {/* Section Header */}
         <motion.div
@@ -138,20 +138,16 @@ const DeveloperPartners = () => {
         </motion.div>
 
         {/* Enhanced Tab Content */}
-        <div className="relative min-h-[600px] mb-16">
+        <div className="mb-16">
           {developerData.map((category) => (
-            <motion.div
-              key={category.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{
-                opacity: activeTab === category.id ? 1 : 0,
-                y: activeTab === category.id ? 0 : 20
-              }}
-              transition={{ duration: 0.6, ease: "easeInOut" }}
-              className={`absolute inset-0 ${
-                activeTab === category.id ? 'pointer-events-auto' : 'pointer-events-none'
-              }`}
-            >
+            activeTab === category.id && (
+              <motion.div
+                key={category.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+              >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {category.projects.map((project, index) => (
                   <motion.div
@@ -214,7 +210,8 @@ const DeveloperPartners = () => {
                   </motion.div>
                 ))}
               </div>
-            </motion.div>
+              </motion.div>
+            )
           ))}
         </div>
 

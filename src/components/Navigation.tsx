@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import logoIcon from '@/assets/logo-icon.png';
 
 const navigationItems = [
   { label: 'Home', href: '#home' },
@@ -47,10 +48,15 @@ const Navigation = () => {
         <div className="flex items-center justify-between py-6 px-2">
           {/* Logo */}
           <motion.div
-            className="flex items-center"
+            className="flex items-center space-x-3"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
+            <img 
+              src={logoIcon} 
+              alt="SanctumCap Logo" 
+              className="h-8 w-8"
+            />
             <h1 
               className="text-2xl font-black bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent tracking-tight"
               style={{ fontFamily: 'Arial Black, sans-serif' }}

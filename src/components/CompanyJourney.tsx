@@ -32,7 +32,7 @@ const timelineItems = [
 
 const CompanyJourney = () => {
   return (
-    <section id="journey" className="py-24 bg-gradient-to-b from-charcoal/40 to-charcoal/20">
+    <section id="journey" className="py-24">
       <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-x-hidden">
         {/* Section Header */}
         <motion.div
