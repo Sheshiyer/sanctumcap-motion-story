@@ -26,7 +26,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 const GDPGrowthChart = () => {
   return (
-    <section id="growth" className="py-20">
+    <section id="growth" className="py-20" style={{ paddingTop: '2em', paddingBottom: '2em' }}>
       <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-x-hidden">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -35,9 +35,9 @@ const GDPGrowthChart = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-platinum mb-4">
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-platinum mb-4">
             The Smarter Way to Invest in India's Growth
-          </h2>
+          </h3>
           <p className="text-xl text-platinum/70 max-w-4xl mx-auto">
             India's GDP is on a rapid growth trajectory, offering unparalleled opportunities for investors. 
             Bengaluru stands out with its stable real estate market, making it a preferred choice.
@@ -100,12 +100,12 @@ const GDPGrowthChart = () => {
             <h3 className="text-2xl font-bold text-gold mb-4">Capital Gains Investments</h3>
             <p className="text-platinum/70 mb-6">
               Invest in residential assets such as apartments, villas, and pre-launch offers. 
-              The best performing investments have seen a 32%+ CAGR, providing strong capital gains 
+              The best performing investments have seen a 24%+ CAGR, providing strong capital gains 
               in a rapidly growing economy.
             </p>
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-3xl font-bold text-platinum">32%+</div>
+                <div className="text-3xl font-bold text-platinum">24%+</div>
                 <div className="text-platinum/60">CAGR</div>
               </div>
               <div>

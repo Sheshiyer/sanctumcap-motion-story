@@ -38,7 +38,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 relative">
+    <section id="contact" className="py-20 relative" style={{ paddingTop: '2em', paddingBottom: '2em' }}>
       <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-x-hidden">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -47,15 +47,15 @@ const ContactSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-platinum mb-4">
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-platinum mb-4">
             Start Your Investment Journey
-          </h2>
-          <p className="text-xl text-platinum/70 max-w-3xl mx-auto">
+          </h3>
+          <p className="text-xl text-platinum/85 max-w-3xl mx-auto">
             Connect with our investment experts to explore high-alpha real estate opportunities
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -81,9 +81,15 @@ const ContactSection = () => {
               )}
 
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <motion.div
-                    whileFocus={{ scale: 1.02 }}
+                    whileFocus={{ 
+                      scale: 1.02,
+                      boxShadow: "0 0 20px rgba(255, 215, 0, 0.2)"
+                    }}
+                    whileHover={{ 
+                      scale: 1.01
+                    }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <Input
@@ -92,11 +98,17 @@ const ContactSection = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="bg-midnight/60 border-gold/30 text-platinum placeholder:text-platinum/50 focus:border-gold"
+                      className="bg-midnight/60 border-gold/30 text-platinum placeholder:text-platinum/65 focus:border-gold text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3"
                     />
                   </motion.div>
                   <motion.div
-                    whileFocus={{ scale: 1.02 }}
+                    whileFocus={{ 
+                      scale: 1.02,
+                      boxShadow: "0 0 20px rgba(255, 215, 0, 0.2)"
+                    }}
+                    whileHover={{ 
+                      scale: 1.01
+                    }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <Input
@@ -106,14 +118,20 @@ const ContactSection = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="bg-midnight/60 border-gold/30 text-platinum placeholder:text-platinum/50 focus:border-gold"
+                      className="bg-midnight/60 border-gold/30 text-platinum placeholder:text-platinum/50 focus:border-gold text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3"
                     />
                   </motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <motion.div
-                    whileFocus={{ scale: 1.02 }}
+                    whileFocus={{ 
+                      scale: 1.02,
+                      boxShadow: "0 0 20px rgba(255, 215, 0, 0.2)"
+                    }}
+                    whileHover={{ 
+                      scale: 1.01
+                    }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <Input
@@ -122,18 +140,24 @@ const ContactSection = () => {
                       placeholder="Phone Number"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="bg-midnight/60 border-gold/30 text-platinum placeholder:text-platinum/50 focus:border-gold"
+                      className="bg-midnight/60 border-gold/30 text-platinum placeholder:text-platinum/50 focus:border-gold text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3"
                     />
                   </motion.div>
                   <motion.div
-                    whileFocus={{ scale: 1.02 }}
+                    whileFocus={{ 
+                      scale: 1.02,
+                      boxShadow: "0 0 20px rgba(255, 215, 0, 0.2)"
+                    }}
+                    whileHover={{ 
+                      scale: 1.01
+                    }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <select
                       name="investment"
                       value={formData.investment}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 bg-midnight/60 border border-gold/30 rounded-md text-platinum focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-midnight/60 border border-gold/30 rounded-md text-platinum focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20 text-sm sm:text-base"
                     >
                       <option value="">Investment Interest</option>
                       <option value="residential">Residential Properties</option>
@@ -146,7 +170,13 @@ const ContactSection = () => {
                 </div>
 
                 <motion.div
-                  whileFocus={{ scale: 1.02 }}
+                  whileFocus={{ 
+                    scale: 1.02,
+                    boxShadow: "0 0 20px rgba(255, 215, 0, 0.2)"
+                  }}
+                  whileHover={{ 
+                    scale: 1.01
+                  }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <textarea
@@ -155,24 +185,41 @@ const ContactSection = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={4}
-                    className="w-full px-3 py-2 bg-midnight/60 border border-gold/30 rounded-md text-platinum placeholder:text-platinum/50 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20 resize-none"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-midnight/60 border border-gold/30 rounded-md text-platinum placeholder:text-platinum/65 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20 text-sm sm:text-base resize-none"
                   />
                 </motion.div>
 
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-gold hover:bg-gold-600 text-midnight font-semibold py-3 flex items-center justify-center space-x-2"
+                <motion.div
+                  whileHover={{ 
+                    scale: 1.05, 
+                    y: -2,
+                    boxShadow: "0 20px 40px rgba(255, 215, 0, 0.4)"
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
                 >
-                  {isSubmitting ? (
-                    <div className="w-5 h-5 border-2 border-midnight/30 border-t-midnight rounded-full animate-spin" />
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5" />
-                      <span>Send Message</span>
-                    </>
-                  )}
-                </Button>
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-gold hover:bg-gold-600 text-midnight font-semibold py-3 sm:py-4 px-6 sm:px-8 flex items-center justify-center space-x-2 text-sm sm:text-base relative overflow-hidden"
+                  >
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-gold-300 to-gold-200 opacity-0"
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                    <span className="relative z-10 flex items-center space-x-2">
+                      {isSubmitting ? (
+                        <div className="w-5 h-5 border-2 border-midnight/30 border-t-midnight rounded-full animate-spin" />
+                      ) : (
+                        <>
+                          <Send className="w-5 h-5" />
+                          <span>Send Message</span>
+                        </>
+                      )}
+                    </span>
+                  </Button>
+                </motion.div>
               </form>
             </Card>
           </motion.div>
@@ -198,7 +245,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-platinum">Email Us</h4>
-                    <p className="text-platinum/70">info@sanctumcap.in</p>
+                    <p className="text-platinum/85">info@sanctumcap.in</p>
                   </div>
                 </div>
               </motion.div>
@@ -214,7 +261,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-platinum">Call Us</h4>
-                    <p className="text-platinum/70">+91 9876543210</p>
+                    <p className="text-platinum/85">+91 9876543210</p>
                   </div>
                 </div>
               </motion.div>
@@ -230,7 +277,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-platinum">Visit Us</h4>
-                    <p className="text-platinum/70">
+                    <p className="text-platinum/85">
                       Bengaluru, Karnataka<br />
                       India
                     </p>
@@ -239,30 +286,7 @@ const ContactSection = () => {
               </motion.div>
             </div>
 
-            {/* Why Choose Us */}
-            <div className="bg-midnight/80 backdrop-blur-sm rounded-2xl p-8 border border-gold/20">
-              <h4 className="text-xl font-bold text-platinum mb-6">
-                Why Invest with SanctumCap?
-              </h4>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-gold rounded-full mt-2" />
-                  <p className="text-platinum/70">10+ years of real estate investment experience</p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-gold rounded-full mt-2" />
-                  <p className="text-platinum/70">32%+ CAGR on best performing investments</p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-gold rounded-full mt-2" />
-                  <p className="text-platinum/70">₹50+ Crores of total invested capital</p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-gold rounded-full mt-2" />
-                  <p className="text-platinum/70">Global investor network across 5 countries</p>
-                </div>
-              </div>
-            </div>
+
           </motion.div>
         </div>
       </div>

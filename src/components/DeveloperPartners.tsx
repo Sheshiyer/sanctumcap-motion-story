@@ -5,72 +5,64 @@ import { Building, Home, MapPin, Calendar } from 'lucide-react';
 
 const developerData = [
   {
-    id: 'communities',
-    title: 'Exclusive Gated Communities',
+    id: 'bmrda',
+    title: 'BMRDA Past Projects',
     projects: [
       {
-        title: 'Premium Residential Projects',
-        metric: '1 Million+',
-        unit: 'Sq Ft Delivered',
-        description: 'Delivered over 1 million square feet of exclusive gated residential communities.'
+        title: 'BMRDA Apartment Complex (2018-2020)',
+        metric: '₹1 Cr',
+        unit: 'Investment',
+        area: '2 Acres',
+        units: '200 Apartments',
+        investment: '₹1 Cr',
+        exit: '₹2 Cr',
+        description: 'Successfully completed premium apartment complex spanning 2 acres with 200 units, delivered 100% returns on investment.'
       },
       {
-        title: 'High-Value Developments',
-        metric: '₹1000+',
-        unit: 'Crores Worth',
-        description: 'Developed residential projects worth 1000 crores.'
-      },
-      {
-        title: 'Villa Projects',
-        metric: '500+',
-        unit: 'Villas',
-        description: 'Currently developing villa projects with over 500 villas across multiple locations.'
-      },
-      {
-        title: 'Pipeline Projects',
-        metric: '1 Million+',
-        unit: 'Sq Ft Planned',
-        description: 'Another 1 million square feet in the pipeline.'
+        title: 'BMRDA Villa Development (2017-2021)',
+        metric: '₹6.5 Cr',
+        unit: 'Investment',
+        area: '10 Acres',
+        units: '180 Villas',
+        investment: '₹6.5 Cr',
+        exit: '₹14 Cr',
+        description: 'Completed expansive villa development across 10 acres featuring 180 luxury villas with exceptional 115% ROI.'
       }
     ]
   },
   {
-    id: 'villas',
-    title: 'Villa & Land Investments',
+    id: 'bda',
+    title: 'BDA Past Projects',
     projects: [
       {
-        title: 'Villa Plotting Ventures',
-        metric: '100+',
-        unit: 'Acres Developed',
-        description: 'Developed over 100 acres of villa plotting ventures.'
+        title: 'BDA Villa Community (2019-2022)',
+        metric: '₹3 Cr',
+        unit: 'Investment',
+        area: '5 Acres',
+        units: '65 Villas',
+        investment: '₹3 Cr',
+        exit: '₹6 Cr',
+        description: 'Successfully delivered premium villa community spread across 5 acres with 65 exclusive villas, doubled investment value.'
       },
       {
-        title: 'Land Acquisition',
-        metric: '1000+',
-        unit: 'Acres Assisted',
-        description: 'Assisted partners in acquiring over 1000 acres.'
-      },
-      {
-        title: 'Premium Locations',
-        metric: '2',
-        unit: 'Prime Areas',
-        description: 'Delivered premium residential projects in high-demand locations like Kundalahalli and CV Raman Nagar.'
-      },
-      {
-        title: 'Current Development',
-        metric: '50+',
-        unit: 'Acre Project',
-        description: 'Currently developing a 50+ acre plotting venture.'
+        title: 'BDA Apartment Project (2020-2023)',
+        metric: '₹1 Cr',
+        unit: 'Investment',
+        area: '1 Acre',
+        units: '70 Apartments',
+        investment: '₹1 Cr',
+        exit: '₹1.7 Cr',
+        description: 'Completed compact yet profitable apartment project on 1 acre with 70 units, delivered solid 70% returns.'
       }
     ]
   }
 ];
 
 const DeveloperPartners = () => {
-  const [activeTab, setActiveTab] = useState('communities');
+  const [activeTab, setActiveTab] = useState('bmrda');
 
   return (
-    <section id="developers" className="py-24">
+    <section id="developers" className="py-20" style={{ paddingTop: '2em', paddingBottom: '2em' }}>
       <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-x-hidden">
         {/* Section Header */}
         <motion.div
@@ -78,7 +70,7 @@ const DeveloperPartners = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -87,17 +79,17 @@ const DeveloperPartners = () => {
             viewport={{ once: true }}
             className="inline-block px-4 py-2 bg-gold/10 border border-gold/20 rounded-full text-gold text-sm font-medium mb-6"
           >
-            🏗️ Our Development Partners
+            🏆 Past Project Showcase
           </motion.div>
-          <h2 className="text-4xl md:text-5xl font-bold text-platinum mb-6 leading-tight">
-            Developer Partner{' '}
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-platinum mb-6 leading-tight">
+            Completed{' '}
             <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent">
-              Profiles
+              Projects
             </span>
-          </h2>
-          <p className="text-xl text-platinum/70 max-w-4xl mx-auto leading-relaxed">
-            Strategic partnerships with proven developers delivering exceptional real estate 
-            developments across <span className="text-gold font-semibold">premium locations</span> in Bengaluru
+          </h3>
+          <p className="text-xl text-platinum/85 max-w-4xl mx-auto leading-relaxed">
+            Successful real estate investments with proven track record of delivering exceptional returns across 
+            <span className="text-gold font-semibold">BMRDA and BDA approved</span> developments in Bengaluru
           </p>
         </motion.div>
 
@@ -107,16 +99,20 @@ const DeveloperPartners = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="flex flex-col sm:flex-row justify-center mb-16"
+          className="flex flex-col sm:flex-row justify-center mb-12 sm:mb-16"
         >
           <div className="bg-midnight/80 backdrop-blur-sm rounded-2xl p-3 inline-flex border border-gold/20 shadow-2xl">
             {developerData.map((category, index) => (
               <motion.button
                 key={category.id}
                 onClick={() => setActiveTab(category.id)}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className={`px-8 py-4 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden ${
+                whileHover={{ 
+                  scale: 1.05,
+                  y: -2,
+                  transition: { type: "spring", stiffness: 400, damping: 20 }
+                }}
+                whileTap={{ scale: 0.95 }}
+                className={`px-4 sm:px-8 py-2 sm:py-4 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden text-sm sm:text-base ${
                   activeTab === category.id
                     ? 'bg-gradient-to-r from-gold to-gold-600 text-midnight shadow-xl'
                     : 'text-platinum hover:text-gold hover:bg-gold/10'
@@ -129,8 +125,8 @@ const DeveloperPartners = () => {
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}
-                <span className="relative z-10 text-sm md:text-base">
-                  {category.title}
+                <span className="relative z-10 text-xs sm:text-sm md:text-base">
+                  {category.id === 'bmrda' ? 'BMRDA Past Projects' : 'BDA Past Projects'}
                 </span>
               </motion.button>
             ))}
@@ -138,7 +134,7 @@ const DeveloperPartners = () => {
         </motion.div>
 
         {/* Enhanced Tab Content */}
-        <div className="mb-16">
+        <div className="mb-12">
           {developerData.map((category) => (
             activeTab === category.id && (
               <motion.div
@@ -148,7 +144,7 @@ const DeveloperPartners = () => {
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
               >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                 {category.projects.map((project, index) => (
                   <motion.div
                     key={index}
@@ -166,47 +162,94 @@ const DeveloperPartners = () => {
                       damping: 20
                     }}
                     whileHover={{ 
-                      scale: 1.03, 
-                      y: -8,
+                      scale: 1.05, 
+                      y: -12,
+                      rotateY: 3,
                       transition: { type: "spring", stiffness: 300, damping: 20 }
                     }}
-                    className="bg-gradient-to-br from-midnight/90 to-midnight/70 backdrop-blur-sm rounded-3xl p-8 border border-gold/20 hover:border-gold/50 transition-all duration-500 group shadow-2xl hover:shadow-gold/10"
+                    whileTap={{ scale: 0.98 }}
+                    className="bg-gradient-to-br from-midnight/90 to-midnight/70 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-gold/20 hover:border-gold/50 transition-all duration-500 group shadow-2xl hover:shadow-gold/10 cursor-pointer"
                   >
                     {/* Enhanced Icon */}
-                    <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-gold/20 to-gold/10 rounded-2xl mb-8 group-hover:from-gold/30 group-hover:to-gold/20 transition-all duration-500 shadow-lg">
+                    <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-gold/20 to-gold/10 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 lg:mb-8 group-hover:from-gold/30 group-hover:to-gold/20 transition-all duration-500 shadow-lg">
                       {category.id === 'communities' ? (
-                        <Building className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />
+                        <Building className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-gold group-hover:scale-110 transition-transform duration-300" />
                       ) : (
-                        <Home className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-300" />
+                        <Home className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-gold group-hover:scale-110 transition-transform duration-300" />
                       )}
                     </div>
 
-                    {/* Enhanced Metric */}
-                    <motion.div 
-                      className="mb-6"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    >
-                      <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gold to-gold-400 bg-clip-text text-transparent mb-2">
-                        {project.metric}
-                      </div>
-                      <div className="text-platinum/60 text-sm font-medium">
-                        {project.unit}
-                      </div>
-                    </motion.div>
-
                     {/* Enhanced Title */}
-                    <h3 className="text-xl md:text-2xl font-bold text-platinum mb-4 group-hover:text-gold transition-colors duration-300 leading-tight">
+                    <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-platinum mb-3 sm:mb-4 group-hover:text-gold transition-colors duration-300 leading-tight">
                       {project.title}
                     </h3>
 
+                    {/* Project Details Grid */}
+                    <div className="grid grid-cols-2 gap-3 mb-4">
+                      <div className="bg-gold/5 rounded-lg p-2 border border-gold/10">
+                        <div className="text-xs text-platinum/60 mb-1">Area</div>
+                        <div className="text-sm font-semibold text-gold">{project.area}</div>
+                      </div>
+                      <div className="bg-gold/5 rounded-lg p-2 border border-gold/10">
+                        <div className="text-xs text-platinum/60 mb-1">Units</div>
+                        <div className="text-sm font-semibold text-gold">{project.units}</div>
+                      </div>
+                    </div>
+
+                    {/* Investment & Exit */}
+                    <motion.div 
+                      className="mb-4"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    >
+                      <div className="flex justify-between items-center bg-gradient-to-r from-gold/10 to-gold/5 rounded-lg p-3 border border-gold/20">
+                        <div>
+                          <div className="text-xs text-platinum/60 mb-1">Investment</div>
+                          <div className="text-lg font-bold text-platinum">{project.investment}</div>
+                        </div>
+                        <div className="text-gold/60">→</div>
+                        <div>
+                          <div className="text-xs text-platinum/60 mb-1">Exit Value</div>
+                          <div className="text-lg font-bold bg-gradient-to-r from-gold to-gold-400 bg-clip-text text-transparent">{project.exit}</div>
+                        </div>
+                      </div>
+                    </motion.div>
+
                     {/* Enhanced Description */}
-                    <p className="text-platinum/70 leading-relaxed text-base">
+                    <p className="text-sm sm:text-base text-platinum/85 leading-relaxed">
                       {project.description}
                     </p>
                     
                     {/* Hover Effect Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none" />
+                    
+                    {/* Floating Particles Effect */}
+                    <motion.div
+                      className="absolute inset-0 pointer-events-none"
+                      initial={false}
+                    >
+                      {[...Array(3)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          className="absolute w-1 h-1 bg-gold/30 rounded-full"
+                          style={{
+                            left: `${20 + i * 30}%`,
+                            top: `${30 + i * 20}%`
+                          }}
+                          animate={{
+                            y: [-10, -20, -10],
+                            opacity: [0, 1, 0],
+                            scale: [0.5, 1, 0.5]
+                          }}
+                          transition={{
+                            duration: 2 + i * 0.5,
+                            repeat: Infinity,
+                            delay: i * 0.3,
+                            ease: "easeInOut"
+                          }}
+                        />
+                      ))}
+                    </motion.div>
                   </motion.div>
                 ))}
               </div>

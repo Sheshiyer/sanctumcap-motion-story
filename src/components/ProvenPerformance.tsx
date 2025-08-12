@@ -1,13 +1,35 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { TrendingUp, Globe, Award, Users } from 'lucide-react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { TrendingUp, Globe, Award, Users, IndianRupee } from 'lucide-react';
 
 const ProvenPerformance = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  
+  // Advanced scroll-based animations
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  
+  // Parallax transforms
+  const contentY = useTransform(scrollYProgress, [0, 1], ["15%", "-15%"]);
+  const backgroundScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1.05, 0.9]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const rotateX = useTransform(scrollYProgress, [0, 0.5, 1], [5, 0, -5]);
+  
+  // Smooth spring animations
+  const smoothContentY = useSpring(contentY, { stiffness: 100, damping: 30 });
+  
   const stats = [
     {
       icon: TrendingUp,
-      value: '32%+',
+      value: '24%+',
       label: 'CAGR Returns'
+    },
+    {
+      icon: IndianRupee,
+      value: '50+ Cr',
+      label: 'Invested Capital'
     },
     {
       icon: Globe,
@@ -16,7 +38,7 @@ const ProvenPerformance = () => {
     },
     {
       icon: Award,
-      value: '18+',
+      value: '10+',
       label: 'Years Experience'
     },
     {
@@ -27,52 +49,81 @@ const ProvenPerformance = () => {
   ];
 
   return (
-    <section className="relative py-20">
-      <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-x-hidden">
-        {/* Clean Metrics Section */}
+    <motion.section 
+      ref={sectionRef}
+      className="relative py-20 overflow-hidden"
+      style={{ opacity, paddingTop: '2em', paddingBottom: '2em' }}
+    >
+      <motion.div 
+        className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-x-hidden"
+        style={{ 
+          y: smoothContentY,
+          scale: backgroundScale,
+          rotateX
+        }}
+      >
+        {/* Enhanced Metrics Section */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 60, scale: 0.9 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ 
+            duration: 1,
+            ease: [0.25, 0.46, 0.45, 0.94]
+          }}
           className="mb-16"
         >
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, y: 40, rotateX: 15 }}
+            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ 
+              duration: 0.8, 
+              delay: 0.2,
+              ease: [0.25, 0.46, 0.45, 0.94]
+            }}
             className="text-center mb-12"
           >
-            <h3 className="text-3xl md:text-4xl font-black text-platinum mb-4 tracking-tight">
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-platinum mb-4 tracking-tight">
               PROVEN{' '}
               <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent font-black">
                 PERFORMANCE
               </span>
             </h3>
-            <p className="text-platinum/70 max-w-2xl mx-auto text-lg">
+            <p className="text-sm sm:text-base md:text-lg text-platinum/85 max-w-2xl mx-auto">
               Track record that speaks for itself
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+          <motion.div 
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto"
+            style={{
+              y: useTransform(scrollYProgress, [0, 1], ["10%", "-10%"])
+            }}
+          >
             {stats.map((stat, index) => {
               const IconComponent = stat.icon;
               return (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  initial={{ opacity: 0, y: 80, scale: 0.8, rotateY: 45 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1, rotateY: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
                   transition={{ 
-                    duration: 0.6, 
-                    delay: 0.4 + index * 0.1
+                    duration: 0.8, 
+                    delay: 0.4 + index * 0.15,
+                    ease: [0.25, 0.46, 0.45, 0.94]
                   }}
-                  whileHover={{ 
-                    y: -5,
+                  whileHover={{
+                    scale: 1.1,
+                    y: -10,
+                    rotateY: 10,
                     transition: { type: "spring", stiffness: 300, damping: 20 }
                   }}
-                  className="relative bg-midnight/20 backdrop-blur-sm rounded-xl p-6 text-center group hover:bg-midnight/30 transition-all duration-300"
+                  className="relative bg-midnight/20 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center group hover:bg-midnight/30 transition-all duration-300 cursor-pointer"
+                  style={{
+                    y: useTransform(scrollYProgress, [0, 1], [index * 15, -index * 15])
+                  }}
                 >
                   <div className="relative z-10">
                     <motion.div 
@@ -81,21 +132,21 @@ const ProvenPerformance = () => {
                       <IconComponent className="w-6 h-6 text-gold" />
                     </motion.div>
                     
-                    <div className="text-3xl md:text-4xl font-black text-gold mb-2 tracking-tight">
-                      {stat.value}
-                    </div>
+                    <div className="text-2xl sm:text-3xl md:text-4xl font-black text-gold mb-2 tracking-tight">
+                       {stat.value}
+                     </div>
                     
-                    <div className="text-sm text-platinum/80 font-medium uppercase tracking-wide">
+                    <div className="text-xs sm:text-sm text-platinum/90 font-medium uppercase tracking-wide">
                       {stat.label}
                     </div>
                   </div>
                 </motion.div>
               );
-            })}
-          </div>
-        </motion.div>
-      </div>
-    </section>
+             })}
+           </motion.div>
+         </motion.div>
+      </motion.div>
+    </motion.section>
   );
 };
 

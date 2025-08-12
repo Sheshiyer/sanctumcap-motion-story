@@ -1,8 +1,39 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useState, useEffect } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import globalMapImage from '@/assets/global-map.png';
+import { CardSkeleton, StaggerContainer, LoadingItem } from './LoadingStates';
+import { LoadingTransition, SmoothReveal } from './PageTransition';
 
 const GlobalInvestorMap = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [mapDataLoaded, setMapDataLoaded] = useState(false);
+  
+  // Simulate loading map data
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setMapDataLoaded(true);
+      setTimeout(() => setIsLoading(false), 400);
+    }, 1200);
+    return () => clearTimeout(timer);
+  }, []);
+  
+  // Advanced scroll-based animations
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  
+  // Parallax transforms
+  const mapY = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
+  const backgroundScale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.1, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  
+  // Smooth spring animations
+  const smoothMapY = useSpring(mapY, { stiffness: 100, damping: 30 });
+  const smoothContentY = useSpring(contentY, { stiffness: 100, damping: 30 });
+  
   const investorCountries = [
     { 
       name: 'USA', 
@@ -37,33 +68,57 @@ const GlobalInvestorMap = () => {
   ];
 
   return (
-    <section className="relative py-20 w-full max-w-[100vw] overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.03)_0%,transparent_70%)]" />
+    <motion.section 
+      ref={sectionRef}
+      className="relative py-20 w-full max-w-[100vw] overflow-hidden"
+      style={{ opacity, paddingTop: '2em', paddingBottom: '2em' }}
+    >
+      {/* Background with Parallax */}
+      <motion.div 
+        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.03)_0%,transparent_70%)]"
+        style={{ scale: backgroundScale }}
+      />
       
-      <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto relative z-10 overflow-x-hidden">
+      <motion.div 
+        className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto relative z-10 overflow-x-hidden"
+        style={{ y: smoothContentY }}
+      >
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 50, scale: 0.9 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ 
+            duration: 1,
+            ease: [0.25, 0.46, 0.45, 0.94]
+          }}
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-platinum mb-6 tracking-tight">
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-platinum mb-6 tracking-tight">
             GLOBAL{' '}
             <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent font-black">
               INVESTOR
             </span>{' '}
             NETWORK
-          </h2>
-          <p className="text-lg md:text-xl text-platinum/70 max-w-3xl mx-auto leading-relaxed">
+          </h3>
+          <p className="text-lg md:text-xl text-platinum/85 max-w-3xl mx-auto leading-relaxed">
             Trusted by investors across five countries, building wealth through strategic real estate investments
           </p>
         </motion.div>
 
-        {/* Map Background Container */}
-        <div className="relative w-full mb-16">
+        {/* Map Background Container with Advanced Parallax */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8, rotateX: 15 }}
+          whileInView={{ opacity: 1, scale: 1, rotateX: 0 }}
+          transition={{ 
+            duration: 1.2, 
+            delay: 0.3,
+            ease: [0.25, 0.46, 0.45, 0.94]
+          }}
+          viewport={{ once: true, margin: "-50px" }}
+          className="relative w-full mb-16"
+          style={{ y: smoothMapY }}
+        >
           {/* Background Map */}
           <div className="absolute inset-0 w-full h-full opacity-20 rounded-2xl overflow-hidden">
             <img 
@@ -74,19 +129,28 @@ const GlobalInvestorMap = () => {
           </div>
           
           {/* Country Bento Grid */}
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
+          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 p-4 sm:p-6 lg:p-8">
             {investorCountries.map((country, index) => (
               <motion.div
                 key={country.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.8, y: 50 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                whileHover={{ 
+                  scale: 1.08, 
+                  y: -8,
+                  rotateY: 5,
+                  transition: { type: "spring", stiffness: 300, damping: 20 }
+                }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ 
                   duration: 0.6, 
-                  delay: index * 0.1
+                  delay: index * 0.1,
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 15
                 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.02, y: -5 }}
-                className="group relative bg-gradient-to-br from-midnight/80 via-charcoal/70 to-primary-900/60 backdrop-blur-sm rounded-xl p-6 border border-gold/20 hover:border-gold/40 transition-all duration-300 shadow-lg hover:shadow-xl overflow-hidden"
+                className="group relative bg-gradient-to-br from-midnight/80 via-charcoal/70 to-primary-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gold/20 hover:border-gold/40 transition-all duration-300 shadow-lg hover:shadow-xl overflow-hidden cursor-pointer"
               >
                 {/* Texture Overlay */}
                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_30%_30%,rgba(212,175,55,0.3)_0%,transparent_50%)] group-hover:opacity-20 transition-opacity duration-300" />
@@ -95,30 +159,38 @@ const GlobalInvestorMap = () => {
                 {/* Content */}
                 <div className="relative z-10">
                   {/* Flag and Country */}
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="text-4xl">{country.flag}</div>
+                  <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                    <div className="text-3xl sm:text-4xl">{country.flag}</div>
                     <div>
-                      <h3 className="text-xl font-bold text-platinum group-hover:text-gold transition-colors duration-300">
+                      <h3 className="text-lg sm:text-xl font-bold text-platinum group-hover:text-gold transition-colors duration-300">
                         {country.name}
                       </h3>
-                      <p className="text-sm text-platinum/60">{country.description}</p>
+                      <p className="text-xs sm:text-sm text-platinum/80">{country.description}</p>
                     </div>
                   </div>
                   
                   {/* Investor Count */}
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-2xl font-black text-gold mb-1">{country.investors}</div>
-                      <div className="text-xs text-platinum/70 uppercase tracking-wider">Investors</div>
+                      <div className="text-xl sm:text-2xl font-black text-gold mb-1">{country.investors}</div>
+                      <div className="text-xs text-platinum/85 uppercase tracking-wider">Investors</div>
                     </div>
                     
                     {/* Decorative Element */}
                     <motion.div
-                      className="w-12 h-12 rounded-full bg-gradient-to-br from-gold/20 to-gold/5 border border-gold/30 flex items-center justify-center"
-                      whileHover={{ rotate: 180 }}
-                      transition={{ duration: 0.5 }}
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-gold/20 to-gold/5 border border-gold/30 flex items-center justify-center"
+                      whileHover={{ 
+                        rotate: 360,
+                        scale: 1.2,
+                        boxShadow: "0 0 20px rgba(255, 215, 0, 0.5)"
+                      }}
+                      transition={{ duration: 0.8, ease: "easeInOut" }}
                     >
-                      <div className="w-2 h-2 bg-gold rounded-full" />
+                      <motion.div 
+                        className="w-2 h-2 bg-gold rounded-full"
+                        whileHover={{ scale: 1.5 }}
+                        transition={{ duration: 0.3 }}
+                      />
                     </motion.div>
                   </div>
                 </div>
@@ -128,10 +200,30 @@ const GlobalInvestorMap = () => {
                   className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"
                   initial={false}
                 />
+                
+                {/* Animated Border Effect */}
+                <motion.div
+                  className="absolute inset-0 rounded-xl"
+                  animate={{
+                    background: [
+                      "linear-gradient(0deg, rgba(255,215,0,0.1) 0%, transparent 50%, rgba(255,215,0,0.1) 100%)",
+                      "linear-gradient(90deg, rgba(255,215,0,0.1) 0%, transparent 50%, rgba(255,215,0,0.1) 100%)",
+                      "linear-gradient(180deg, rgba(255,215,0,0.1) 0%, transparent 50%, rgba(255,215,0,0.1) 100%)",
+                      "linear-gradient(270deg, rgba(255,215,0,0.1) 0%, transparent 50%, rgba(255,215,0,0.1) 100%)"
+                    ]
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                  style={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                />
               </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Call to Action */}
         <motion.div
@@ -141,7 +233,7 @@ const GlobalInvestorMap = () => {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <p className="text-lg text-platinum/80 mb-6">
+          <p className="text-lg text-platinum/90 mb-6">
             Join our global community of successful real estate investors
           </p>
           <motion.button
@@ -158,8 +250,8 @@ const GlobalInvestorMap = () => {
             Start Your Investment Journey
           </motion.button>
         </motion.div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 

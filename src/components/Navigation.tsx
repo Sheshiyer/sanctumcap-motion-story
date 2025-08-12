@@ -68,20 +68,39 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-4 xl:space-x-6 flex-1 justify-center max-w-4xl mx-8">
-            {navigationItems.map((item) => (
+            {navigationItems.map((item, index) => (
               <motion.button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className="text-sm xl:text-base text-platinum hover:text-gold transition-colors duration-200 relative whitespace-nowrap px-2 py-1"
-                whileHover={{ scale: 1.05 }}
+                className="text-sm xl:text-base text-platinum/85 hover:text-gold transition-colors duration-300 font-medium relative whitespace-nowrap px-2 py-1 group"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ 
+                  scale: 1.05,
+                  y: -2,
+                  textShadow: "0 0 8px rgba(255, 215, 0, 0.6)"
+                }}
                 whileTap={{ scale: 0.95 }}
               >
-                {item.label}
+                <motion.span
+                  className="relative z-10"
+                  whileHover={{ color: "#FFD700" }}
+                >
+                  {item.label}
+                </motion.span>
                 <motion.div
                   className="absolute bottom-0 left-0 w-full h-0.5 bg-gold"
                   initial={{ scaleX: 0, originX: 0 }}
-                  whileHover={{ scaleX: 1 }}
+                  whileHover={{ 
+                    scaleX: 1,
+                    boxShadow: "0 0 10px rgba(255, 215, 0, 0.8)"
+                  }}
                   transition={{ duration: 0.3 }}
+                />
+                <motion.div
+                  className="absolute inset-0 bg-gold/10 rounded-lg scale-0 group-hover:scale-100"
+                  transition={{ duration: 0.3, ease: "easeOut" }}
                 />
               </motion.button>
             ))}
@@ -89,12 +108,30 @@ const Navigation = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block flex-shrink-0">
-            <Button
+            <motion.button
               onClick={() => scrollToSection('#contact')}
-              className="bg-gold hover:bg-gold-600 text-midnight font-medium text-sm xl:text-base px-4 xl:px-6 py-2"
+              className="bg-gradient-to-r from-gold to-gold-400 text-midnight font-semibold text-sm xl:text-base px-4 xl:px-6 py-2 rounded-lg hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg hover:shadow-gold/30 relative overflow-hidden group"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              whileHover={{ 
+                scale: 1.05, 
+                y: -2,
+                boxShadow: "0 15px 30px rgba(255, 215, 0, 0.4)",
+                rotate: [0, -1, 1, 0]
+              }}
+              whileTap={{ scale: 0.98 }}
             >
-              Get Started
-            </Button>
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-gold-300 to-gold-200 opacity-0 group-hover:opacity-100"
+                transition={{ duration: 0.3 }}
+              />
+              <motion.div
+                className="absolute inset-0 bg-white/20 rounded-lg scale-0 group-hover:scale-100"
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              />
+              <span className="relative z-10">Get Started</span>
+            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -119,7 +156,7 @@ const Navigation = () => {
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left py-3 px-2 text-platinum hover:text-gold hover:bg-gold/10 transition-all duration-200 rounded-lg"
+                  className="block w-full text-left py-3 px-2 text-platinum/85 hover:text-gold hover:bg-gold/10 transition-all duration-200 rounded-lg"
                 >
                   {item.label}
                 </button>

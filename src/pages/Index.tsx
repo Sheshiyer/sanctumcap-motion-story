@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import GlobalInvestorMap from '@/components/GlobalInvestorMap';
@@ -13,6 +14,30 @@ import ContactSection from '@/components/ContactSection';
 import SilkBackground from '@/components/SilkBackground';
 // import GlobalVerticalText from '@/components/GlobalVerticalText'; // Removed
 import logoIcon from '@/assets/logo-icon.png';
+
+// Animated Section Separator Component
+const SectionSeparator = ({ className = "", opacity = 20 }: { className?: string; opacity?: number }) => (
+  <div className={`relative py-12 ${className}`}>
+    <div className="absolute inset-0 flex items-center justify-center">
+      <motion.div 
+        className={`w-full max-w-xs h-px bg-gradient-to-r from-transparent via-gold/${opacity} to-transparent`}
+        initial={{ scaleX: 0, opacity: 0 }}
+        whileInView={{ scaleX: 1, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.2, ease: "easeInOut" }}
+      />
+    </div>
+    <motion.div
+      className="absolute inset-0 flex items-center justify-center"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, delay: 0.6 }}
+    >
+      <div className="w-2 h-2 bg-gold/40 rounded-full animate-pulse" />
+    </motion.div>
+  </div>
+);
 
 const Index = () => {
   return (
@@ -34,21 +59,36 @@ const Index = () => {
       {/* Main Content Container */}
       <div className="w-full">
         <HeroSection />
-        <div className="py-12"></div>
-        <GlobalInvestorMap />
-        <div className="py-12"></div>
+        
+        <SectionSeparator className="py-16" opacity={30} />
+        
         <ProvenPerformance />
-        <div className="py-8"></div>
+        
+        <SectionSeparator />
+        
+        <GlobalInvestorMap />
+        
+        <SectionSeparator />
         <InvestmentMetrics />
-        <div className="py-8"></div>
+        
+        <SectionSeparator />
+        
         <CompanyJourney />
-        <div className="py-8"></div>
+        
+        <SectionSeparator />
+        
         <InvestorPartners />
-        <div className="py-8"></div>
+        
+        <SectionSeparator />
+        
         <GDPGrowthChart />
-        <div className="py-8"></div>
+        
+        <SectionSeparator />
+        
         <DeveloperPartners />
-        <div className="py-8"></div>
+        
+        <SectionSeparator />
+        
         <ContactSection />
       </div>
       
@@ -71,7 +111,7 @@ const Index = () => {
             </div>
             
             <div className="text-platinum/60 text-center md:text-right">
-              <p>&copy; 2024 SanctumCap. All rights reserved.</p>
+              <p>&copy; 2025 SanctumCap. All rights reserved.</p>
               <p className="text-sm mt-1">
                 Investing in your future through strategic real estate opportunities
               </p>
