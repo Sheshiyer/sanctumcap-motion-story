@@ -47,8 +47,8 @@ const ContactSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-platinum mb-4">
-            Start Your Investment Journey
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-platinum mb-6 tracking-tight">
+            START YOUR INVESTMENT JOURNEY
           </h3>
           <p className="text-xl text-platinum/85 max-w-3xl mx-auto">
             Connect with our investment experts to explore high-alpha real estate opportunities
@@ -65,7 +65,7 @@ const ContactSection = () => {
           >
             <Card className="bg-charcoal/80 backdrop-blur-sm border-gold/20 p-8">
               <h3 className="text-2xl font-bold text-platinum mb-6">
-                Get in Touch
+                GET IN TOUCH
               </h3>
 
               {submitted && (

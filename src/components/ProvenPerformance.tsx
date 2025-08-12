@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { TrendingUp, Globe, Award, Users, IndianRupee } from 'lucide-react';
 
 const ProvenPerformance = () => {
@@ -11,14 +11,8 @@ const ProvenPerformance = () => {
     offset: ["start end", "end start"]
   });
   
-  // Parallax transforms
-  const contentY = useTransform(scrollYProgress, [0, 1], ["15%", "-15%"]);
-  const backgroundScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1.05, 0.9]);
+  // Simplified scroll animations without problematic parallax
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const rotateX = useTransform(scrollYProgress, [0, 0.5, 1], [5, 0, -5]);
-  
-  // Smooth spring animations
-  const smoothContentY = useSpring(contentY, { stiffness: 100, damping: 30 });
   
   const stats = [
     {
@@ -54,14 +48,7 @@ const ProvenPerformance = () => {
       className="relative py-20 overflow-hidden"
       style={{ opacity, paddingTop: '2em', paddingBottom: '2em' }}
     >
-      <motion.div 
-        className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-x-hidden"
-        style={{ 
-          y: smoothContentY,
-          scale: backgroundScale,
-          rotateX
-        }}
-      >
+      <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-x-hidden">
         {/* Enhanced Metrics Section */}
         <motion.div
           initial={{ opacity: 0, y: 60, scale: 0.9 }}
@@ -84,7 +71,7 @@ const ProvenPerformance = () => {
             }}
             className="text-center mb-12"
           >
-            <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-platinum mb-4 tracking-tight">
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-platinum mb-6 tracking-tight">
               PROVEN{' '}
               <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent font-black">
                 PERFORMANCE
@@ -97,9 +84,6 @@ const ProvenPerformance = () => {
           
           <motion.div 
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto"
-            style={{
-              y: useTransform(scrollYProgress, [0, 1], ["10%", "-10%"])
-            }}
           >
             {stats.map((stat, index) => {
               const IconComponent = stat.icon;
@@ -145,7 +129,7 @@ const ProvenPerformance = () => {
              })}
            </motion.div>
          </motion.div>
-      </motion.div>
+      </div>
     </motion.section>
   );
 };

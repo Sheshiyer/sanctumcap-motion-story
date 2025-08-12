@@ -35,8 +35,8 @@ const GDPGrowthChart = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-platinum mb-4">
-            The Smarter Way to Invest in India's Growth
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-platinum mb-6 tracking-tight">
+            THE SMARTER WAY TO INVEST IN INDIA'S GROWTH
           </h3>
           <p className="text-xl text-platinum/70 max-w-4xl mx-auto">
             India's GDP is on a rapid growth trajectory, offering unparalleled opportunities for investors. 
@@ -97,7 +97,7 @@ const GDPGrowthChart = () => {
             viewport={{ once: true }}
             className="bg-midnight/80 backdrop-blur-sm rounded-2xl p-8 border border-gold/20"
           >
-            <h3 className="text-2xl font-bold text-gold mb-4">Capital Gains Investments</h3>
+            <h3 className="text-2xl font-bold text-gold mb-4">CAPITAL GAINS INVESTMENTS</h3>
             <p className="text-platinum/70 mb-6">
               Invest in residential assets such as apartments, villas, and pre-launch offers. 
               The best performing investments have seen a 24%+ CAGR, providing strong capital gains 
@@ -122,7 +122,7 @@ const GDPGrowthChart = () => {
             viewport={{ once: true }}
             className="bg-midnight/80 backdrop-blur-sm rounded-2xl p-8 border border-gold/20"
           >
-            <h3 className="text-2xl font-bold text-gold mb-4">Monthly Income Investments</h3>
+            <h3 className="text-2xl font-bold text-gold mb-4">MONTHLY INCOME INVESTMENTS</h3>
             <p className="text-platinum/70 mb-6">
               Earn steady returns through serviced hotel apartments or pre-launch investments. 
               SanctumCap's investor returns from a recent project were ₹14 Cr, showcasing the 

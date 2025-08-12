@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState, useRef } from 'react';
-import { motion, useAnimation, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useAnimation, useScroll, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { TrendingUp, Globe, Award, Users, Trophy } from 'lucide-react';
 import logoWithText from '../assets/logo-with-text.png';
@@ -24,15 +24,9 @@ const HeroSection = () => {
     offset: ["start start", "end start"]
   });
   
-  // Parallax transforms
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const logoScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
-  const logoOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7], [1, 0.8, 0]);
-  
-  // Smooth spring animations
-  const smoothBackgroundY = useSpring(backgroundY, { stiffness: 100, damping: 30 });
-  const smoothContentY = useSpring(contentY, { stiffness: 100, damping: 30 });
+  // Simplified scroll animations without problematic parallax
+  const logoScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
+  const logoOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.9, 0.8]);
   
   // Scroll progress indicator
   const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
@@ -76,21 +70,15 @@ const HeroSection = () => {
         style={{ scaleX }}
       />
       
-      {/* Clean Background with Parallax */}
-      <motion.div 
-        className="absolute inset-0 z-0"
-        style={{ y: smoothBackgroundY }}
-      >
+      {/* Clean Background - Fixed */}
+      <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.05)_0%,transparent_70%)]" />
-      </motion.div>
+      </div>
       
-      {/* Geometric Matrix Background with Parallax */}
-      <motion.div 
-        className="absolute inset-0 z-[1]"
-        style={{ y: useTransform(scrollYProgress, [0, 1], ["0%", "20%"]) }}
-      >
+      {/* Geometric Matrix Background - Fixed */}
+      <div className="absolute inset-0 z-[1]">
         <GeometricMatrix className="opacity-100 w-full h-full" />
-      </motion.div>
+      </div>
       
       {/* Background Noise Layer */}
       <div 
@@ -103,11 +91,8 @@ const HeroSection = () => {
 
 
 
-      {/* Above the Fold Content with Parallax */}
-      <motion.div 
-        className="relative z-10 pt-24 pb-16 w-full"
-        style={{ y: smoothContentY }}
-      >
+      {/* Above the Fold Content - Fixed */}
+      <div className="relative z-10 pt-24 pb-16 w-full">
         <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
           {/* Logo and Trusted Badge - Above the Fold */}
           <motion.div
@@ -259,7 +244,7 @@ const HeroSection = () => {
             </motion.div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Enhanced Scroll Indicator */}
       <motion.div

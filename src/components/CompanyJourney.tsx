@@ -67,10 +67,10 @@ const CompanyJourney = () => {
           >
             🚀 Company Timeline
           </motion.div>
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-platinum mb-6 leading-tight">
-            Our{' '}
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-platinum mb-6 tracking-tight">
+            OUR{' '}
             <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent">
-              Journey
+              JOURNEY
             </span>
           </h3>
           <p className="text-xl text-platinum/85 max-w-4xl mx-auto leading-relaxed">

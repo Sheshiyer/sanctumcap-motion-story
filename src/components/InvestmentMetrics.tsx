@@ -126,13 +126,12 @@ const InvestmentMetrics = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-6 md:mb-8"
-          style={{ y: useTransform(scrollYProgress, [0, 0.5], [50, -50]) }}
         >
 
-          <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-platinum mb-3 md:mb-4 leading-tight tracking-tight">
-            Investment{' '}
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-platinum mb-6 tracking-tight">
+            INVESTMENT{' '}
             <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent">
-              Performance
+              PERFORMANCE
             </span>
           </h3>
           <p 

@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import globalMapImage from '@/assets/global-map.png';
 import { CardSkeleton, StaggerContainer, LoadingItem } from './LoadingStates';
 import { LoadingTransition, SmoothReveal } from './PageTransition';
@@ -24,15 +24,8 @@ const GlobalInvestorMap = () => {
     offset: ["start end", "end start"]
   });
   
-  // Parallax transforms
-  const mapY = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
-  const backgroundScale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.1, 1]);
+  // Simplified scroll animations without problematic parallax
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  
-  // Smooth spring animations
-  const smoothMapY = useSpring(mapY, { stiffness: 100, damping: 30 });
-  const smoothContentY = useSpring(contentY, { stiffness: 100, damping: 30 });
   
   const investorCountries = [
     { 
@@ -73,16 +66,10 @@ const GlobalInvestorMap = () => {
       className="relative py-20 w-full max-w-[100vw] overflow-hidden"
       style={{ opacity, paddingTop: '2em', paddingBottom: '2em' }}
     >
-      {/* Background with Parallax */}
-      <motion.div 
-        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.03)_0%,transparent_70%)]"
-        style={{ scale: backgroundScale }}
-      />
+      {/* Background - Fixed */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.03)_0%,transparent_70%)]" />
       
-      <motion.div 
-        className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto relative z-10 overflow-x-hidden"
-        style={{ y: smoothContentY }}
-      >
+      <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto relative z-10 overflow-x-hidden">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -117,7 +104,6 @@ const GlobalInvestorMap = () => {
           }}
           viewport={{ once: true, margin: "-50px" }}
           className="relative w-full mb-16"
-          style={{ y: smoothMapY }}
         >
           {/* Background Map */}
           <div className="absolute inset-0 w-full h-full opacity-20 rounded-2xl overflow-hidden">
@@ -250,7 +236,7 @@ const GlobalInvestorMap = () => {
             Start Your Investment Journey
           </motion.button>
         </motion.div>
-      </motion.div>
+      </div>
     </motion.section>
   );
 };
