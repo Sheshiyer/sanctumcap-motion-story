@@ -10,7 +10,7 @@ const navigationItems = [
   { label: 'Company Profile', href: '#journey' },
   { label: 'Investment Metrics', href: '#metrics' },
   { label: 'Investor Partners', href: '#investors' },
-  { label: 'Completed Projects', href: '#developers' },
+  { label: 'Developer Partners', href: '#developers' },
   { label: 'Contact', href: '#contact' }
 ];
 
@@ -29,14 +29,7 @@ const Navigation = () => {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      const navHeight = 80; // Fixed navigation height
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - navHeight;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+      element.scrollIntoView({ behavior: 'smooth' });
       setIsMobileMenuOpen(false);
     }
   };

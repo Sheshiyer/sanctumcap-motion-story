@@ -6,12 +6,20 @@ A modern, interactive website for SanctumCap, a strategic real estate investment
 
 SanctumCap is a real estate investment company focused on strategic opportunities worldwide. The website features:
 
-- **Global Investment Map** - Interactive visualization of worldwide investment opportunities
-- **Performance Metrics** - Real-time data and proven track record displays
+- **Global Investment Network** - Interactive visualization of worldwide investment opportunities with golden accent styling
+- **Investment Metrics** - Real-time data displays with animated counters and golden gradient effects
+- **Proven Performance** - Track record visualization with performance statistics
 - **Company Journey** - Timeline of growth and achievements
-- **Investor & Developer Partnerships** - Showcase of strategic alliances
-- **GDP Growth Analytics** - Economic data visualization
+- **Investor & Developer Partnerships** - Showcase of strategic alliances with solid background styling
+- **GDP Growth Analytics** - Economic data visualization with interactive charts
 - **Contact & Investment Opportunities** - Direct engagement channels
+
+## ✨ Recent Updates
+
+- **Golden Accent Styling** - Applied consistent golden gradient effects to key text elements
+- **Background Improvements** - Updated component backgrounds to solid colors for better visual consistency
+- **Navigation Enhancement** - Verified all navigation items correspond to existing sections
+- **Performance Optimization** - Improved component styling and hover effects
 
 ## 🚀 Features
 
@@ -24,15 +32,24 @@ SanctumCap is a real estate investment company focused on strategic opportunitie
 
 ## 🛠️ Technology Stack
 
-- **Frontend Framework**: React 18 with TypeScript
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS with custom design system
-- **UI Components**: shadcn/ui + Radix UI
-- **Animations**: Framer Motion + GSAP
-- **Charts**: Recharts
-- **State Management**: TanStack Query
-- **Routing**: React Router DOM
-- **Form Handling**: React Hook Form with Zod validation
+### Core Technologies
+- **Frontend Framework**: React 18.3.1 with TypeScript 5.5.3
+- **Build Tool**: Vite 5.4.1 for fast development and optimized builds
+- **Styling**: Tailwind CSS 3.4.11 with custom design system
+- **Animations**: Framer Motion 12.23.0 & GSAP 3.13.0 for smooth interactions
+
+### UI & Components
+- **Component Library**: shadcn/ui with Radix UI primitives
+- **Icons**: Lucide React 0.462.0 icon library
+- **Charts & Visualization**: Recharts 3.0.2 for investment metrics
+- **Theming**: next-themes for dark/light mode support
+
+### Development & Quality
+- **Routing**: React Router DOM 6.26.2 for navigation
+- **Form Handling**: React Hook Form 7.53.0 with Zod 3.23.8 validation
+- **State Management**: TanStack Query 5.56.2 for server state
+- **Code Quality**: ESLint 9.9.0 with TypeScript ESLint
+- **Development**: Hot Module Replacement, SWC for fast compilation
 
 ## 📦 Installation & Setup
 
@@ -83,31 +100,60 @@ npm run lint
 ```
 src/
 ├── components/          # Reusable UI components
-│   ├── ui/             # shadcn/ui components
-│   ├── HeroSection.tsx # Landing hero section
-│   ├── GlobalInvestorMap.tsx # Interactive world map
-│   ├── ProvenPerformance.tsx # Performance metrics
-│   ├── InvestmentMetrics.tsx # Investment data
-│   ├── CompanyJourney.tsx    # Timeline component
-│   ├── InvestorPartners.tsx  # Partner showcase
-│   ├── GDPGrowthChart.tsx   # Economic charts
-│   ├── DeveloperPartners.tsx # Developer network
-│   └── ContactSection.tsx   # Contact form
+│   ├── ui/             # shadcn/ui components (Button, Card, etc.)
+│   ├── HeroSection.tsx # Landing hero section with animated metrics
+│   ├── GlobalInvestorMap.tsx # Interactive world map with golden "INVESTOR" text
+│   ├── ProvenPerformance.tsx # Performance metrics with golden "PERFORMANCE" text
+│   ├── InvestmentMetrics.tsx # Investment data with animated counters
+│   ├── CompanyJourney.tsx    # Timeline component (id="journey")
+│   ├── InvestorPartners.tsx  # Partner showcase (id="investors")
+│   ├── GDPGrowthChart.tsx   # Economic charts and data visualization
+│   ├── DeveloperPartners.tsx # Developer network (id="developers")
+│   ├── ContactSection.tsx   # Contact form (id="contact")
+│   └── Navigation.tsx       # Main navigation with verified section links
 ├── pages/              # Route components
+│   └── Index.tsx       # Main page layout
 ├── hooks/              # Custom React hooks
 ├── lib/                # Utilities and configurations
+│   └── utils.ts        # Utility functions
 ├── assets/             # Static assets (images, logos)
 └── main.tsx           # Application entry point
 ```
 
+## 🔍 Development Notes
+
+### Component Architecture
+- All major sections have corresponding `id` attributes for navigation
+- Golden gradient text effects are consistently applied to key terms
+- Background styling uses solid colors with transparency for visual hierarchy
+- Navigation items are verified to match existing sections
+
+### Styling Conventions
+- Use `bg-midnight/95` for main card containers
+- Use `bg-slate-600/30` for icon containers with hover effects
+- Apply golden gradients with `bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent`
+- Maintain consistent spacing and typography throughout components
+
 ## 🎨 Design System
 
-The project uses a custom design system with:
+The project uses a sophisticated design system featuring:
 
-- **Colors**: Gold (#D4AF37), Midnight, Platinum, Sandstone palette
-- **Typography**: Arial Black for headings, system fonts for body
-- **Animations**: Smooth transitions and micro-interactions
-- **Responsive Breakpoints**: Mobile-first approach
+### Color Palette
+- **Primary Gold**: `#D4AF37` with gradient variations (`from-gold via-gold-400 to-sandstone`)
+- **Background**: Midnight blue (`bg-midnight`) with transparency variations (`bg-midnight/95`)
+- **Accent Colors**: Slate (`bg-slate-600/30`), Platinum, Sandstone
+- **Text**: Golden gradients for emphasis, white/slate for readability
+
+### Typography & Styling
+- **Headings**: Arial Black with golden gradient text effects (`bg-clip-text text-transparent`)
+- **Body Text**: System fonts optimized for readability
+- **Emphasis**: Golden gradient spans for key terms ("INVESTOR", "PERFORMANCE")
+
+### Visual Effects
+- **Backgrounds**: Solid colors with transparency for better visual hierarchy
+- **Animations**: Framer Motion for smooth page transitions and GSAP for complex animations
+- **Hover States**: Subtle color transitions and scaling effects
+- **Responsive Design**: Mobile-first approach with Tailwind breakpoints
 
 ## 🚀 Deployment Options
 
