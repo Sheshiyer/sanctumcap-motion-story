@@ -46,7 +46,14 @@ const HeroSection = () => {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const navHeight = 80; // Fixed navigation height
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navHeight;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -226,7 +233,7 @@ const HeroSection = () => {
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
               >
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-gold-300 to-gold-200 opacity-0 group-hover:opacity-100"
+                  className="absolute inset-0 bg-gradient-to-r from-slate-400 to-slate-300 opacity-0 group-hover:opacity-100"
                   transition={{ duration: 0.3 }}
                 />
                 <motion.div
@@ -237,17 +244,17 @@ const HeroSection = () => {
               </motion.button>
               
               <motion.button
-                className="border-2 border-gold text-gold font-semibold px-8 py-4 rounded-xl hover:bg-gold hover:text-midnight transition-all duration-300 relative overflow-hidden group"
+                className="border-2 border-slate-400 text-slate-300 font-semibold px-8 py-4 rounded-xl hover:bg-slate-400 hover:text-midnight transition-all duration-300 relative overflow-hidden group"
                 whileHover={{ 
                   scale: 1.05, 
                   y: -2,
-                  boxShadow: "0 10px 30px rgba(255, 215, 0, 0.3)"
+                  boxShadow: "0 10px 30px rgba(100, 116, 139, 0.3)"
                 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
               >
                 <motion.div
-                  className="absolute inset-0 bg-gold scale-x-0 group-hover:scale-x-100 origin-left"
+                  className="absolute inset-0 bg-slate-400 scale-x-0 group-hover:scale-x-100 origin-left"
                   transition={{ duration: 0.4, ease: "easeInOut" }}
                 />
                 <span className="relative z-10 group-hover:text-midnight transition-colors duration-300">Learn More</span>

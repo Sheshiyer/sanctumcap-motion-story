@@ -148,7 +148,7 @@ const GlobalInvestorMap = () => {
                   <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
                     <div className="text-3xl sm:text-4xl">{country.flag}</div>
                     <div>
-                      <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-gold transition-colors duration-300">
+                      <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-slate-200 transition-colors duration-300">
                         {country.name}
                       </h3>
                       <p className="text-xs sm:text-sm text-white/80">{country.description}</p>
@@ -158,22 +158,22 @@ const GlobalInvestorMap = () => {
                   {/* Investor Count */}
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-xl sm:text-2xl font-black text-gold mb-1">{country.investors}</div>
+                      <div className="text-xl sm:text-2xl font-black text-slate-300 mb-1">{country.investors}</div>
                       <div className="text-xs text-white/85 uppercase tracking-wider">Investors</div>
                     </div>
                     
                     {/* Decorative Element */}
                     <motion.div
-                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-gold/20 to-gold/5 border border-gold/30 flex items-center justify-center"
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-slate-600/20 to-slate-700/5 border border-slate-500/30 flex items-center justify-center"
                       whileHover={{ 
                         rotate: 360,
                         scale: 1.2,
-                        boxShadow: "0 0 20px rgba(255, 215, 0, 0.5)"
+                        boxShadow: "0 0 20px rgba(100, 116, 139, 0.5)"
                       }}
                       transition={{ duration: 0.8, ease: "easeInOut" }}
                     >
                       <motion.div 
-                        className="w-2 h-2 bg-gold rounded-full"
+                        className="w-2 h-2 bg-slate-400 rounded-full"
                         whileHover={{ scale: 1.5 }}
                         transition={{ duration: 0.3 }}
                       />
@@ -182,10 +182,7 @@ const GlobalInvestorMap = () => {
                 </div>
                 
                 {/* Hover Glow Effect */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"
-                  initial={false}
-                />
+                {/* Hover glow effect removed */}
                 
                 {/* Animated Border Effect */}
                 <motion.div

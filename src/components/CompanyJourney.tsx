@@ -138,10 +138,11 @@ const CompanyJourney = () => {
                     <motion.div
                       whileHover={{ scale: 1.02, y: -5 }}
                       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                      className="bg-gradient-to-br from-midnight/90 to-midnight/70 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 border border-gold/20 hover:border-gold/40 transition-all duration-500 shadow-2xl hover:shadow-gold/10 relative overflow-hidden group"
+                      className="bg-gradient-to-br from-midnight/90 to-midnight/70 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 border border-slate-600/20 hover:border-slate-500/60 transition-all duration-700 shadow-2xl hover:shadow-[0_25px_50px_-12px_rgba(100,116,139,0.4)] relative overflow-hidden group"
                     >
-                      {/* Background Pattern */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      {/* Enhanced Multi-layer Background Pattern */}
+                      {/* Hover effects removed */}
+                      <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-radial from-sandstone/10 to-transparent rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-600 delay-200 transform -translate-x-4 translate-y-4" />
                       
                       <div className="relative z-10">
                         <div className="flex flex-col sm:flex-row sm:items-center mb-4 sm:mb-6">
@@ -153,7 +154,7 @@ const CompanyJourney = () => {
                           </div>
                         </div>
                         
-                        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-midnight mb-4 sm:mb-6 leading-tight group-hover:text-gold transition-colors duration-300">
+                        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-midnight mb-4 sm:mb-6 leading-tight group-hover:text-slate-200 transition-colors duration-300">
                           {item.title}
                         </h3>
                         
@@ -173,7 +174,7 @@ const CompanyJourney = () => {
                       whileHover={{ scale: 1.03, y: -8 }}
                       className="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-video shadow-2xl group"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+                      {/* Image hover effects removed */}
                       <img
                         src={item.image}
                         alt={item.title}

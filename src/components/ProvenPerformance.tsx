@@ -111,12 +111,12 @@ const ProvenPerformance = () => {
                 >
                   <div className="relative z-10">
                     <motion.div 
-                      className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-gold/20 transition-all duration-300"
+                      className="w-12 h-12 bg-slate-600/10 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-slate-500/20 transition-all duration-300"
                     >
-                      <IconComponent className="w-6 h-6 text-gold" />
+                      <IconComponent className="w-6 h-6 text-slate-300" />
                     </motion.div>
                     
-                    <div className="text-2xl sm:text-3xl md:text-4xl font-black text-gold mb-2 tracking-tight">
+                    <div className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-300 mb-2 tracking-tight">
                        {stat.value}
                      </div>
                     

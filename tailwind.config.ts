@@ -258,6 +258,7 @@ export default {
 				'gradient-primary': 'linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--midnight)) 100%)',
 				'gradient-gold': 'linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--sandstone)) 100%)',
 				'gradient-hero': 'linear-gradient(135deg, hsl(var(--midnight)) 0%, hsl(var(--primary)) 50%, hsl(var(--charcoal)) 100%)',
+				'gradient-radial': 'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
 			}
 		}
 	},

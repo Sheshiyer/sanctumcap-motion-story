@@ -133,35 +133,22 @@ const InvestorPartners = () => {
                 damping: 15
               }}
               viewport={{ once: true }}
-              className="group relative bg-gradient-to-br from-midnight/90 to-midnight/70 backdrop-blur-sm rounded-3xl p-8 border border-gold/20 hover:border-gold/50 transition-all duration-500 overflow-hidden shadow-2xl hover:shadow-gold/10 cursor-pointer"
+              className="group relative bg-gradient-to-br from-midnight/90 to-midnight/70 backdrop-blur-sm rounded-3xl p-8 border border-slate-600/20 hover:border-slate-500/70 transition-all duration-700 overflow-hidden shadow-2xl hover:shadow-[0_30px_60px_-12px_rgba(100,116,139,0.5)] cursor-pointer"
             >
-              {/* Enhanced Hover Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gold/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute top-0 left-0 w-32 h-32 bg-gold/10 rounded-full blur-2xl transform -translate-x-16 -translate-y-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* Hover effects removed */}
+              <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-radial from-sandstone/12 to-transparent rounded-full blur-2xl transform translate-x-16 translate-y-16 opacity-0 group-hover:opacity-100 transition-opacity duration-600 delay-200" />
               
-              {/* Ripple Effect on Hover */}
-              <motion.div
-                className="absolute inset-0 rounded-3xl border-2 border-gold/0 group-hover:border-gold/20"
-                whileHover={{
-                  scale: [1, 1.05, 1],
-                  opacity: [0, 0.8, 0]
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  ease: "easeOut"
-                }}
-              />
+              {/* Border effect removed */}
               
 
 
               {/* Enhanced Content */}
               <div className="relative z-10">
-                <h3 className="text-xl font-bold text-midnight mb-3 group-hover:text-gold transition-colors duration-300 leading-tight">
+                <h3 className="text-xl font-bold text-midnight mb-3 group-hover:text-slate-200 transition-colors duration-300 leading-tight">
                   {investor.title}
                 </h3>
                 
-                <p className="text-lg font-semibold bg-gradient-to-r from-gold to-gold-400 bg-clip-text text-transparent mb-4 group-hover:from-gold-400 group-hover:to-gold-600 transition-all duration-300">
+                <p className="text-lg font-semibold bg-gradient-to-r from-slate-300 to-slate-400 bg-clip-text text-transparent mb-4 group-hover:from-slate-200 group-hover:to-slate-300 transition-all duration-300">
                   {investor.company}
                 </p>
                 

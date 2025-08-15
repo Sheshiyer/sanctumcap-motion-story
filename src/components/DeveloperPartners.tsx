@@ -168,19 +168,19 @@ const DeveloperPartners = () => {
                       transition: { type: "spring", stiffness: 300, damping: 20 }
                     }}
                     whileTap={{ scale: 0.98 }}
-                    className="bg-gradient-to-br from-midnight/90 to-midnight/70 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-gold/20 hover:border-gold/50 transition-all duration-500 group shadow-2xl hover:shadow-gold/10 cursor-pointer"
+                    className="bg-midnight/95 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-slate-600/20 hover:border-slate-500/50 transition-all duration-500 group shadow-2xl hover:shadow-slate-500/10 cursor-pointer"
                   >
                     {/* Enhanced Icon */}
-                    <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-gold/20 to-gold/10 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 lg:mb-8 group-hover:from-gold/30 group-hover:to-gold/20 transition-all duration-500 shadow-lg">
+                    <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-slate-600/30 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 lg:mb-8 group-hover:bg-slate-500/40 transition-all duration-500 shadow-lg">
                       {category.id === 'communities' ? (
-                        <Building className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-gold group-hover:scale-110 transition-transform duration-300" />
+                        <Building className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-slate-300 group-hover:scale-110 transition-transform duration-300" />
                       ) : (
-                        <Home className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-gold group-hover:scale-110 transition-transform duration-300" />
+                        <Home className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-slate-300 group-hover:scale-110 transition-transform duration-300" />
                       )}
                     </div>
 
                     {/* Enhanced Title */}
-                    <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-midnight mb-3 sm:mb-4 group-hover:text-gold transition-colors duration-300 leading-tight">
+                    <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-midnight mb-3 sm:mb-4 group-hover:text-slate-200 transition-colors duration-300 leading-tight">
                       {project.title}
                     </h3>
 
@@ -220,8 +220,7 @@ const DeveloperPartners = () => {
                       {project.description}
                     </p>
                     
-                    {/* Hover Effect Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none" />
+                    {/* Hover Effect Overlay - Removed */}
                     
                     {/* Floating Particles Effect */}
                     <motion.div
@@ -231,7 +230,7 @@ const DeveloperPartners = () => {
                       {[...Array(3)].map((_, i) => (
                         <motion.div
                           key={i}
-                          className="absolute w-1 h-1 bg-gold/30 rounded-full"
+                          className="absolute w-1 h-1 bg-slate-400/30 rounded-full"
                           style={{
                             left: `${20 + i * 30}%`,
                             top: `${30 + i * 20}%`

@@ -127,10 +127,9 @@ const InvestmentMetrics = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-6 md:mb-8"
         >
-
           <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-midnight mb-6 tracking-tight">
             INVESTMENT{' '}
-            <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-slate-600 via-slate-500 to-slate-400 bg-clip-text text-transparent">
               PERFORMANCE
             </span>
           </h3>
@@ -139,7 +138,7 @@ const InvestmentMetrics = () => {
             style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)' }}
           >
             Track record of delivering{' '}
-            <span className="text-gold font-semibold">exceptional returns</span>{' '}
+            <span className="text-slate-600 font-semibold">exceptional returns</span>{' '}
             to our investors across premium real estate developments
           </p>
         </motion.div>
@@ -148,8 +147,8 @@ const InvestmentMetrics = () => {
         <div className="relative">
           {/* Background Patterns */}
           <div className="absolute inset-0 opacity-30">
-            <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-radial from-gold/20 to-transparent rounded-full blur-3xl" />
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-conic from-sandstone/15 via-transparent to-gold/10 rounded-full blur-2xl" />
+            <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-radial from-slate-500/20 to-transparent rounded-full blur-3xl" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-conic from-slate-400/15 via-transparent to-slate-500/10 rounded-full blur-2xl" />
           </div>
           
           <LoadingTransition
@@ -167,106 +166,103 @@ const InvestmentMetrics = () => {
               style={{ scale }}
             >
               {metrics.map((metric, index) => {
-              const IconComponent = metric.icon;
-              return (
-                <motion.div
-                  key={metric.id}
-                  initial={{ opacity: 0, y: 100, scale: 0.8, rotateX: 45 }}
-                  whileInView={{ 
-                    opacity: 1, 
-                    y: 0, 
-                    scale: 1, 
-                    rotateX: 0,
-                    transition: {
-                      duration: 0.8,
-                      delay: index * 0.15,
-                      ease: [0.25, 0.46, 0.45, 0.94]
-                    }
-                  }}
-                  whileHover={{ 
-                    scale: 1.05, 
-                    y: -12,
-                    rotateY: 8,
-                    rotateX: -5,
-                    transition: { type: "spring", stiffness: 300, damping: 20 }
-                  }}
-                  whileTap={{ scale: 0.98 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="group relative bg-gradient-to-br from-midnight/90 via-charcoal/80 to-primary-900/70 backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-5 border border-gold/25 hover:border-gold/60 transition-all duration-500 shadow-2xl hover:shadow-[0_25px_50px_-12px_rgba(212,175,55,0.25)] min-h-[180px] sm:min-h-[200px] lg:min-h-[220px] flex flex-col transform-gpu cursor-pointer"
-                  style={{
-                    transformStyle: 'preserve-3d',
-                    y: useTransform(scrollYProgress, [0, 1], [index * 20, -index * 20])
-                  }}
-                >
-                  {/* Icon Container */}
-                  <div className="flex items-center justify-between mb-3 sm:mb-4">
-                    <motion.div 
-                      className="p-2 sm:p-3 rounded-lg bg-gradient-to-br from-gold/20 to-sandstone/20 border border-gold/30 group-hover:from-gold/30 group-hover:to-sandstone/30 group-hover:border-gold/50 transition-all duration-300"
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                    >
-                      <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-gold group-hover:text-gold-400 transition-colors duration-300" />
-                    </motion.div>
-                    
-                    {/* Decorative Elements */}
-                    <div className="flex gap-1 opacity-40 group-hover:opacity-70 transition-opacity duration-300">
-                      <div className="w-1 h-1 rounded-full bg-gold" />
-                      <div className="w-1 h-1 rounded-full bg-gold/60" />
-                      <div className="w-1 h-1 rounded-full bg-gold/30" />
-                    </div>
-                  </div>
-
-                  {/* Metric Value */}
-                  <div className="flex-1 flex flex-col justify-center">
-                    <motion.div 
-                      className="text-2xl sm:text-3xl lg:text-4xl font-black mb-1 sm:mb-2"
-                      style={{
-                        background: 'linear-gradient(135deg, #D4AF37 0%, #F4E4BC 50%, #D4AF37 100%)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        backgroundClip: 'text',
-                        filter: 'drop-shadow(0 2px 4px rgba(212, 175, 55, 0.3))'
-                      }}
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <AnimatedCounter 
-                        value={metric.value} 
-                        prefix={metric.prefix}
-                        suffix={metric.suffix}
-                        duration={2000 + index * 200}
-                      />
-                    </motion.div>
-                    
-                    {/* Metric Label */}
-                    <motion.h4 
-                      className="text-xs sm:text-sm font-bold text-midnight/90 mb-2 sm:mb-3 tracking-wider leading-tight group-hover:text-midnight transition-colors duration-300"
-                      whileHover={{ 
-                        y: -2,
-                        transition: { type: "spring", stiffness: 400, damping: 10 }
-                      }}
-                    >
-                      {metric.label}
+                const IconComponent = metric.icon;
+                return (
+                  <motion.div
+                    key={metric.id}
+                    initial={{ opacity: 0, y: 100, scale: 0.8, rotateX: 45 }}
+                    whileInView={{ 
+                      opacity: 1, 
+                      y: 0, 
+                      scale: 1, 
+                      rotateX: 0,
+                      transition: {
+                        duration: 0.8,
+                        delay: index * 0.15,
+                        ease: [0.25, 0.46, 0.45, 0.94]
+                      }
+                    }}
+                    whileHover={{ 
+                      scale: 1.05, 
+                      y: -12,
+                      rotateY: 8,
+                      rotateX: -5,
+                      transition: { type: "spring", stiffness: 300, damping: 20 }
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    className="group relative bg-gradient-to-br from-midnight/90 via-charcoal/80 to-primary-900/70 backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-5 border border-slate-600/25 hover:border-slate-500/70 transition-all duration-700 shadow-2xl hover:shadow-[0_30px_60px_-12px_rgba(100,116,139,0.4)] min-h-[180px] sm:min-h-[200px] lg:min-h-[220px] flex flex-col transform-gpu cursor-pointer"
+                    style={{
+                      transformStyle: 'preserve-3d',
+                      y: useTransform(scrollYProgress, [0, 1], [index * 20, -index * 20])
+                    }}
+                  >
+                    {/* Icon Container */}
+                    <div className="flex items-center justify-between mb-3 sm:mb-4">
                       <motion.div 
-                        className="h-0.5 bg-gradient-to-r from-gold to-sandstone mt-1 origin-left"
-                        initial={{ scaleX: 0 }}
-                        whileInView={{ scaleX: 1 }}
-                        transition={{ duration: 0.8, delay: index * 0.1 + 0.5 }}
-                      />
-                    </motion.h4>
-                    
-                    {/* Description */}
-                    <p className="text-xs sm:text-sm text-midnight/70 group-hover:text-midnight/85 transition-colors duration-300 leading-relaxed">
-                      {metric.description}
-                    </p>
-                  </div>
+                        className="p-2 sm:p-3 rounded-lg bg-gradient-to-br from-slate-600/20 to-slate-700/20 border border-slate-500/30 group-hover:from-slate-500/30 group-hover:to-slate-600/30 group-hover:border-slate-400/50 transition-all duration-300"
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                      >
+                        <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-slate-300 group-hover:text-slate-200 transition-colors duration-300" />
+                      </motion.div>
+                      
+                      {/* Decorative Elements */}
+                      <div className="flex gap-1 opacity-40 group-hover:opacity-70 transition-opacity duration-300">
+                        <div className="w-1 h-1 rounded-full bg-slate-400" />
+                        <div className="w-1 h-1 rounded-full bg-slate-400/60" />
+                        <div className="w-1 h-1 rounded-full bg-slate-400/30" />
+                      </div>
+                    </div>
 
-                  {/* Hover Glow Effect */}
-                  <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-br from-gold/5 to-sandstone/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                  
-                  {/* Corner Accent */}
-                  <div className="absolute top-2 right-2 w-2 h-2 rounded-full bg-gold/30 group-hover:bg-gold/60 transition-colors duration-300" />
-                </motion.div>
-              );
-            })}
+                    {/* Metric Value */}
+                    <div className="flex-1 flex flex-col justify-center">
+                      <motion.div 
+                        className="text-2xl sm:text-3xl lg:text-4xl font-black mb-1 sm:mb-2"
+                        style={{
+                          background: 'linear-gradient(135deg, #D4AF37 0%, #c19f32 50%, #D4AF37 100%)',
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                          backgroundClip: 'text',
+                          filter: 'drop-shadow(0 2px 4px rgba(212, 175, 55, 0.3))'
+                        }}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <AnimatedCounter 
+                          value={metric.value} 
+                          prefix={metric.prefix}
+                          suffix={metric.suffix}
+                          duration={2000 + index * 200}
+                        />
+                      </motion.div>
+                      
+                      {/* Metric Label */}
+                      <motion.h4 
+                        className="text-xs sm:text-sm font-bold text-midnight/90 mb-2 sm:mb-3 tracking-wider leading-tight group-hover:text-midnight transition-colors duration-300"
+                        whileHover={{ 
+                          y: -2,
+                          transition: { type: "spring", stiffness: 400, damping: 10 }
+                        }}
+                      >
+                        {metric.label}
+                        <motion.div 
+                          className="h-0.5 bg-gradient-to-r from-slate-500 to-slate-400 mt-1 origin-left"
+                          initial={{ scaleX: 0 }}
+                          whileInView={{ scaleX: 1 }}
+                          transition={{ duration: 0.8, delay: index * 0.1 + 0.5 }}
+                        />
+                      </motion.h4>
+                      
+                      {/* Description */}
+                      <p className="text-xs sm:text-sm text-midnight/70 group-hover:text-midnight/85 transition-colors duration-300 leading-relaxed">
+                        {metric.description}
+                      </p>
+                    </div>
+
+                    {/* Corner Accent */}
+                    <div className="absolute top-2 right-2 w-2 h-2 rounded-full bg-slate-400/30 group-hover:bg-slate-300/60 transition-colors duration-300" />
+                  </motion.div>
+                );
+              })}
             </motion.div>
           </LoadingTransition>
         </div>

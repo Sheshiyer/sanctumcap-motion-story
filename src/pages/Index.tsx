@@ -64,11 +64,7 @@ const Index = () => {
         <div className="bg-background">
           <SectionSeparator className="py-16" opacity={30} />
           
-          <ProvenPerformance />
-          
-          <SectionSeparator />
-          
-          <GlobalInvestorMap />
+          <CompanyJourney />
           
           <SectionSeparator />
           
@@ -76,15 +72,7 @@ const Index = () => {
           
           <SectionSeparator />
           
-          <CompanyJourney />
-          
-          <SectionSeparator />
-          
           <InvestorPartners />
-          
-          <SectionSeparator />
-          
-          <GDPGrowthChart />
           
           <SectionSeparator />
           
