@@ -57,7 +57,7 @@ export const DotsLoader = ({ className = '' }: { className?: string }) => {
 export const CardSkeleton = ({ className = '' }: { className?: string }) => {
   return (
     <motion.div
-      className={`bg-midnight/90 backdrop-blur-sm rounded-2xl p-6 border border-gold/20 ${className}`}
+      className={`bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gold/20 ${className}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -82,7 +82,7 @@ export const CardSkeleton = ({ className = '' }: { className?: string }) => {
 export const MetricCardSkeleton = ({ className = '' }: { className?: string }) => {
   return (
     <motion.div
-      className={`bg-midnight/90 backdrop-blur-sm rounded-2xl p-6 border border-gold/20 ${className}`}
+      className={`bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gold/20 ${className}`}
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
@@ -102,7 +102,7 @@ export const PageLoadingOverlay = ({ isLoading }: { isLoading: boolean }) => {
 
   return (
     <motion.div
-      className="fixed inset-0 bg-midnight/90 backdrop-blur-sm z-50 flex items-center justify-center"
+      className="fixed inset-0 bg-white/90 backdrop-blur-sm z-50 flex items-center justify-center"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -111,7 +111,7 @@ export const PageLoadingOverlay = ({ isLoading }: { isLoading: boolean }) => {
       <div className="text-center">
         <LoadingSpinner size="lg" className="mx-auto mb-4" />
         <motion.p
-          className="text-platinum/80 text-lg font-medium"
+          className="text-midnight/80 text-lg font-medium"
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
         >
@@ -213,7 +213,7 @@ export const ProgressBar = ({
   className?: string; 
 }) => {
   return (
-    <div className={`w-full bg-midnight/50 rounded-full h-2 ${className}`}>
+    <div className={`w-full bg-gray-200 rounded-full h-2 ${className}`}>
       <motion.div
         className="h-full bg-gradient-to-r from-gold to-gold-400 rounded-full"
         initial={{ width: 0 }}

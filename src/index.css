@@ -130,33 +130,33 @@
     --info-dark: var(--primary-700);
 
     /* Background System - Updated to use HSL values */
-    --background: 218 60% 15%;              /* Deep Midnight Blue #0F1A3C */
-    --foreground: 240 7% 91%;               /* Cool Platinum #E6E6EB */
+    --background: 240 7% 91%;               /* Light background #E6E6EB */
+    --foreground: 218 60% 15%;              /* Dark text for light background */
     
-    --bg-secondary: var(--charcoal);        /* Secondary background */
-    --bg-tertiary: var(--primary-800);     /* Tertiary background */
+    --bg-secondary: 0 0% 98%;               /* Very light secondary background */
+    --bg-tertiary: var(--platinum-100);    /* Light tertiary background */
     --bg-accent: var(--gold);              /* Gold accent background */
 
     /* Card and Surface Colors */
-    --card: var(--charcoal);
-    --card-foreground: 240 7% 91%;          /* Cool Platinum */
+    --card: 0 0% 100%;                      /* White cards on light background */
+    --card-foreground: 218 60% 15%;         /* Dark text on white cards */
 
-    --popover: var(--charcoal);
-    --popover-foreground: 240 7% 91%;       /* Cool Platinum */
+    --popover: 0 0% 100%;                   /* White popover */
+    --popover-foreground: 218 60% 15%;      /* Dark text on white popover */
 
     /* Interactive Elements */
-    --muted: var(--slate);
-    --muted-foreground: var(--slate-400);
+    --muted: var(--platinum-200);           /* Light muted background */
+    --muted-foreground: var(--slate-600);   /* Darker muted text */
 
     --accent: 48 74% 58%;                   /* Luxe Metallic Gold */
-    --accent-foreground: 218 60% 15%;       /* Deep Midnight Blue */
+    --accent-foreground: 0 0% 100%;         /* White text on gold */
 
     --destructive: var(--error);
-    --destructive-foreground: 240 7% 91%;   /* Cool Platinum */
+    --destructive-foreground: 0 0% 100%;    /* White text on red */
 
     /* Borders and Inputs */
-    --border: var(--slate-700);
-    --input: var(--charcoal);
+    --border: var(--platinum-300);          /* Light borders */
+    --input: 0 0% 100%;                     /* White input backgrounds */
     --ring: 48 74% 58%;                     /* Luxe Metallic Gold */
 
     /* Radius */

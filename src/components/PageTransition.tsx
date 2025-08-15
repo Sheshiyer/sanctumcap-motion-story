@@ -22,8 +22,8 @@ const pageVariants = {
 };
 
 const pageTransition = {
-  type: 'tween',
-  ease: 'anticipate',
+  type: 'tween' as const,
+  ease: 'anticipate' as const,
   duration: 0.6
 };
 
@@ -44,8 +44,8 @@ const slideVariants = {
 };
 
 const slideTransition = {
-  type: 'tween',
-  ease: 'anticipate',
+  type: 'tween' as const,
+  ease: 'anticipate' as const,
   duration: 0.5
 };
 
@@ -84,7 +84,7 @@ const scaleVariants = {
 };
 
 const scaleTransition = {
-  type: 'spring',
+  type: 'spring' as const,
   stiffness: 300,
   damping: 30
 };
@@ -159,7 +159,7 @@ export const LoadingTransition = ({
       <div className="text-center">
         <LoadingSpinner size="lg" className="mx-auto mb-4" />
         <motion.p
-          className="text-platinum/80 text-lg font-medium"
+          className="text-midnight/80 text-lg font-medium"
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
         >

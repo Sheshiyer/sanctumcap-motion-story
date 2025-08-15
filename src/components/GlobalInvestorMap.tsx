@@ -81,14 +81,14 @@ const GlobalInvestorMap = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-platinum mb-6 tracking-tight">
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-midnight mb-6 tracking-tight">
             GLOBAL{' '}
             <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent font-black">
               INVESTOR
             </span>{' '}
             NETWORK
           </h3>
-          <p className="text-lg md:text-xl text-platinum/85 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-midnight/85 max-w-3xl mx-auto leading-relaxed">
             Trusted by investors across five countries, building wealth through strategic real estate investments
           </p>
         </motion.div>
@@ -136,7 +136,7 @@ const GlobalInvestorMap = () => {
                   damping: 15
                 }}
                 viewport={{ once: true }}
-                className="group relative bg-gradient-to-br from-midnight/80 via-charcoal/70 to-primary-900/60 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gold/20 hover:border-gold/40 transition-all duration-300 shadow-lg hover:shadow-xl overflow-hidden cursor-pointer"
+                className="group relative bg-midnight backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gold/20 hover:border-gold/40 transition-all duration-300 shadow-lg hover:shadow-xl overflow-hidden cursor-pointer"
               >
                 {/* Texture Overlay */}
                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_30%_30%,rgba(212,175,55,0.3)_0%,transparent_50%)] group-hover:opacity-20 transition-opacity duration-300" />
@@ -148,10 +148,10 @@ const GlobalInvestorMap = () => {
                   <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
                     <div className="text-3xl sm:text-4xl">{country.flag}</div>
                     <div>
-                      <h3 className="text-lg sm:text-xl font-bold text-platinum group-hover:text-gold transition-colors duration-300">
+                      <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-gold transition-colors duration-300">
                         {country.name}
                       </h3>
-                      <p className="text-xs sm:text-sm text-platinum/80">{country.description}</p>
+                      <p className="text-xs sm:text-sm text-white/80">{country.description}</p>
                     </div>
                   </div>
                   
@@ -159,7 +159,7 @@ const GlobalInvestorMap = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="text-xl sm:text-2xl font-black text-gold mb-1">{country.investors}</div>
-                      <div className="text-xs text-platinum/85 uppercase tracking-wider">Investors</div>
+                      <div className="text-xs text-white/85 uppercase tracking-wider">Investors</div>
                     </div>
                     
                     {/* Decorative Element */}
@@ -219,7 +219,7 @@ const GlobalInvestorMap = () => {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <p className="text-lg text-platinum/90 mb-6">
+          <p className="text-lg text-midnight/90 mb-6">
             Join our global community of successful real estate investors
           </p>
           <motion.button

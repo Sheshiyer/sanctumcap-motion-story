@@ -67,13 +67,13 @@ const CompanyJourney = () => {
           >
             🚀 Company Timeline
           </motion.div>
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-platinum mb-6 tracking-tight">
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-midnight mb-6 tracking-tight">
             OUR{' '}
             <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent">
               JOURNEY
             </span>
           </h3>
-          <p className="text-xl text-platinum/85 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-midnight/85 max-w-4xl mx-auto leading-relaxed">
             A decade of{' '}
             <span className="text-gold font-semibold">growth, innovation</span>, and delivering 
             exceptional real estate investments across Bengaluru
@@ -153,11 +153,11 @@ const CompanyJourney = () => {
                           </div>
                         </div>
                         
-                        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-platinum mb-4 sm:mb-6 leading-tight group-hover:text-gold transition-colors duration-300">
+                        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-midnight mb-4 sm:mb-6 leading-tight group-hover:text-gold transition-colors duration-300">
                           {item.title}
                         </h3>
                         
-                        <p className="text-platinum/85 text-base sm:text-lg leading-relaxed">
+                        <p className="text-midnight/85 text-base sm:text-lg leading-relaxed">
                           {item.description}
                         </p>
                       </div>
@@ -182,7 +182,7 @@ const CompanyJourney = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-midnight/80 via-midnight/20 to-transparent" />
                       <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 z-20">
                         <div className="text-gold font-semibold text-xs sm:text-sm mb-1 sm:mb-2">{item.year}</div>
-                        <div className="text-platinum font-bold text-base sm:text-lg">{item.title}</div>
+                        <div className="text-midnight font-bold text-base sm:text-lg">{item.title}</div>
                       </div>
                     </motion.div>
                   </div>

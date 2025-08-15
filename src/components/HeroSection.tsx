@@ -18,18 +18,21 @@ const HeroSection = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [assetsLoaded, setAssetsLoaded] = useState(false);
   
-  // Advanced scroll-based animations
-  const { scrollYProgress } = useScroll({
+  // Advanced scroll-based animations for hero section
+  const { scrollYProgress: heroScrollProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"]
   });
   
-  // Simplified scroll animations without problematic parallax
-  const logoScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
-  const logoOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.9, 0.8]);
+  // Global scroll progress for the entire document
+  const { scrollYProgress: globalScrollProgress } = useScroll();
   
-  // Scroll progress indicator
-  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  // Simplified scroll animations without problematic parallax
+  const logoScale = useTransform(heroScrollProgress, [0, 0.5], [1, 0.95]);
+  const logoOpacity = useTransform(heroScrollProgress, [0, 0.5, 1], [1, 0.9, 0.8]);
+  
+  // Scroll progress indicator - tracks entire document
+  const scaleX = useTransform(globalScrollProgress, [0, 1], [0, 1]);
 
   // Loading effect
   useEffect(() => {
@@ -57,11 +60,11 @@ const HeroSection = () => {
 
 
   return (
-    <motion.section ref={heroRef} id="home" className="relative min-h-screen w-full overflow-hidden">
+    <motion.section ref={heroRef} id="home" className="relative min-h-[80vh] w-full overflow-hidden bg-midnight">
       <LoadingTransition
         isLoading={isLoading}
         loadingComponent={
-          <SectionLoader className="min-h-screen" />
+          <SectionLoader className="min-h-[80vh]" />
         }
       >
       {/* Scroll Progress Indicator */}
@@ -80,19 +83,27 @@ const HeroSection = () => {
         <GeometricMatrix className="opacity-100 w-full h-full" />
       </div>
       
-      {/* Background Noise Layer */}
+      {/* Background Noise Layer with Brand Blue Double Gradients & Golden Glow */}
       <div 
-        className="absolute inset-0 z-[2] opacity-[0.03]"
+        className="absolute inset-0 z-[2] opacity-[0.25]"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-          mixBlendMode: 'overlay'
+          background: `
+            radial-gradient(circle at 30% 40%, rgba(212, 175, 55, 0.4) 0%, transparent 50%),
+            radial-gradient(circle at 70% 60%, rgba(212, 175, 55, 0.3) 0%, transparent 40%),
+            radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.2) 0%, transparent 60%),
+            linear-gradient(135deg, #0F1A3C 0%, #18275A 50%, #0F1A3C 100%),
+            linear-gradient(45deg, #18275A 0%, #0F1A3C 50%, #18275A 100%),
+            url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")
+          `,
+          mixBlendMode: 'overlay',
+          boxShadow: 'inset 0 0 100px rgba(212, 175, 55, 0.15), inset 0 0 200px rgba(212, 175, 55, 0.08)'
         }}
       />
 
 
 
       {/* Above the Fold Content - Fixed */}
-      <div className="relative z-10 pt-24 pb-16 w-full">
+      <div className="relative z-10 pt-24 pb-16 w-full min-h-screen">
         <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
           {/* Logo and Trusted Badge - Above the Fold */}
           <motion.div
@@ -160,7 +171,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="font-black text-platinum mb-6 leading-tight tracking-tight"
+              className="font-black text-white mb-6 leading-tight tracking-tight"
               style={{ 
                 fontFamily: 'Arial Black, sans-serif',
                 fontSize: 'clamp(1.8rem, 4vw, 3.5rem)'
@@ -177,7 +188,7 @@ const HeroSection = () => {
                 HIGH ALPHA
               </motion.span>
               <motion.span 
-                className="block text-platinum/95 mt-2"
+                className="block text-white/95 mt-2"
                 style={{ fontSize: 'clamp(1.2rem, 2.8vw, 2.2rem)' }}
                 whileHover={{ color: "#FFD700" }}
                 transition={{ duration: 0.3 }}
@@ -190,7 +201,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="text-platinum/85 mb-8 max-w-3xl mx-auto leading-relaxed"
+              className="text-white/85 mb-8 max-w-3xl mx-auto leading-relaxed"
               style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)' }}
             >
               Join investors from <span className="text-gold font-semibold">India, USA, Ireland, Japan, and Singapore</span> in 
@@ -257,7 +268,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4 }}
-          className="text-platinum/80 mb-[0.75rem] font-medium tracking-wider"
+          className="text-white/80 mb-[0.75rem] font-medium tracking-wider"
           style={{ fontSize: 'clamp(0.7rem, 1.5vw, 0.8rem)' }}
         >
           EXPLORE MORE

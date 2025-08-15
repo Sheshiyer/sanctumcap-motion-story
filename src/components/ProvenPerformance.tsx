@@ -71,13 +71,13 @@ const ProvenPerformance = () => {
             }}
             className="text-center mb-12"
           >
-            <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-platinum mb-6 tracking-tight">
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-midnight mb-6 tracking-tight">
               PROVEN{' '}
               <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent font-black">
                 PERFORMANCE
               </span>
             </h3>
-            <p className="text-sm sm:text-base md:text-lg text-platinum/85 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg text-midnight/85 max-w-2xl mx-auto">
               Track record that speaks for itself
             </p>
           </motion.div>
@@ -104,7 +104,7 @@ const ProvenPerformance = () => {
                     rotateY: 10,
                     transition: { type: "spring", stiffness: 300, damping: 20 }
                   }}
-                  className="relative bg-midnight/20 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center group hover:bg-midnight/30 transition-all duration-300 cursor-pointer"
+                  className="relative bg-midnight/80 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center group hover:bg-midnight/90 transition-all duration-300 cursor-pointer"
                   style={{
                     y: useTransform(scrollYProgress, [0, 1], [index * 15, -index * 15])
                   }}
@@ -120,7 +120,7 @@ const ProvenPerformance = () => {
                        {stat.value}
                      </div>
                     
-                    <div className="text-xs sm:text-sm text-platinum/90 font-medium uppercase tracking-wide">
+                    <div className="text-xs sm:text-sm text-white/90 font-medium uppercase tracking-wide">
                       {stat.label}
                     </div>
                   </div>

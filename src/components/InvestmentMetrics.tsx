@@ -115,7 +115,7 @@ const InvestmentMetrics = () => {
     <motion.section 
       ref={sectionRef}
       id="metrics" 
-      className="py-8 relative w-full overflow-hidden min-h-screen flex flex-col justify-center"
+      className="py-8 relative w-full overflow-hidden min-h-[80vh] flex flex-col justify-center"
       style={{ opacity, paddingTop: '2em', paddingBottom: '2em' }}
     >
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-6xl">
@@ -128,14 +128,14 @@ const InvestmentMetrics = () => {
           className="text-center mb-6 md:mb-8"
         >
 
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-platinum mb-6 tracking-tight">
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-midnight mb-6 tracking-tight">
             INVESTMENT{' '}
             <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent">
               PERFORMANCE
             </span>
           </h3>
           <p 
-            className="text-platinum/85 max-w-3xl mx-auto leading-relaxed px-4"
+            className="text-midnight/85 max-w-3xl mx-auto leading-relaxed px-4"
             style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)' }}
           >
             Track record of delivering{' '}
@@ -238,7 +238,7 @@ const InvestmentMetrics = () => {
                     
                     {/* Metric Label */}
                     <motion.h4 
-                      className="text-xs sm:text-sm font-bold text-platinum/90 mb-2 sm:mb-3 tracking-wider leading-tight group-hover:text-platinum transition-colors duration-300"
+                      className="text-xs sm:text-sm font-bold text-midnight/90 mb-2 sm:mb-3 tracking-wider leading-tight group-hover:text-midnight transition-colors duration-300"
                       whileHover={{ 
                         y: -2,
                         transition: { type: "spring", stiffness: 400, damping: 10 }
@@ -254,7 +254,7 @@ const InvestmentMetrics = () => {
                     </motion.h4>
                     
                     {/* Description */}
-                    <p className="text-xs sm:text-sm text-platinum/70 group-hover:text-platinum/85 transition-colors duration-300 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-midnight/70 group-hover:text-midnight/85 transition-colors duration-300 leading-relaxed">
                       {metric.description}
                     </p>
                   </div>

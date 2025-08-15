@@ -47,10 +47,10 @@ const ContactSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-platinum mb-6 tracking-tight">
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-midnight mb-6 tracking-tight">
             START YOUR INVESTMENT JOURNEY
           </h3>
-          <p className="text-xl text-platinum/85 max-w-3xl mx-auto">
+          <p className="text-xl text-midnight/85 max-w-3xl mx-auto">
             Connect with our investment experts to explore high-alpha real estate opportunities
           </p>
         </motion.div>
@@ -63,8 +63,8 @@ const ContactSection = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Card className="bg-charcoal/80 backdrop-blur-sm border-gold/20 p-8">
-              <h3 className="text-2xl font-bold text-platinum mb-6">
+            <Card className="bg-white/90 backdrop-blur-sm border-gold/20 p-8">
+              <h3 className="text-2xl font-bold text-midnight mb-6">
                 GET IN TOUCH
               </h3>
 
@@ -98,7 +98,7 @@ const ContactSection = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="bg-midnight/60 border-gold/30 text-platinum placeholder:text-platinum/65 focus:border-gold text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3"
+                      className="bg-white/90 border-gold/30 text-midnight placeholder:text-midnight/65 focus:border-gold text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3"
                     />
                   </motion.div>
                   <motion.div
@@ -118,7 +118,7 @@ const ContactSection = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="bg-midnight/60 border-gold/30 text-platinum placeholder:text-platinum/50 focus:border-gold text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3"
+                      className="bg-white/90 border-gold/30 text-midnight placeholder:text-midnight/50 focus:border-gold text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3"
                     />
                   </motion.div>
                 </div>
@@ -140,7 +140,7 @@ const ContactSection = () => {
                       placeholder="Phone Number"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="bg-midnight/60 border-gold/30 text-platinum placeholder:text-platinum/50 focus:border-gold text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3"
+                      className="bg-white/90 border-gold/30 text-midnight placeholder:text-midnight/50 focus:border-gold text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3"
                     />
                   </motion.div>
                   <motion.div
@@ -157,7 +157,7 @@ const ContactSection = () => {
                       name="investment"
                       value={formData.investment}
                       onChange={handleInputChange}
-                      className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-midnight/60 border border-gold/30 rounded-md text-platinum focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20 text-sm sm:text-base"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/90 border border-gold/30 rounded-md text-midnight focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20 text-sm sm:text-base"
                     >
                       <option value="">Investment Interest</option>
                       <option value="residential">Residential Properties</option>
@@ -185,7 +185,7 @@ const ContactSection = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={4}
-                    className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-midnight/60 border border-gold/30 rounded-md text-platinum placeholder:text-platinum/65 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20 text-sm sm:text-base resize-none"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/90 border border-gold/30 rounded-md text-midnight placeholder:text-midnight/65 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20 text-sm sm:text-base resize-none"
                   />
                 </motion.div>
 
@@ -237,7 +237,7 @@ const ContactSection = () => {
               <motion.div
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                className="bg-charcoal/60 backdrop-blur-sm rounded-2xl p-6 border border-gold/20 hover:border-gold/40 transition-all duration-300"
+                className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-gold/20 hover:border-gold/40 transition-all duration-300"
               >
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center">

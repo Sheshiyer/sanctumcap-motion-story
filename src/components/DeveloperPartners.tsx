@@ -81,13 +81,13 @@ const DeveloperPartners = () => {
           >
             🏆 Past Project Showcase
           </motion.div>
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-platinum mb-6 tracking-tight">
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-midnight mb-6 tracking-tight">
             COMPLETED{' '}
             <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent">
               PROJECTS
             </span>
           </h3>
-          <p className="text-xl text-platinum/85 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-midnight/85 max-w-4xl mx-auto leading-relaxed">
             Successful real estate investments with proven track record of delivering exceptional returns across 
             <span className="text-gold font-semibold">BMRDA and BDA approved</span> developments in Bengaluru
           </p>
@@ -101,7 +101,7 @@ const DeveloperPartners = () => {
           viewport={{ once: true }}
           className="flex flex-col sm:flex-row justify-center mb-12 sm:mb-16"
         >
-          <div className="bg-midnight/80 backdrop-blur-sm rounded-2xl p-3 inline-flex border border-gold/20 shadow-2xl">
+          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-3 inline-flex border border-gold/20 shadow-2xl">
             {developerData.map((category, index) => (
               <motion.button
                 key={category.id}
@@ -115,7 +115,7 @@ const DeveloperPartners = () => {
                 className={`px-4 sm:px-8 py-2 sm:py-4 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden text-sm sm:text-base ${
                   activeTab === category.id
                     ? 'bg-gradient-to-r from-gold to-gold-600 text-midnight shadow-xl'
-                    : 'text-platinum hover:text-gold hover:bg-gold/10'
+                    : 'text-midnight hover:text-gold hover:bg-gold/10'
                 }`}
               >
                 {activeTab === category.id && (
@@ -180,18 +180,18 @@ const DeveloperPartners = () => {
                     </div>
 
                     {/* Enhanced Title */}
-                    <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-platinum mb-3 sm:mb-4 group-hover:text-gold transition-colors duration-300 leading-tight">
+                    <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-midnight mb-3 sm:mb-4 group-hover:text-gold transition-colors duration-300 leading-tight">
                       {project.title}
                     </h3>
 
                     {/* Project Details Grid */}
                     <div className="grid grid-cols-2 gap-3 mb-4">
                       <div className="bg-gold/5 rounded-lg p-2 border border-gold/10">
-                        <div className="text-xs text-platinum/60 mb-1">Area</div>
+                        <div className="text-xs text-midnight/60 mb-1">Area</div>
                         <div className="text-sm font-semibold text-gold">{project.area}</div>
                       </div>
                       <div className="bg-gold/5 rounded-lg p-2 border border-gold/10">
-                        <div className="text-xs text-platinum/60 mb-1">Units</div>
+                        <div className="text-xs text-midnight/60 mb-1">Units</div>
                         <div className="text-sm font-semibold text-gold">{project.units}</div>
                       </div>
                     </div>
@@ -204,19 +204,19 @@ const DeveloperPartners = () => {
                     >
                       <div className="flex justify-between items-center bg-gradient-to-r from-gold/10 to-gold/5 rounded-lg p-3 border border-gold/20">
                         <div>
-                          <div className="text-xs text-platinum/60 mb-1">Investment</div>
-                          <div className="text-lg font-bold text-platinum">{project.investment}</div>
+                          <div className="text-xs text-midnight/60 mb-1">Investment</div>
+                          <div className="text-lg font-bold text-midnight">{project.investment}</div>
                         </div>
                         <div className="text-gold/60">→</div>
                         <div>
-                          <div className="text-xs text-platinum/60 mb-1">Exit Value</div>
+                          <div className="text-xs text-midnight/60 mb-1">Exit Value</div>
                           <div className="text-lg font-bold bg-gradient-to-r from-gold to-gold-400 bg-clip-text text-transparent">{project.exit}</div>
                         </div>
                       </div>
                     </motion.div>
 
                     {/* Enhanced Description */}
-                    <p className="text-sm sm:text-base text-platinum/85 leading-relaxed">
+                    <p className="text-sm sm:text-base text-midnight/85 leading-relaxed">
                       {project.description}
                     </p>
                     

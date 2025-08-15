@@ -34,22 +34,22 @@ const SectionSeparator = ({ className = "", opacity = 20 }: { className?: string
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay: 0.6 }}
     >
-      <div className="w-2 h-2 bg-gold/40 rounded-full animate-pulse" />
+      <div className="w-2 h-2 bg-midnight/40 rounded-full animate-pulse" />
     </motion.div>
   </div>
 );
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background relative w-full">
-      {/* Global Silk Background */}
+    <div className="min-h-[80vh] relative w-full">
+      {/* Global Silk Background - Adjusted for light theme */}
       <SilkBackground 
         speed={2}
         scale={1.5}
         color="#D4AF37"
-        noiseIntensity={1.2}
+        noiseIntensity={0.8}
         rotation={0.05}
-        className="opacity-30"
+        className="opacity-20"
       />
       
       {/* Global Vertical Text - Removed */}
@@ -60,36 +60,40 @@ const Index = () => {
       <div className="w-full">
         <HeroSection />
         
-        <SectionSeparator className="py-16" opacity={30} />
-        
-        <ProvenPerformance />
-        
-        <SectionSeparator />
-        
-        <GlobalInvestorMap />
-        
-        <SectionSeparator />
-        <InvestmentMetrics />
-        
-        <SectionSeparator />
-        
-        <CompanyJourney />
-        
-        <SectionSeparator />
-        
-        <InvestorPartners />
-        
-        <SectionSeparator />
-        
-        <GDPGrowthChart />
-        
-        <SectionSeparator />
-        
-        <DeveloperPartners />
-        
-        <SectionSeparator />
-        
-        <ContactSection />
+        {/* Light background container for all sections after hero */}
+        <div className="bg-background">
+          <SectionSeparator className="py-16" opacity={30} />
+          
+          <ProvenPerformance />
+          
+          <SectionSeparator />
+          
+          <GlobalInvestorMap />
+          
+          <SectionSeparator />
+          
+          <InvestmentMetrics />
+          
+          <SectionSeparator />
+          
+          <CompanyJourney />
+          
+          <SectionSeparator />
+          
+          <InvestorPartners />
+          
+          <SectionSeparator />
+          
+          <GDPGrowthChart />
+          
+          <SectionSeparator />
+          
+          <DeveloperPartners />
+          
+          <SectionSeparator />
+          
+          <ContactSection />
+        </div>
       </div>
       
       {/* Footer */}

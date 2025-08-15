@@ -90,13 +90,13 @@ const InvestorPartners = () => {
           >
             🤝 Global Network
           </motion.div>
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-platinum mb-6 tracking-tight">
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-midnight mb-6 tracking-tight">
             INVESTOR{' '}
             <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent">
               PARTNERS
             </span>
           </h3>
-          <p className="text-xl text-platinum/85 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-midnight/85 max-w-4xl mx-auto leading-relaxed">
             Trusted by{' '}
             <span className="text-gold font-semibold">leading investors and institutions</span>{' '}
             worldwide, building lasting partnerships for mutual growth
@@ -153,26 +153,11 @@ const InvestorPartners = () => {
                 }}
               />
               
-              {/* Enhanced Company Logo Placeholder */}
-              <motion.div 
-                className="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/10 rounded-2xl flex items-center justify-center mb-6 group-hover:from-gold/30 group-hover:to-gold/20 transition-all duration-500 shadow-lg relative z-10"
-                whileHover={{ 
-                  rotate: 360,
-                  scale: 1.1,
-                  boxShadow: "0 20px 40px rgba(255, 215, 0, 0.3)"
-                }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
-              >
-                <motion.div 
-                  className="w-8 h-8 bg-gradient-to-br from-gold to-gold-400 rounded-xl"
-                  whileHover={{ scale: 1.2, rotate: -360 }}
-                  transition={{ duration: 0.8, ease: "easeInOut" }}
-                />
-              </motion.div>
+
 
               {/* Enhanced Content */}
               <div className="relative z-10">
-                <h3 className="text-xl font-bold text-platinum mb-3 group-hover:text-gold transition-colors duration-300 leading-tight">
+                <h3 className="text-xl font-bold text-midnight mb-3 group-hover:text-gold transition-colors duration-300 leading-tight">
                   {investor.title}
                 </h3>
                 
@@ -180,7 +165,7 @@ const InvestorPartners = () => {
                   {investor.company}
                 </p>
                 
-                <div className="flex items-center text-platinum/85 text-sm font-medium group-hover:text-platinum/90 transition-colors duration-300">
+                <div className="flex items-center text-midnight/85 text-sm font-medium group-hover:text-midnight/90 transition-colors duration-300">
                   <MapPin className="w-4 h-4 mr-2 text-gold" />
                   {investor.location}
                 </div>
@@ -191,7 +176,7 @@ const InvestorPartners = () => {
                     ? 'bg-gold/20 text-gold' 
                     : investor.tier === 'director'
                     ? 'bg-primary/20 text-primary-300'
-                    : 'bg-platinum/20 text-platinum'
+                    : 'bg-midnight/20 text-midnight'
                 }`}>
                   {investor.tier.charAt(0).toUpperCase() + investor.tier.slice(1)}
                 </div>

@@ -41,8 +41,8 @@ const Navigation = () => {
       transition={{ type: "spring", stiffness: 100, damping: 15 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full max-w-[100vw] overflow-x-hidden ${
         isScrolled 
-          ? 'bg-midnight/20 backdrop-blur-xl border-b border-gold/20 shadow-2xl shadow-gold/10' 
-          : 'bg-midnight/10 backdrop-blur-md border-b border-gold/10'
+          ? 'bg-midnight/95 backdrop-blur-xl border-b border-gold/20 shadow-2xl shadow-gold/10' 
+          : 'bg-midnight/80 backdrop-blur-md border-b border-gold/10'
       }`}
     >
       <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
@@ -72,7 +72,7 @@ const Navigation = () => {
               <motion.button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className="text-sm xl:text-base text-platinum/85 hover:text-gold transition-colors duration-300 font-medium relative whitespace-nowrap px-2 py-1 group"
+                className="text-sm xl:text-base text-white/85 hover:text-gold transition-colors duration-300 font-medium relative whitespace-nowrap px-2 py-1 group"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -136,7 +136,7 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-platinum p-2 -mr-2"
+            className="lg:hidden text-white p-2 -mr-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -149,14 +149,14 @@ const Navigation = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-midnight/30 backdrop-blur-xl border border-gold/20 rounded-xl mt-3 p-4 shadow-2xl shadow-gold/10 mx-4 sm:mx-6"
+            className="lg:hidden bg-midnight/95 backdrop-blur-xl border border-gold/20 rounded-xl mt-3 p-4 shadow-2xl shadow-gold/10 mx-4 sm:mx-6"
           >
             <div className="space-y-1">
               {navigationItems.map((item) => (
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left py-3 px-2 text-platinum/85 hover:text-gold hover:bg-gold/10 transition-all duration-200 rounded-lg"
+                  className="block w-full text-left py-3 px-2 text-white/85 hover:text-gold hover:bg-gold/10 transition-all duration-200 rounded-lg"
                 >
                   {item.label}
                 </button>
