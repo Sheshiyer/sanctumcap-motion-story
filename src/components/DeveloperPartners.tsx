@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Building, Home, MapPin, Calendar } from 'lucide-react';
+import { Building, Building2, MapPin, Calendar } from 'lucide-react';
 
 const developerData = [
   {
@@ -81,14 +81,14 @@ const DeveloperPartners = () => {
           >
             🏆 Past Project Showcase
           </motion.div>
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-midnight mb-6 tracking-tight">
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 tracking-tight" style={{color: '#E6E6EB'}}>
             COMPLETED{' '}
             <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent">
               PROJECTS
             </span>
           </h3>
-          <p className="text-xl text-midnight/85 max-w-4xl mx-auto leading-relaxed">
-            Successful real estate investments with proven track record of delivering exceptional returns across 
+          <p className="text-xl max-w-4xl mx-auto leading-relaxed" style={{color: '#E6E6EB'}}>
+            Successful real estate investments with proven track record of delivering exceptional returns across{' '}
             <span className="text-gold font-semibold">BMRDA and BDA approved</span> developments in Bengaluru
           </p>
         </motion.div>
@@ -114,9 +114,10 @@ const DeveloperPartners = () => {
                 whileTap={{ scale: 0.95 }}
                 className={`px-4 sm:px-8 py-2 sm:py-4 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden text-sm sm:text-base ${
                   activeTab === category.id
-                    ? 'bg-gradient-to-r from-gold to-gold-600 text-midnight shadow-xl'
-                    : 'text-midnight hover:text-gold hover:bg-gold/10'
+                    ? 'bg-gradient-to-r from-gold to-gold-600 shadow-xl'
+                    : 'hover:text-gold hover:bg-gold/10'
                 }`}
+                style={{color: activeTab === category.id ? '#1a1a2e' : '#E6E6EB'}}
               >
                 {activeTab === category.id && (
                   <motion.div
@@ -175,23 +176,23 @@ const DeveloperPartners = () => {
                       {category.id === 'communities' ? (
                         <Building className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-slate-300 group-hover:scale-110 transition-transform duration-300" />
                       ) : (
-                        <Home className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-slate-300 group-hover:scale-110 transition-transform duration-300" />
+                        <Building2 className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-slate-300 group-hover:scale-110 transition-transform duration-300" />
                       )}
                     </div>
 
                     {/* Enhanced Title */}
-                    <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-midnight mb-3 sm:mb-4 group-hover:text-slate-200 transition-colors duration-300 leading-tight">
+                    <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-3 sm:mb-4 group-hover:text-slate-200 transition-colors duration-300 leading-tight" style={{color: '#E6E6EB'}}>
                       {project.title}
                     </h3>
 
                     {/* Project Details Grid */}
                     <div className="grid grid-cols-2 gap-3 mb-4">
                       <div className="bg-gold/5 rounded-lg p-2 border border-gold/10">
-                        <div className="text-xs text-midnight/60 mb-1">Area</div>
+                        <div className="text-xs mb-1" style={{color: '#E6E6EB'}}>Area</div>
                         <div className="text-sm font-semibold text-gold">{project.area}</div>
                       </div>
                       <div className="bg-gold/5 rounded-lg p-2 border border-gold/10">
-                        <div className="text-xs text-midnight/60 mb-1">Units</div>
+                        <div className="text-xs mb-1" style={{color: '#E6E6EB'}}>Units</div>
                         <div className="text-sm font-semibold text-gold">{project.units}</div>
                       </div>
                     </div>
@@ -204,19 +205,19 @@ const DeveloperPartners = () => {
                     >
                       <div className="flex justify-between items-center bg-gradient-to-r from-gold/10 to-gold/5 rounded-lg p-3 border border-gold/20">
                         <div>
-                          <div className="text-xs text-midnight/60 mb-1">Investment</div>
-                          <div className="text-lg font-bold text-midnight">{project.investment}</div>
+                          <div className="text-xs mb-1" style={{color: '#E6E6EB'}}>Investment</div>
+                          <div className="text-lg font-bold" style={{color: '#E6E6EB'}}>{project.investment}</div>
                         </div>
                         <div className="text-gold/60">→</div>
                         <div>
-                          <div className="text-xs text-midnight/60 mb-1">Exit Value</div>
+                          <div className="text-xs mb-1" style={{color: '#E6E6EB'}}>Exit Value</div>
                           <div className="text-lg font-bold bg-gradient-to-r from-gold to-gold-400 bg-clip-text text-transparent">{project.exit}</div>
                         </div>
                       </div>
                     </motion.div>
 
                     {/* Enhanced Description */}
-                    <p className="text-sm sm:text-base text-midnight/85 leading-relaxed">
+                    <p className="text-sm sm:text-base leading-relaxed" style={{color: '#E6E6EB'}}>
                       {project.description}
                     </p>
                     

@@ -10,7 +10,7 @@ const navigationItems = [
   { label: 'Company Profile', href: '#journey' },
   { label: 'Investment Metrics', href: '#metrics' },
   { label: 'Investor Partners', href: '#investors' },
-  { label: 'Developer Partners', href: '#developers' },
+  { label: 'Completed Projects', href: '#developers' },
   { label: 'Contact', href: '#contact' }
 ];
 

@@ -237,7 +237,8 @@ const ContactSection = () => {
               <motion.div
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-gold/20 hover:border-gold/40 transition-all duration-300"
+                className="rounded-2xl p-6 border border-gold/20 hover:border-gold/40 transition-all duration-300"
+                style={{backgroundColor: '#0F1A3C'}}
               >
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center">
@@ -253,7 +254,8 @@ const ContactSection = () => {
               <motion.div
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                className="bg-charcoal/60 backdrop-blur-sm rounded-2xl p-6 border border-gold/20 hover:border-gold/40 transition-all duration-300"
+                className="rounded-2xl p-6 border border-gold/20 hover:border-gold/40 transition-all duration-300"
+                style={{backgroundColor: '#0F1A3C'}}
               >
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center">
@@ -269,7 +271,8 @@ const ContactSection = () => {
               <motion.div
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                className="bg-charcoal/60 backdrop-blur-sm rounded-2xl p-6 border border-gold/20 hover:border-gold/40 transition-all duration-300"
+                className="rounded-2xl p-6 border border-gold/20 hover:border-gold/40 transition-all duration-300"
+                style={{backgroundColor: '#0F1A3C'}}
               >
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center">
