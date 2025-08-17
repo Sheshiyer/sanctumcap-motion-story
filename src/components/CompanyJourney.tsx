@@ -10,7 +10,7 @@ const timelineItems = [
     title: 'Initial foray',
     description: '₹50L invested, Exited with ₹1.5 Cr',
     metric: '₹50L → ₹1.5 Cr',
-    image: 'https://images.unsplash.com/photo-1560472355-536de3962603?w=600&h=400&fit=crop'
+    image: '/src/assets/initial-foray.png'
   },
   {
     id: '2014-2017',
@@ -34,7 +34,7 @@ const timelineItems = [
     title: 'Accelerated Returns',
     description: 'Invested ₹6.5 Cr, Exited ₹14 Cr',
     metric: '₹6.5 Cr → ₹14 Cr',
-    image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop'
+    image: '/src/assets/accelerated-returns.png'
   },
   {
     id: 'ongoing',
@@ -184,7 +184,7 @@ const CompanyJourney = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-midnight/80 via-midnight/20 to-transparent" />
                       <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 z-20">
                         <div className="text-gold font-semibold text-xs sm:text-sm mb-1 sm:mb-2">{item.year}</div>
-                        <div className="font-bold text-base sm:text-lg" style={{color: '#E6E6EB'}}>{item.title}</div>
+                        <div className="font-bold text-base sm:text-lg" style={{color: item.title === 'Initial foray' ? '#0F1A3C' : '#E6E6EB'}}>{item.title}</div>
                       </div>
                     </motion.div>
                   </div>
