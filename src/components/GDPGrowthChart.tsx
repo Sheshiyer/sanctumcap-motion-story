@@ -88,52 +88,7 @@ const GDPGrowthChart = () => {
           </div>
         </motion.div>
 
-        {/* Investment Options */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-            className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-gold/20"
-          >
-            <h3 className="text-2xl font-bold text-gold mb-4">CAPITAL GAINS INVESTMENTS</h3>
-            <p className="mb-6" style={{ color: '#1C1C2D' }}>
-              Invest in residential assets such as apartments, villas, and pre-launch offers. 
-              The best performing investments have seen a 24%+ CAGR, providing strong capital gains 
-              in a rapidly growing economy.
-            </p>
-            <div className="flex items-center justify-between">
-              <div>
-                <div className="text-3xl font-bold" style={{ color: '#0F1A3C' }}>24%+</div>
-                <div style={{ color: '#1C1C2D' }}>CAGR</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold" style={{ color: '#0F1A3C' }}>₹14 Cr+</div>
-                <div style={{ color: '#1C1C2D' }}>Returns</div>
-              </div>
-            </div>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            viewport={{ once: true }}
-            className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-gold/20"
-          >
-            <h3 className="text-2xl font-bold text-gold mb-4">MONTHLY INCOME INVESTMENTS</h3>
-            <p className="mb-6" style={{ color: '#1C1C2D' }}>
-              Earn steady returns through serviced hotel apartments or pre-launch investments. 
-              SanctumCap's investor returns from a recent project were ₹14 Cr, showcasing the 
-              high-yield opportunities available.
-            </p>
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2" style={{ color: '#0F1A3C' }}>₹14 Cr+</div>
-              <div style={{ color: '#1C1C2D' }}>Recent Project Returns</div>
-            </div>
-          </motion.div>
-        </div>
       </div>
     </section>
   );

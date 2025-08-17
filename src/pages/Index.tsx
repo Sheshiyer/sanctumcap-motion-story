@@ -89,11 +89,11 @@ const Index = () => {
           
           <SectionSeparator />
           
-          <GDPGrowthChart />
+          <DeveloperPartners />
           
           <SectionSeparator />
           
-          <DeveloperPartners />
+          <GDPGrowthChart />
           
           <SectionSeparator />
           
