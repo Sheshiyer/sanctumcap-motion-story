@@ -49,7 +49,7 @@ const timelineItems = [
 const CompanyJourney = () => {
   return (
     <section id="journey" className="py-20" style={{ paddingTop: '2em', paddingBottom: '2em' }}>
-      <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-x-hidden">
+      <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-visible">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

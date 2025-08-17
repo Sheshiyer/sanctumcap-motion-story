@@ -39,7 +39,7 @@ const Navigation = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 100, damping: 15 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full max-w-[100vw] overflow-x-hidden ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full max-w-[100vw] overflow-visible ${
         isScrolled 
           ? 'bg-midnight/95 backdrop-blur-xl border-b border-gold/20 shadow-2xl shadow-gold/10' 
           : 'bg-midnight/80 backdrop-blur-md border-b border-gold/10'

@@ -39,7 +39,7 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-20 relative" style={{ paddingTop: '2em', paddingBottom: '2em' }}>
-      <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-x-hidden">
+      <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-visible">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

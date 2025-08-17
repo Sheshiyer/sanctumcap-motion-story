@@ -197,7 +197,7 @@
   }
 
   html {
-    overflow-x: hidden;
+    overflow-x: visible;
     width: 100%;
     max-width: 100vw;
     /* Hide scrollbars globally */
@@ -212,7 +212,7 @@
 
   body {
     @apply bg-background text-foreground;
-    overflow-x: hidden;
+    overflow-x: visible;
     width: 100%;
     max-width: 100vw;
     position: relative;
@@ -246,7 +246,7 @@
   /* Ensure containers don't exceed viewport */
   .container {
     max-width: 100vw;
-    overflow-x: hidden;
+    overflow-x: visible;
   }
 }
 
@@ -275,7 +275,7 @@
     display: block;
     width: auto;
     max-width: 100%;
-    overflow: hidden;
+    overflow: visible;
     text-overflow: ellipsis;
   }
 
@@ -379,7 +379,7 @@
     line-height: 1.6;
   }
 
-  /* Animation utilities */
+  /* Animation utilities - Enhanced to prevent text cropping */
   .gpu-accelerated {
     transform: translateZ(0);
     will-change: transform, opacity;
@@ -392,15 +392,44 @@
     animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
   }
 
-  /* Typography animations */
+  /* Fix for framer-motion text cropping issues */
+  .motion-text-fix {
+    overflow: visible !important;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+
+  /* Ensure text elements don't get clipped during animations */
+  h1, h2, h3, h4, h5, h6, p {
+    overflow: visible;
+    transform-style: preserve-3d;
+  }
+
+  /* Global fix for framer-motion text cropping */
+  [data-framer-component-type] {
+    overflow: visible !important;
+  }
+
+  /* Prevent text cropping in motion divs */
+  div[style*="transform"] {
+    overflow: visible;
+  }
+
+  /* Prevent clipping of gradient text during animations */
+  .bg-clip-text {
+    overflow: visible !important;
+    transform-style: preserve-3d;
+  }
+
+  /* Typography animations - Fixed to prevent text cropping */
   .text-reveal {
-    overflow: hidden;
+    overflow: visible;
     display: inline-block;
   }
 
   .char-animation {
     display: inline-block;
-    transform: translateY(100%);
+    transform: translateY(0%);
   }
 
   /* Screen reader only */

@@ -63,13 +63,13 @@ const GlobalInvestorMap = () => {
   return (
     <motion.section 
       ref={sectionRef}
-      className="relative py-20 w-full max-w-[100vw] overflow-hidden"
+      className="relative py-20 w-full max-w-[100vw] overflow-visible"
       style={{ opacity, paddingTop: '2em', paddingBottom: '2em' }}
     >
       {/* Background - Fixed */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.03)_0%,transparent_70%)]" />
       
-      <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto relative z-10 overflow-x-hidden">
+      <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto relative z-10 overflow-visible">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -136,7 +136,7 @@ const GlobalInvestorMap = () => {
                   damping: 15
                 }}
                 viewport={{ once: true }}
-                className="group relative bg-midnight backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gold/20 hover:border-gold/40 transition-all duration-300 shadow-lg hover:shadow-xl overflow-hidden cursor-pointer"
+                className="group relative bg-midnight backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gold/20 hover:border-gold/40 transition-all duration-300 shadow-lg hover:shadow-xl overflow-visible cursor-pointer"
               >
                 {/* Texture Overlay */}
                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_30%_30%,rgba(212,175,55,0.3)_0%,transparent_50%)] group-hover:opacity-20 transition-opacity duration-300" />

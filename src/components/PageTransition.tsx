@@ -397,15 +397,16 @@ export const SmoothReveal = ({
 
   return (
     <motion.div
-      className={className}
+      className={`${className} motion-text-fix`}
       initial={{ opacity: 0, ...getInitialPosition() }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
+      viewport={{ once: true, margin: '0px' }}
       transition={{
         duration: 0.8,
         delay,
         ease: 'easeOut'
       }}
+      style={{ overflow: 'visible' }}
     >
       {children}
     </motion.div>

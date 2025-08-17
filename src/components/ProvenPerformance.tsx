@@ -45,10 +45,10 @@ const ProvenPerformance = () => {
   return (
     <motion.section 
       ref={sectionRef}
-      className="relative py-20 overflow-hidden"
+      className="relative py-20 overflow-visible"
       style={{ opacity, paddingTop: '2em', paddingBottom: '2em' }}
     >
-      <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-x-hidden">
+      <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-visible">
         {/* Enhanced Metrics Section */}
         <motion.div
           initial={{ opacity: 0, y: 60, scale: 0.9 }}
@@ -107,7 +107,8 @@ const ProvenPerformance = () => {
                   className="relative rounded-xl p-4 sm:p-6 text-center group transition-all duration-300 cursor-pointer"
                   style={{
                     backgroundColor: '#0F1A3C',
-                    y: useTransform(scrollYProgress, [0, 1], [index * 15, -index * 15])
+                    y: useTransform(scrollYProgress, [0, 1], [index * 15, -index * 15]),
+                    overflow: 'visible'
                   }}
                 >
                   <div className="relative z-10">

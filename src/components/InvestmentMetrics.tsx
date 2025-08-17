@@ -120,7 +120,7 @@ const InvestmentMetrics = () => {
     <motion.section 
       ref={sectionRef}
       id="metrics" 
-      className="py-8 relative w-full overflow-hidden min-h-[80vh] flex flex-col justify-center"
+      className="py-8 relative w-full overflow-visible min-h-[80vh] flex flex-col justify-center"
       style={{ opacity, paddingTop: '2em', paddingBottom: '2em' }}
     >
       <div className="container mx-auto px-4 relative z-10">
@@ -155,7 +155,7 @@ const InvestmentMetrics = () => {
           <LoadingTransition isLoading={isLoading} loadingComponent={<StaggerContainer><MetricCardSkeleton /></StaggerContainer>}>
             <motion.div 
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 relative z-10"
-              style={{ y }}
+              style={{ y, overflow: 'visible' }}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               variants={{
@@ -175,7 +175,7 @@ const InvestmentMetrics = () => {
                 return (
                   <motion.div
                     key={metric.id}
-                    className="group relative p-4 sm:p-6 rounded-2xl border border-slate-200/60 hover:border-slate-300/80 transition-all duration-500 hover:shadow-xl hover:shadow-slate-200/40 cursor-pointer overflow-hidden"
+                    className="group relative p-4 sm:p-6 rounded-2xl border border-slate-200/60 hover:border-slate-300/80 transition-all duration-500 hover:shadow-xl hover:shadow-slate-200/40 cursor-pointer overflow-visible"
                      style={{ 
                        backgroundColor: '#0F1A3C',
                        transformStyle: 'preserve-3d',
