@@ -181,18 +181,18 @@ const DeveloperPartners = () => {
                     </div>
 
                     {/* Enhanced Title */}
-                    <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-3 sm:mb-4 group-hover:text-slate-200 transition-colors duration-300 leading-tight" style={{color: '#0F1A3C'}}>
+                    <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-3 sm:mb-4 group-hover:text-slate-200 transition-colors duration-300 leading-tight" style={{color: category.id === 'bmrda' ? '#E6E6EB' : '#0F1A3C'}}>
                       {project.title}
                     </h3>
 
                     {/* Project Details Grid */}
                     <div className="grid grid-cols-2 gap-3 mb-4">
                       <div className="bg-gold/5 rounded-lg p-2 border border-gold/10">
-                        <div className="text-xs mb-1" style={{color: '#0F1A3C'}}>Area</div>
+                        <div className="text-xs mb-1" style={{color: category.id === 'bmrda' ? '#E6E6EB' : '#0F1A3C'}}>Area</div>
                         <div className="text-sm font-semibold text-gold">{project.area}</div>
                       </div>
                       <div className="bg-gold/5 rounded-lg p-2 border border-gold/10">
-                        <div className="text-xs mb-1" style={{color: '#0F1A3C'}}>Units</div>
+                        <div className="text-xs mb-1" style={{color: category.id === 'bmrda' ? '#E6E6EB' : '#0F1A3C'}}>Units</div>
                         <div className="text-sm font-semibold text-gold">{project.units}</div>
                       </div>
                     </div>
@@ -205,19 +205,19 @@ const DeveloperPartners = () => {
                     >
                       <div className="flex justify-between items-center bg-gradient-to-r from-gold/10 to-gold/5 rounded-lg p-3 border border-gold/20">
                         <div>
-                          <div className="text-xs mb-1" style={{color: '#0F1A3C'}}>Investment</div>
-                          <div className="text-lg font-bold" style={{color: '#0F1A3C'}}>{project.investment}</div>
+                          <div className="text-xs mb-1" style={{color: category.id === 'bmrda' ? '#E6E6EB' : '#0F1A3C'}}>Investment</div>
+                          <div className="text-lg font-bold" style={{color: category.id === 'bmrda' ? '#E6E6EB' : '#0F1A3C'}}>{project.investment}</div>
                         </div>
                         <div className="text-gold/60">→</div>
                         <div>
-                          <div className="text-xs mb-1" style={{color: '#0F1A3C'}}>Exit Value</div>
+                          <div className="text-xs mb-1" style={{color: category.id === 'bmrda' ? '#E6E6EB' : '#0F1A3C'}}>Exit Value</div>
                           <div className="text-lg font-bold bg-gradient-to-r from-gold to-gold-400 bg-clip-text text-transparent">{project.exit}</div>
                         </div>
                       </div>
                     </motion.div>
 
                     {/* Enhanced Description */}
-                    <p className="text-sm sm:text-base leading-relaxed" style={{color: '#0F1A3C'}}>
+                    <p className="text-sm sm:text-base leading-relaxed" style={{color: category.id === 'bmrda' ? '#E6E6EB' : '#0F1A3C'}}>
                       {project.description}
                     </p>
                     

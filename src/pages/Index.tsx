@@ -12,6 +12,7 @@ import GDPGrowthChart from '@/components/GDPGrowthChart';
 import DeveloperPartners from '@/components/DeveloperPartners';
 import ContactSection from '@/components/ContactSection';
 import SilkBackground from '@/components/SilkBackground';
+import TrustFactors from '@/components/TrustFactors';
 // import GlobalVerticalText from '@/components/GlobalVerticalText'; // Removed
 import logoIcon from '@/assets/logo-icon.png';
 
@@ -69,6 +70,10 @@ const Index = () => {
           <SectionSeparator />
           
           <GlobalInvestorMap />
+          
+          <SectionSeparator />
+          
+          <TrustFactors />
           
           <SectionSeparator />
           
