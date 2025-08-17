@@ -2,6 +2,8 @@
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import initialForayImage from '../assets/initialforay.png';
+import acceleratedReturnsImage from '../assets/acceleratedreturns.png';
 
 const timelineItems = [
   {
@@ -10,7 +12,7 @@ const timelineItems = [
     title: 'Initial foray',
     description: '₹50L invested, Exited with ₹1.5 Cr',
     metric: '₹50L → ₹1.5 Cr',
-    image: '/src/assets/initial-foray.png'
+    image: initialForayImage
   },
   {
     id: '2014-2017',
@@ -34,7 +36,7 @@ const timelineItems = [
     title: 'Accelerated Returns',
     description: 'Invested ₹6.5 Cr, Exited ₹14 Cr',
     metric: '₹6.5 Cr → ₹14 Cr',
-    image: '/src/assets/accelerated-returns.png'
+    image: acceleratedReturnsImage
   },
   {
     id: 'ongoing',
