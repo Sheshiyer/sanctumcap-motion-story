@@ -81,13 +81,13 @@ const DeveloperPartners = () => {
           >
             🏆 Past Project Showcase
           </motion.div>
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 tracking-tight" style={{color: '#E6E6EB'}}>
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 tracking-tight" style={{color: '#0F1A3C'}}>
             COMPLETED{' '}
             <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent">
               PROJECTS
             </span>
           </h3>
-          <p className="text-xl max-w-4xl mx-auto leading-relaxed" style={{color: '#E6E6EB'}}>
+          <p className="text-xl max-w-4xl mx-auto leading-relaxed" style={{color: '#0F1A3C'}}>
             Successful real estate investments with proven track record of delivering exceptional returns across{' '}
             <span className="text-gold font-semibold">BMRDA and BDA approved</span> developments in Bengaluru
           </p>
@@ -117,7 +117,7 @@ const DeveloperPartners = () => {
                     ? 'bg-gradient-to-r from-gold to-gold-600 shadow-xl'
                     : 'hover:text-gold hover:bg-gold/10'
                 }`}
-                style={{color: activeTab === category.id ? '#1a1a2e' : '#E6E6EB'}}
+                style={{color: activeTab === category.id ? '#1a1a2e' : '#0F1A3C'}}
               >
                 {activeTab === category.id && (
                   <motion.div
@@ -181,18 +181,18 @@ const DeveloperPartners = () => {
                     </div>
 
                     {/* Enhanced Title */}
-                    <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-3 sm:mb-4 group-hover:text-slate-200 transition-colors duration-300 leading-tight" style={{color: '#E6E6EB'}}>
+                    <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-3 sm:mb-4 group-hover:text-slate-200 transition-colors duration-300 leading-tight" style={{color: '#0F1A3C'}}>
                       {project.title}
                     </h3>
 
                     {/* Project Details Grid */}
                     <div className="grid grid-cols-2 gap-3 mb-4">
                       <div className="bg-gold/5 rounded-lg p-2 border border-gold/10">
-                        <div className="text-xs mb-1" style={{color: '#E6E6EB'}}>Area</div>
+                        <div className="text-xs mb-1" style={{color: '#0F1A3C'}}>Area</div>
                         <div className="text-sm font-semibold text-gold">{project.area}</div>
                       </div>
                       <div className="bg-gold/5 rounded-lg p-2 border border-gold/10">
-                        <div className="text-xs mb-1" style={{color: '#E6E6EB'}}>Units</div>
+                        <div className="text-xs mb-1" style={{color: '#0F1A3C'}}>Units</div>
                         <div className="text-sm font-semibold text-gold">{project.units}</div>
                       </div>
                     </div>
@@ -205,19 +205,19 @@ const DeveloperPartners = () => {
                     >
                       <div className="flex justify-between items-center bg-gradient-to-r from-gold/10 to-gold/5 rounded-lg p-3 border border-gold/20">
                         <div>
-                          <div className="text-xs mb-1" style={{color: '#E6E6EB'}}>Investment</div>
-                          <div className="text-lg font-bold" style={{color: '#E6E6EB'}}>{project.investment}</div>
+                          <div className="text-xs mb-1" style={{color: '#0F1A3C'}}>Investment</div>
+                          <div className="text-lg font-bold" style={{color: '#0F1A3C'}}>{project.investment}</div>
                         </div>
                         <div className="text-gold/60">→</div>
                         <div>
-                          <div className="text-xs mb-1" style={{color: '#E6E6EB'}}>Exit Value</div>
+                          <div className="text-xs mb-1" style={{color: '#0F1A3C'}}>Exit Value</div>
                           <div className="text-lg font-bold bg-gradient-to-r from-gold to-gold-400 bg-clip-text text-transparent">{project.exit}</div>
                         </div>
                       </div>
                     </motion.div>
 
                     {/* Enhanced Description */}
-                    <p className="text-sm sm:text-base leading-relaxed" style={{color: '#E6E6EB'}}>
+                    <p className="text-sm sm:text-base leading-relaxed" style={{color: '#0F1A3C'}}>
                       {project.description}
                     </p>
                     
