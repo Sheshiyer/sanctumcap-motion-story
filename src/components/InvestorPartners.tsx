@@ -133,7 +133,8 @@ const InvestorPartners = () => {
                 damping: 15
               }}
               viewport={{ once: true }}
-              className="group relative bg-gradient-to-br from-midnight/90 to-midnight/70 backdrop-blur-sm rounded-3xl p-8 border border-slate-600/20 hover:border-slate-500/70 transition-all duration-700 overflow-hidden shadow-2xl hover:shadow-[0_30px_60px_-12px_rgba(100,116,139,0.5)] cursor-pointer"
+              className="group relative backdrop-blur-sm rounded-3xl p-8 border border-slate-600/20 hover:border-slate-500/70 transition-all duration-700 overflow-hidden shadow-2xl hover:shadow-[0_30px_60px_-12px_rgba(100,116,139,0.5)] cursor-pointer"
+              style={{backgroundColor: '#0F1A3C'}}
             >
               {/* Hover effects removed */}
               <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-radial from-sandstone/12 to-transparent rounded-full blur-2xl transform translate-x-16 translate-y-16 opacity-0 group-hover:opacity-100 transition-opacity duration-600 delay-200" />

@@ -164,16 +164,20 @@ const GlobalInvestorMap = () => {
                     
                     {/* Decorative Element */}
                     <motion.div
-                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-slate-600/20 to-slate-700/5 border border-slate-500/30 flex items-center justify-center"
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-slate-500/30 flex items-center justify-center"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 50%, rgba(212, 175, 55, 0.1) 100%)'
+                      }}
                       whileHover={{ 
                         rotate: 360,
                         scale: 1.2,
-                        boxShadow: "0 0 20px rgba(100, 116, 139, 0.5)"
+                        boxShadow: "0 0 20px rgba(212, 175, 55, 0.3)"
                       }}
                       transition={{ duration: 0.8, ease: "easeInOut" }}
                     >
                       <motion.div 
-                        className="w-2 h-2 bg-slate-400 rounded-full"
+                        className="w-2 h-2 rounded-full"
+                        style={{ backgroundColor: '#D4AF37' }}
                         whileHover={{ scale: 1.5 }}
                         transition={{ duration: 0.3 }}
                       />

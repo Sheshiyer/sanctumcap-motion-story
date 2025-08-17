@@ -34,7 +34,7 @@ const SectionSeparator = ({ className = "", opacity = 20 }: { className?: string
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay: 0.6 }}
     >
-      <div className="w-2 h-2 bg-midnight/40 rounded-full animate-pulse" />
+      <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: '#0F1A3C' }} />
     </motion.div>
   </div>
 );

@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { TrendingUp, Building, Users, Award } from 'lucide-react';
+import { TrendingUp, Building, Users, Award, Globe } from 'lucide-react';
 import { MetricCardSkeleton, StaggerContainer, LoadingItem } from './LoadingStates';
 import { SmoothReveal, LoadingTransition } from './PageTransition';
 
@@ -41,6 +41,15 @@ const metrics = [
     prefix: '',
     icon: Users,
     description: 'Trusted by investors worldwide'
+  },
+  {
+    id: 'countries',
+    label: 'COUNTRIES REACHED',
+    value: 15,
+    suffix: '+',
+    prefix: '',
+    icon: Globe,
+    description: 'Global market presence'
   }
 ];
 
@@ -63,17 +72,15 @@ const AnimatedCounter = ({ value, prefix = '', suffix = '', duration = 2000 }: {
       
       const animate = (currentTime: number) => {
         if (!startTime) startTime = currentTime;
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        
-        // Easing function for smooth animation
-        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-        const currentValue = Math.floor(startValue + (value - startValue) * easeOutQuart);
-        
-        setCount(currentValue);
+        const progress = Math.min((currentTime - startTime) / duration, 1);
         
         if (progress < 1) {
+          const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+          const currentValue = Math.floor(startValue + (value - startValue) * easeOutQuart);
+          setCount(currentValue);
           requestAnimationFrame(animate);
+        } else {
+          setCount(value);
         }
       };
       
@@ -89,27 +96,25 @@ const AnimatedCounter = ({ value, prefix = '', suffix = '', duration = 2000 }: {
 };
 
 const InvestmentMetrics = () => {
-  const sectionRef = useRef<HTMLElement>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [metricsLoaded, setMetricsLoaded] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"]
   });
   
-  // Simulate loading metrics data
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setMetricsLoaded(true);
-      setTimeout(() => setIsLoading(false), 300);
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, []);
-  
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.8, 1, 1, 0.8]);
+
+  useEffect(() => {
+    if (isInView) {
+      const timer = setTimeout(() => setIsLoading(false), 800);
+      return () => clearTimeout(timer);
+    }
+  }, [isInView]);
 
   return (
     <motion.section 
@@ -118,20 +123,16 @@ const InvestmentMetrics = () => {
       className="py-8 relative w-full overflow-hidden min-h-[80vh] flex flex-col justify-center"
       style={{ opacity, paddingTop: '2em', paddingBottom: '2em' }}
     >
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-6xl">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-6 md:mb-8"
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div 
+          className="text-center mb-8 sm:mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-midnight mb-6 tracking-tight">
-            INVESTMENT{' '}
-            <span className="bg-gradient-to-r from-slate-600 via-slate-500 to-slate-400 bg-clip-text text-transparent">
-              PERFORMANCE
-            </span>
+              INVESTMENT{' '}
+              <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent font-black">PERFORMANCE</span>
           </h3>
           <p 
             className="text-midnight/85 max-w-3xl mx-auto leading-relaxed px-4"
@@ -150,60 +151,77 @@ const InvestmentMetrics = () => {
             <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-radial from-slate-500/20 to-transparent rounded-full blur-3xl" />
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-conic from-slate-400/15 via-transparent to-slate-500/10 rounded-full blur-2xl" />
           </div>
-          
-          <LoadingTransition
-            isLoading={isLoading}
-            loadingComponent={
-              <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
-                {Array.from({ length: 4 }).map((_, index) => (
-                  <MetricCardSkeleton key={index} />
-                ))}
-              </div>
-            }
-          >
+
+          <LoadingTransition isLoading={isLoading} loadingComponent={<StaggerContainer><MetricCardSkeleton /></StaggerContainer>}>
             <motion.div 
-              className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6"
-              style={{ scale }}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 relative z-10"
+              style={{ y }}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.15,
+                    delayChildren: 0.3
+                  }
+                }
+              }}
             >
               {metrics.map((metric, index) => {
                 const IconComponent = metric.icon;
+                
                 return (
                   <motion.div
                     key={metric.id}
-                    initial={{ opacity: 0, y: 100, scale: 0.8, rotateX: 45 }}
-                    whileInView={{ 
-                      opacity: 1, 
-                      y: 0, 
-                      scale: 1, 
-                      rotateX: 0,
-                      transition: {
-                        duration: 0.8,
-                        delay: index * 0.15,
-                        ease: [0.25, 0.46, 0.45, 0.94]
-                      }
-                    }}
-                    whileHover={{ 
-                      scale: 1.05, 
-                      y: -12,
-                      rotateY: 8,
-                      rotateX: -5,
-                      transition: { type: "spring", stiffness: 300, damping: 20 }
-                    }}
-                    whileTap={{ scale: 0.98 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    className="group relative bg-gradient-to-br from-midnight/90 via-charcoal/80 to-primary-900/70 backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-5 border border-slate-600/25 hover:border-slate-500/70 transition-all duration-700 shadow-2xl hover:shadow-[0_30px_60px_-12px_rgba(100,116,139,0.4)] min-h-[180px] sm:min-h-[200px] lg:min-h-[220px] flex flex-col transform-gpu cursor-pointer"
-                    style={{
-                      transformStyle: 'preserve-3d',
-                      y: useTransform(scrollYProgress, [0, 1], [index * 20, -index * 20])
-                    }}
+                    className="group relative p-4 sm:p-6 rounded-2xl border border-slate-200/60 hover:border-slate-300/80 transition-all duration-500 hover:shadow-xl hover:shadow-slate-200/40 cursor-pointer overflow-hidden"
+                     style={{ 
+                       backgroundColor: '#0F1A3C',
+                       transformStyle: 'preserve-3d',
+                       y: useTransform(scrollYProgress, [0, 1], [index * 20, -index * 20])
+                     }}
+                     variants={{
+                       hidden: { 
+                         opacity: 0, 
+                         y: 60,
+                         scale: 0.8,
+                         rotateX: -15
+                       },
+                       visible: { 
+                         opacity: 1, 
+                         y: 0,
+                         scale: 1,
+                         rotateX: 0,
+                         transition: {
+                           type: "spring",
+                           stiffness: 100,
+                           damping: 15,
+                           duration: 0.8
+                         }
+                       }
+                     }}
+                     whileHover={{ 
+                       scale: 1.02,
+                       y: -8,
+                       transition: { duration: 0.3 }
+                     }}
                   >
                     {/* Icon Container */}
                     <div className="flex items-center justify-between mb-3 sm:mb-4">
                       <motion.div 
-                        className="p-2 sm:p-3 rounded-lg bg-gradient-to-br from-slate-600/20 to-slate-700/20 border border-slate-500/30 group-hover:from-slate-500/30 group-hover:to-slate-600/30 group-hover:border-slate-400/50 transition-all duration-300"
-                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center transition-all duration-300"
+                        style={{ backgroundColor: '#0F1A3C' }}
+                        whileHover={{ 
+                          scale: 1.1, 
+                          rotate: 5,
+                          boxShadow: "0 0 15px rgba(212, 175, 55, 0.4)"
+                        }}
                       >
-                        <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-slate-300 group-hover:text-slate-200 transition-colors duration-300" />
+                        <IconComponent 
+                          className="w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300" 
+                          style={{ color: '#D4AF37' }}
+                        />
                       </motion.div>
                       
                       {/* Decorative Elements */}
@@ -215,49 +233,31 @@ const InvestmentMetrics = () => {
                     </div>
 
                     {/* Metric Value */}
-                    <div className="flex-1 flex flex-col justify-center">
-                      <motion.div 
-                        className="text-2xl sm:text-3xl lg:text-4xl font-black mb-1 sm:mb-2"
-                        style={{
-                          background: 'linear-gradient(135deg, #D4AF37 0%, #c19f32 50%, #D4AF37 100%)',
-                          WebkitBackgroundClip: 'text',
-                          WebkitTextFillColor: 'transparent',
-                          backgroundClip: 'text',
-                          filter: 'drop-shadow(0 2px 4px rgba(212, 175, 55, 0.3))'
-                        }}
-                        whileHover={{ scale: 1.05 }}
-                      >
+                    <motion.div className="mb-2 sm:mb-3">
+                      <div className="text-2xl sm:text-3xl lg:text-4xl font-black mb-1" style={{ color: '#E6E6EB' }}>
                         <AnimatedCounter 
                           value={metric.value} 
-                          prefix={metric.prefix}
+                          prefix={metric.prefix} 
                           suffix={metric.suffix}
                           duration={2000 + index * 200}
                         />
-                      </motion.div>
-                      
-                      {/* Metric Label */}
+                      </div>
                       <motion.h4 
-                        className="text-xs sm:text-sm font-bold text-midnight/90 mb-2 sm:mb-3 tracking-wider leading-tight group-hover:text-midnight transition-colors duration-300"
-                        whileHover={{ 
-                          y: -2,
-                          transition: { type: "spring", stiffness: 400, damping: 10 }
-                        }}
+                        className="text-xs sm:text-sm font-bold tracking-wider opacity-90"
+                        style={{ color: '#E6E6EB' }}
                       >
                         {metric.label}
-                        <motion.div 
-                          className="h-0.5 bg-gradient-to-r from-slate-500 to-slate-400 mt-1 origin-left"
-                          initial={{ scaleX: 0 }}
-                          whileInView={{ scaleX: 1 }}
-                          transition={{ duration: 0.8, delay: index * 0.1 + 0.5 }}
-                        />
                       </motion.h4>
-                      
-                      {/* Description */}
-                      <p className="text-xs sm:text-sm text-midnight/70 group-hover:text-midnight/85 transition-colors duration-300 leading-relaxed">
-                        {metric.description}
-                      </p>
-                    </div>
+                    </motion.div>
 
+                    {/* Description */}
+                    <motion.div className="text-xs sm:text-sm leading-relaxed" style={{ color: '#E6E6EB' }}>
+                      {metric.description}
+                    </motion.div>
+
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-slate-900/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl" />
+                    
                     {/* Corner Accent */}
                     <div className="absolute top-2 right-2 w-2 h-2 rounded-full bg-slate-400/30 group-hover:bg-slate-300/60 transition-colors duration-300" />
                   </motion.div>

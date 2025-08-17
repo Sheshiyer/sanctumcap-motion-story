@@ -67,13 +67,13 @@ const CompanyJourney = () => {
           >
             🚀 Company Timeline
           </motion.div>
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-midnight mb-6 tracking-tight">
-            OUR{' '}
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 tracking-tight">
+            <span style={{color: '#0F1A3C'}}>OUR</span>{' '}
             <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent">
               JOURNEY
             </span>
           </h3>
-          <p className="text-xl text-midnight/85 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl max-w-4xl mx-auto leading-relaxed" style={{color: '#0F1A3C'}}>
             A decade of{' '}
             <span className="text-gold font-semibold">growth, innovation</span>, and delivering 
             exceptional real estate investments across Bengaluru
@@ -82,13 +82,13 @@ const CompanyJourney = () => {
 
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gold/30 hidden lg:block">
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-midnight/30 hidden lg:block">
             <motion.div
               initial={{ height: 0 }}
               whileInView={{ height: '100%' }}
               transition={{ duration: 2, ease: "easeInOut" }}
               viewport={{ once: true }}
-              className="w-full bg-gold"
+              className="w-full bg-midnight"
             />
           </div>
 
@@ -124,12 +124,12 @@ const CompanyJourney = () => {
                   }`}
                 >
                   {/* Timeline Node */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gold rounded-full border-4 border-midnight z-10 hidden lg:block">
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-midnight rounded-full border-4 border-midnight z-10 hidden lg:block">
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={isInView ? { scale: 1 } : {}}
                       transition={{ delay: 0.5 + index * 0.2, type: "spring", stiffness: 300 }}
-                      className="w-full h-full bg-gold rounded-full"
+                      className="w-full h-full bg-midnight rounded-full"
                     />
                   </div>
 
@@ -138,7 +138,8 @@ const CompanyJourney = () => {
                     <motion.div
                       whileHover={{ scale: 1.02, y: -5 }}
                       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                      className="bg-gradient-to-br from-midnight/90 to-midnight/70 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 border border-slate-600/20 hover:border-slate-500/60 transition-all duration-700 shadow-2xl hover:shadow-[0_25px_50px_-12px_rgba(100,116,139,0.4)] relative overflow-hidden group"
+                      className="backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 border border-slate-600/20 hover:border-slate-500/60 transition-all duration-700 shadow-2xl hover:shadow-[0_25px_50px_-12px_rgba(100,116,139,0.4)] relative overflow-hidden group"
+                      style={{ backgroundColor: '#0F1A3C' }}
                     >
                       {/* Enhanced Multi-layer Background Pattern */}
                       {/* Hover effects removed */}
@@ -154,11 +155,11 @@ const CompanyJourney = () => {
                           </div>
                         </div>
                         
-                        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-midnight mb-4 sm:mb-6 leading-tight group-hover:text-slate-200 transition-colors duration-300">
+                        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 leading-tight group-hover:text-slate-200 transition-colors duration-300" style={{color: '#E6E6EB'}}>
                           {item.title}
                         </h3>
                         
-                        <p className="text-midnight/85 text-base sm:text-lg leading-relaxed">
+                        <p className="text-base sm:text-lg leading-relaxed" style={{color: '#E6E6EB'}}>
                           {item.description}
                         </p>
                       </div>
@@ -183,7 +184,7 @@ const CompanyJourney = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-midnight/80 via-midnight/20 to-transparent" />
                       <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 z-20">
                         <div className="text-gold font-semibold text-xs sm:text-sm mb-1 sm:mb-2">{item.year}</div>
-                        <div className="text-midnight font-bold text-base sm:text-lg">{item.title}</div>
+                        <div className="font-bold text-base sm:text-lg" style={{color: '#E6E6EB'}}>{item.title}</div>
                       </div>
                     </motion.div>
                   </div>
