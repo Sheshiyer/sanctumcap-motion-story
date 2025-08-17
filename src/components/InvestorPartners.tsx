@@ -145,7 +145,7 @@ const InvestorPartners = () => {
 
               {/* Enhanced Content */}
               <div className="relative z-10">
-                <h3 className="text-xl font-bold text-midnight mb-3 group-hover:text-slate-200 transition-colors duration-300 leading-tight">
+                <h3 className="text-xl font-bold mb-3 group-hover:text-slate-200 transition-colors duration-300 leading-tight" style={{color: '#E6E6EB'}}>
                   {investor.title}
                 </h3>
                 
@@ -153,7 +153,7 @@ const InvestorPartners = () => {
                   {investor.company}
                 </p>
                 
-                <div className="flex items-center text-midnight/85 text-sm font-medium group-hover:text-midnight/90 transition-colors duration-300">
+                <div className="flex items-center text-sm font-medium transition-colors duration-300" style={{color: '#E6E6EB'}}>
                   <MapPin className="w-4 h-4 mr-2 text-gold" />
                   {investor.location}
                 </div>
@@ -163,9 +163,12 @@ const InvestorPartners = () => {
                   investor.tier === 'executive' 
                     ? 'bg-gold/20 text-gold' 
                     : investor.tier === 'director'
-                    ? 'bg-primary/20 text-primary-300'
-                    : 'bg-midnight/20 text-midnight'
-                }`}>
+                    ? ''
+                    : 'bg-slate-200/20'
+                }`} style={{
+                  backgroundColor: investor.tier === 'director' ? 'rgba(212, 175, 55, 0.2)' : undefined,
+                  color: investor.tier === 'manager' ? '#E6E6EB' : investor.tier === 'director' ? '#D4AF37' : undefined
+                }}>
                   {investor.tier.charAt(0).toUpperCase() + investor.tier.slice(1)}
                 </div>
               </div>
