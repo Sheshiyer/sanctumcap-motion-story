@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { TrendingUp, Building, Users, Award, Globe } from 'lucide-react';
+import { TrendingUp, Building, Users, Award } from 'lucide-react';
 import { MetricCardSkeleton, StaggerContainer, LoadingItem } from './LoadingStates';
 import { SmoothReveal, LoadingTransition } from './PageTransition';
 
@@ -41,15 +41,6 @@ const metrics = [
     prefix: '',
     icon: Users,
     description: 'Trusted by investors worldwide'
-  },
-  {
-    id: 'countries',
-    label: 'COUNTRIES REACHED',
-    value: 15,
-    suffix: '+',
-    prefix: '',
-    icon: Globe,
-    description: 'Global market presence'
   }
 ];
 
@@ -154,7 +145,7 @@ const InvestmentMetrics = () => {
 
           <LoadingTransition isLoading={isLoading} loadingComponent={<StaggerContainer><MetricCardSkeleton /></StaggerContainer>}>
             <motion.div 
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 relative z-10"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 relative z-10"
               style={{ y, overflow: 'visible' }}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}

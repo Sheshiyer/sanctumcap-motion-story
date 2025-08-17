@@ -5,7 +5,7 @@ import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import GlobalInvestorMap from '@/components/GlobalInvestorMap';
 import ProvenPerformance from '@/components/ProvenPerformance';
-import InvestmentMetrics from '@/components/InvestmentMetrics';
+import GoldMetricsContainer from '@/components/GoldMetricsContainer';
 import CompanyJourney from '@/components/CompanyJourney';
 import InvestorPartners from '@/components/InvestorPartners';
 import GDPGrowthChart from '@/components/GDPGrowthChart';
@@ -77,7 +77,7 @@ const Index = () => {
           
           <SectionSeparator />
           
-          <InvestmentMetrics />
+          <GoldMetricsContainer />
           
           <SectionSeparator />
           
