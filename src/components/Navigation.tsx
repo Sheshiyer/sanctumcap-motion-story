@@ -7,7 +7,7 @@ import logoIcon from '@/assets/logo-icon.png';
 
 const navigationItems = [
   { label: 'Home', href: '#home' },
-  { label: 'Company Profile', href: '#journey' },
+  { label: 'Why Sanctum', href: '#trust' },
   { label: 'Investment Metrics', href: '#metrics' },
   { label: 'Investor Partners', href: '#investors' },
   { label: 'Completed Projects', href: '#developers' },

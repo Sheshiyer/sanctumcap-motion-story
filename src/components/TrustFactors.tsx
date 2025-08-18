@@ -52,6 +52,7 @@ const TrustFactors = () => {
 
   return (
     <motion.section 
+      id="trust"
       ref={sectionRef}
       className="py-8 relative w-full overflow-visible min-h-[80vh] flex flex-col justify-center"
       style={{ opacity, paddingTop: '2em', paddingBottom: '2em' }}
@@ -69,7 +70,8 @@ const TrustFactors = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-2 bg-gold/10 border border-gold/20 rounded-full text-gold text-sm font-medium mb-6"
+            className="inline-block px-4 py-2 bg-gold/10 border border-gold/20 rounded-full text-sm font-medium mb-6"
+            style={{ color: '#0F1A3C' }}
           >
             🛡️ Trust & Credibility
           </motion.div>

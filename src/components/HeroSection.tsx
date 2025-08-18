@@ -217,6 +217,12 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 1.2 }}
             >
               <motion.button
+                onClick={() => {
+                  const element = document.getElementById('metrics');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 className="bg-gradient-to-r from-gold to-gold-400 text-midnight font-semibold px-8 py-4 rounded-xl hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg hover:shadow-gold/30 relative overflow-hidden group"
                 whileHover={{ 
                   scale: 1.05, 
@@ -246,6 +252,7 @@ const HeroSection = () => {
                 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                onClick={() => document.getElementById('developers')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 <motion.div
                   className="absolute inset-0 bg-slate-400 scale-x-0 group-hover:scale-x-100 origin-left"
