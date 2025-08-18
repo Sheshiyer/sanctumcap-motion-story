@@ -107,6 +107,7 @@ const GoldMetricsContainer = () => {
 
   return (
     <motion.section 
+      id="metrics"
       ref={sectionRef}
       className="py-8 relative w-full overflow-visible min-h-[80vh] flex flex-col justify-center"
       style={{ opacity, paddingTop: '2em', paddingBottom: '2em' }}
@@ -119,15 +120,7 @@ const GoldMetricsContainer = () => {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="inline-block px-4 py-2 bg-gradient-to-r from-gold/20 to-gold/10 border border-gold/30 rounded-full text-gold text-sm font-medium mb-6"
-          >
-            📊 Investment Performance
-          </motion.div>
+
           <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-midnight mb-6 tracking-tight">
             INVESTMENT{' '}
             <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent font-black">PERFORMANCE</span>
