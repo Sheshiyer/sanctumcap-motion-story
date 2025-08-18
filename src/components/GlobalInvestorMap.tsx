@@ -188,24 +188,13 @@ const GlobalInvestorMap = () => {
                 {/* Hover Glow Effect */}
                 {/* Hover glow effect removed */}
                 
-                {/* Animated Border Effect */}
+                {/* Animated Border Effect - Simplified to prevent flickering */}
                 <motion.div
-                  className="absolute inset-0 rounded-xl"
-                  animate={{
-                    background: [
-                      "linear-gradient(0deg, rgba(255,215,0,0.1) 0%, transparent 50%, rgba(255,215,0,0.1) 100%)",
-                      "linear-gradient(90deg, rgba(255,215,0,0.1) 0%, transparent 50%, rgba(255,215,0,0.1) 100%)",
-                      "linear-gradient(180deg, rgba(255,215,0,0.1) 0%, transparent 50%, rgba(255,215,0,0.1) 100%)",
-                      "linear-gradient(270deg, rgba(255,215,0,0.1) 0%, transparent 50%, rgba(255,215,0,0.1) 100%)"
-                    ]
+                  className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100"
+                  style={{
+                    background: "linear-gradient(45deg, rgba(255,215,0,0.05) 0%, transparent 50%, rgba(255,215,0,0.05) 100%)"
                   }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                  style={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
                 />
               </motion.div>
             ))}
