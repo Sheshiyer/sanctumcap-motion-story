@@ -18,7 +18,7 @@ import logoIcon from '@/assets/logo-icon.png';
 
 // Animated Section Separator Component
 const SectionSeparator = ({ className = "", opacity = 20 }: { className?: string; opacity?: number }) => (
-  <div className={`relative py-12 ${className}`}>
+  <div className={`relative py-6 sm:py-8 md:py-12 ${className}`}>
     <div className="absolute inset-0 flex items-center justify-center">
       <motion.div 
         className={`w-full max-w-xs h-px bg-gradient-to-r from-transparent via-gold/${opacity} to-transparent`}
@@ -63,7 +63,7 @@ const Index = () => {
         
         {/* Light background container for all sections after hero */}
         <div className="bg-background">
-          <SectionSeparator className="py-16" opacity={30} />
+          <SectionSeparator className="py-8 sm:py-12 md:py-16" opacity={30} />
           
           <ProvenPerformance />
           

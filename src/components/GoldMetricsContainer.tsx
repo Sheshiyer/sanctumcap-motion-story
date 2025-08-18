@@ -50,15 +50,16 @@ const AnimatedCounter = ({ value, prefix = '', suffix = '', duration = 2000 }: {
   duration?: number;
 }) => {
   const [count, setCount] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
+  const animationRef = useRef<number>();
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   useEffect(() => {
-    if (isInView && !isVisible) {
-      setIsVisible(true);
+    if (isInView && !hasAnimated) {
+      setHasAnimated(true);
       let startTime: number;
-      let startValue = 0;
+      const startValue = 0;
       
       const animate = (currentTime: number) => {
         if (!startTime) startTime = currentTime;
@@ -68,15 +69,32 @@ const AnimatedCounter = ({ value, prefix = '', suffix = '', duration = 2000 }: {
           const easeOutQuart = 1 - Math.pow(1 - progress, 4);
           const currentValue = Math.floor(startValue + (value - startValue) * easeOutQuart);
           setCount(currentValue);
-          requestAnimationFrame(animate);
+          animationRef.current = requestAnimationFrame(animate);
         } else {
           setCount(value);
         }
       };
       
-      requestAnimationFrame(animate);
+      animationRef.current = requestAnimationFrame(animate);
     }
-  }, [isInView, value, duration, isVisible]);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [isInView, value, duration, hasAnimated]);
+
+  // Fallback: ensure the final value is displayed even if animation fails
+  useEffect(() => {
+    if (isInView && hasAnimated) {
+      const fallbackTimer = setTimeout(() => {
+        setCount(value);
+      }, duration + 500);
+      
+      return () => clearTimeout(fallbackTimer);
+    }
+  }, [isInView, hasAnimated, value, duration]);
 
   return (
     <span ref={ref} className="tabular-nums">
@@ -115,19 +133,19 @@ const GoldMetricsContainer = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <motion.div 
-          className="text-center mb-8 sm:mb-12"
+          className="text-center mb-6 sm:mb-8 lg:mb-12 px-2 sm:px-4"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
 
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-midnight mb-6 tracking-tight">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-midnight mb-4 sm:mb-6 tracking-tight leading-tight">
             INVESTMENT{' '}
             <span className="bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent font-black">PERFORMANCE</span>
           </h3>
           <p 
-            className="text-midnight/85 max-w-3xl mx-auto leading-relaxed px-4"
-            style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)' }}
+            className="text-midnight/85 max-w-3xl mx-auto leading-relaxed px-2 sm:px-4"
+            style={{ fontSize: 'clamp(0.8rem, 2vw, 1.1rem)' }}
           >
             Track record of delivering{' '}
             <span className="text-gold font-semibold">exceptional returns</span>{' '}
@@ -145,7 +163,7 @@ const GoldMetricsContainer = () => {
 
             <LoadingTransition isLoading={isLoading} loadingComponent={<StaggerContainer><MetricCardSkeleton /></StaggerContainer>}>
               <motion.div 
-                className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 relative z-10"
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 relative z-10 px-2 sm:px-0"
                 style={{ y, overflow: 'visible' }}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
@@ -166,11 +184,11 @@ const GoldMetricsContainer = () => {
                   return (
                     <motion.div
                       key={metric.id}
-                      className="group relative p-6 sm:p-8 rounded-2xl border border-slate-200/60 hover:border-slate-200/80 transition-all duration-500 cursor-pointer overflow-visible"
+                      className="group relative p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl border border-slate-200/60 hover:border-slate-200/80 transition-all duration-500 cursor-pointer overflow-visible"
                       style={{ 
                         backgroundColor: '#0F1A3C',
                         transformStyle: 'preserve-3d',
-                        boxShadow: '0 12px 40px rgba(15, 26, 60, 0.3)'
+                        boxShadow: '0 8px 32px rgba(15, 26, 60, 0.3)'
                       }}
                       variants={{
                         hidden: { 
@@ -193,10 +211,12 @@ const GoldMetricsContainer = () => {
                         }
                       }}
                       whileHover={{ 
-                        scale: 1.02,
+                        scale: [1, 1.02, 1.05],
+                        rotateY: [0, 2, 5],
+                        rotateX: [0, 2, 5],
                         y: -8,
                         boxShadow: '0 20px 60px rgba(15, 26, 60, 0.4)',
-                        transition: { duration: 0.3 }
+                        transition: { duration: 0.4, ease: "easeInOut" }
                       }}
                     >
                       {/* Icon Container */}
@@ -229,7 +249,7 @@ const GoldMetricsContainer = () => {
 
                       {/* Metric Value */}
                       <motion.div className="mb-3 sm:mb-4">
-                        <div className="text-3xl sm:text-4xl lg:text-5xl font-black mb-2" style={{ color: '#E6E6EB' }}>
+                        <div className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black mb-2" style={{ color: '#E6E6EB' }}>
                           <AnimatedCounter 
                             value={metric.value} 
                             prefix={metric.prefix} 
@@ -238,7 +258,7 @@ const GoldMetricsContainer = () => {
                           />
                         </div>
                         <motion.h4 
-                          className="text-sm sm:text-base font-bold tracking-wider opacity-90"
+                          className="text-xs sm:text-sm lg:text-base font-bold tracking-wider opacity-90"
                           style={{ color: '#D4AF37' }}
                         >
                           {metric.label}
@@ -246,7 +266,7 @@ const GoldMetricsContainer = () => {
                       </motion.div>
 
                       {/* Description */}
-                      <motion.div className="text-sm sm:text-base leading-relaxed opacity-85" style={{ color: '#E6E6EB' }}>
+                      <motion.div className="text-xs sm:text-sm lg:text-base leading-relaxed opacity-85" style={{ color: '#E6E6EB' }}>
                         {metric.description}
                       </motion.div>
 

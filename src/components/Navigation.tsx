@@ -77,11 +77,11 @@ const Navigation = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ 
-                  scale: 1.05,
-                  y: -2,
-                  textShadow: "0 0 8px rgba(255, 215, 0, 0.6)"
+                  scale: 1.02,
+                  y: -1,
+                  transition: { type: "spring", stiffness: 400, damping: 25 }
                 }}
-                whileTap={{ scale: 0.95 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <motion.span
                   className="relative z-10"

@@ -211,7 +211,7 @@ const HeroSection = () => {
             </motion.p>
 
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center"
+              className="flex flex-col sm:flex-row gap-6 sm:gap-6 justify-center mb-16 sm:mb-8"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.2 }}
@@ -223,7 +223,7 @@ const HeroSection = () => {
                     element.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
-                className="bg-gradient-to-r from-gold to-gold-400 text-midnight font-semibold px-8 py-4 rounded-xl hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg hover:shadow-gold/30 relative overflow-hidden group"
+                className="bg-gradient-to-r from-gold to-gold-400 text-midnight font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg hover:shadow-gold/30 relative overflow-hidden group w-full sm:w-auto"
                 whileHover={{ 
                   scale: 1.05, 
                   y: -2,
@@ -244,7 +244,7 @@ const HeroSection = () => {
               </motion.button>
               
               <motion.button
-                className="border-2 border-slate-400 text-slate-300 font-semibold px-8 py-4 rounded-xl hover:bg-slate-400 hover:text-midnight transition-all duration-300 relative overflow-hidden group"
+                className="border-2 border-slate-400 text-slate-300 font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:bg-slate-400 hover:text-midnight transition-all duration-300 relative overflow-hidden group w-full sm:w-auto"
                 whileHover={{ 
                   scale: 1.05, 
                   y: -2,
@@ -276,10 +276,10 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4 }}
-          className="text-white/80 mb-[0.75rem] font-medium tracking-wider"
+          className="text-white/80 mb-[0.75rem] font-medium tracking-wider hidden sm:block"
           style={{ fontSize: 'clamp(0.7rem, 1.5vw, 0.8rem)' }}
         >
-          EXPLORE MORE
+          SCROLL DOWN
         </motion.p>
         <motion.div
           animate={{ y: [0, 8, 0] }}
