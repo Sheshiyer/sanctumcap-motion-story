@@ -16,39 +16,39 @@ const ProvenPerformance = () => {
   
   const stats = [
     {
+      icon: IndianRupee,
+      value: '50 Cr',
+      label: 'Invested Capital'
+    },
+    {
       icon: TrendingUp,
-      value: '24%+',
+      value: '24%',
       label: 'CAGR Returns'
     },
     {
-      icon: IndianRupee,
-      value: '50+ Cr',
-      label: 'Invested Capital'
+      icon: Award,
+      value: '10',
+      label: 'Years Experience'
+    },
+    {
+      icon: Users,
+      value: '500',
+      label: 'Global Investors'
     },
     {
       icon: Globe,
       value: '5',
       label: 'Countries'
-    },
-    {
-      icon: Award,
-      value: '10+',
-      label: 'Years Experience'
-    },
-    {
-      icon: Users,
-      value: '500+',
-      label: 'Global Investors'
     }
   ];
 
   return (
     <motion.section 
       ref={sectionRef}
-      className="relative py-20 overflow-hidden"
+      className="relative py-20 overflow-visible"
       style={{ opacity, paddingTop: '2em', paddingBottom: '2em' }}
     >
-      <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-x-hidden">
+      <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-visible">
         {/* Enhanced Metrics Section */}
         <motion.div
           initial={{ opacity: 0, y: 60, scale: 0.9 }}
@@ -104,16 +104,18 @@ const ProvenPerformance = () => {
                     rotateY: 10,
                     transition: { type: "spring", stiffness: 300, damping: 20 }
                   }}
-                  className="relative bg-midnight/80 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center group hover:bg-midnight/90 transition-all duration-300 cursor-pointer"
+                  className="relative rounded-xl p-4 sm:p-6 text-center group transition-all duration-300 cursor-pointer"
                   style={{
-                    y: useTransform(scrollYProgress, [0, 1], [index * 15, -index * 15])
+                    backgroundColor: '#0F1A3C',
+                    y: useTransform(scrollYProgress, [0, 1], [index * 15, -index * 15]),
+                    overflow: 'visible'
                   }}
                 >
                   <div className="relative z-10">
                     <motion.div 
                       className="w-12 h-12 bg-slate-600/10 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-slate-500/20 transition-all duration-300"
                     >
-                      <IconComponent className="w-6 h-6 text-slate-300" />
+                      <IconComponent className="w-6 h-6" style={{ color: '#D4AF37' }} />
                     </motion.div>
                     
                     <div className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-300 mb-2 tracking-tight">

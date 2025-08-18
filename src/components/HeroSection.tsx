@@ -60,7 +60,7 @@ const HeroSection = () => {
 
 
   return (
-    <motion.section ref={heroRef} id="home" className="relative min-h-[80vh] w-full overflow-hidden bg-midnight">
+    <motion.section ref={heroRef} id="home" className="relative min-h-[80vh] w-full overflow-visible bg-midnight">
       <LoadingTransition
         isLoading={isLoading}
         loadingComponent={
@@ -104,7 +104,7 @@ const HeroSection = () => {
 
       {/* Above the Fold Content - Fixed */}
       <div className="relative z-10 pt-24 pb-16 w-full min-h-screen">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
+        <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-visible">
           {/* Logo and Trusted Badge - Above the Fold */}
           <motion.div
             initial={{ opacity: 0, scale: 0.5, y: 50, rotateX: 45 }}
@@ -171,10 +171,11 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="font-black text-white mb-6 leading-tight tracking-tight"
+              className="font-black text-white mb-6 leading-tight tracking-tight motion-text-fix"
               style={{ 
                 fontFamily: 'Arial Black, sans-serif',
-                fontSize: 'clamp(1.8rem, 4vw, 3.5rem)'
+                fontSize: 'clamp(1.8rem, 4vw, 3.5rem)',
+                overflow: 'visible'
               }}
               whileHover={{ scale: 1.02 }}
             >
@@ -201,8 +202,8 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="text-white/85 mb-8 max-w-3xl mx-auto leading-relaxed"
-              style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)' }}
+              className="text-white/85 mb-8 max-w-3xl mx-auto leading-relaxed motion-text-fix"
+              style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', overflow: 'visible' }}
             >
               Join investors from <span className="text-gold font-semibold">India, USA, Ireland, Japan, and Singapore</span> in 
               building wealth through strategic investment opportunities with proven{' '}

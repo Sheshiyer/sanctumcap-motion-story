@@ -5,13 +5,14 @@ import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import GlobalInvestorMap from '@/components/GlobalInvestorMap';
 import ProvenPerformance from '@/components/ProvenPerformance';
-import InvestmentMetrics from '@/components/InvestmentMetrics';
+import GoldMetricsContainer from '@/components/GoldMetricsContainer';
 import CompanyJourney from '@/components/CompanyJourney';
 import InvestorPartners from '@/components/InvestorPartners';
 import GDPGrowthChart from '@/components/GDPGrowthChart';
 import DeveloperPartners from '@/components/DeveloperPartners';
 import ContactSection from '@/components/ContactSection';
 import SilkBackground from '@/components/SilkBackground';
+import TrustFactors from '@/components/TrustFactors';
 // import GlobalVerticalText from '@/components/GlobalVerticalText'; // Removed
 import logoIcon from '@/assets/logo-icon.png';
 
@@ -34,7 +35,7 @@ const SectionSeparator = ({ className = "", opacity = 20 }: { className?: string
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay: 0.6 }}
     >
-      <div className="w-2 h-2 bg-midnight/40 rounded-full animate-pulse" />
+      <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: '#0F1A3C' }} />
     </motion.div>
   </div>
 );
@@ -72,7 +73,11 @@ const Index = () => {
           
           <SectionSeparator />
           
-          <InvestmentMetrics />
+          <TrustFactors />
+          
+          <SectionSeparator />
+          
+          <GoldMetricsContainer />
           
           <SectionSeparator />
           
@@ -84,11 +89,11 @@ const Index = () => {
           
           <SectionSeparator />
           
-          <GDPGrowthChart />
+          <DeveloperPartners />
           
           <SectionSeparator />
           
-          <DeveloperPartners />
+          <GDPGrowthChart />
           
           <SectionSeparator />
           

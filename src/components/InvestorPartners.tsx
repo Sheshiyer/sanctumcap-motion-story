@@ -72,7 +72,7 @@ const investors = [
 const InvestorPartners = () => {
   return (
     <section id="investors" className="py-20" style={{ paddingTop: '2em', paddingBottom: '2em' }}>
-      <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-x-hidden">
+      <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-visible">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -133,7 +133,8 @@ const InvestorPartners = () => {
                 damping: 15
               }}
               viewport={{ once: true }}
-              className="group relative bg-gradient-to-br from-midnight/90 to-midnight/70 backdrop-blur-sm rounded-3xl p-8 border border-slate-600/20 hover:border-slate-500/70 transition-all duration-700 overflow-hidden shadow-2xl hover:shadow-[0_30px_60px_-12px_rgba(100,116,139,0.5)] cursor-pointer"
+              className="group relative backdrop-blur-sm rounded-3xl p-8 border border-slate-600/20 hover:border-slate-500/70 transition-all duration-700 overflow-hidden shadow-2xl hover:shadow-[0_30px_60px_-12px_rgba(100,116,139,0.5)] cursor-pointer"
+              style={{backgroundColor: '#0F1A3C'}}
             >
               {/* Hover effects removed */}
               <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-radial from-sandstone/12 to-transparent rounded-full blur-2xl transform translate-x-16 translate-y-16 opacity-0 group-hover:opacity-100 transition-opacity duration-600 delay-200" />
@@ -144,7 +145,7 @@ const InvestorPartners = () => {
 
               {/* Enhanced Content */}
               <div className="relative z-10">
-                <h3 className="text-xl font-bold text-midnight mb-3 group-hover:text-slate-200 transition-colors duration-300 leading-tight">
+                <h3 className="text-xl font-bold mb-3 group-hover:text-slate-200 transition-colors duration-300 leading-tight" style={{color: '#E6E6EB'}}>
                   {investor.title}
                 </h3>
                 
@@ -152,7 +153,7 @@ const InvestorPartners = () => {
                   {investor.company}
                 </p>
                 
-                <div className="flex items-center text-midnight/85 text-sm font-medium group-hover:text-midnight/90 transition-colors duration-300">
+                <div className="flex items-center text-sm font-medium transition-colors duration-300" style={{color: '#E6E6EB'}}>
                   <MapPin className="w-4 h-4 mr-2 text-gold" />
                   {investor.location}
                 </div>
@@ -162,9 +163,12 @@ const InvestorPartners = () => {
                   investor.tier === 'executive' 
                     ? 'bg-gold/20 text-gold' 
                     : investor.tier === 'director'
-                    ? 'bg-primary/20 text-primary-300'
-                    : 'bg-midnight/20 text-midnight'
-                }`}>
+                    ? ''
+                    : 'bg-slate-200/20'
+                }`} style={{
+                  backgroundColor: investor.tier === 'director' ? 'rgba(212, 175, 55, 0.2)' : undefined,
+                  color: investor.tier === 'manager' ? '#E6E6EB' : investor.tier === 'director' ? '#D4AF37' : undefined
+                }}>
                   {investor.tier.charAt(0).toUpperCase() + investor.tier.slice(1)}
                 </div>
               </div>

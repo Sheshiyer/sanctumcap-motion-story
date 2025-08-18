@@ -10,7 +10,7 @@ const navigationItems = [
   { label: 'Company Profile', href: '#journey' },
   { label: 'Investment Metrics', href: '#metrics' },
   { label: 'Investor Partners', href: '#investors' },
-  { label: 'Developer Partners', href: '#developers' },
+  { label: 'Completed Projects', href: '#developers' },
   { label: 'Contact', href: '#contact' }
 ];
 
@@ -39,7 +39,7 @@ const Navigation = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 100, damping: 15 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full max-w-[100vw] overflow-x-hidden ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full max-w-[100vw] overflow-visible ${
         isScrolled 
           ? 'bg-midnight/95 backdrop-blur-xl border-b border-gold/20 shadow-2xl shadow-gold/10' 
           : 'bg-midnight/80 backdrop-blur-md border-b border-gold/10'
@@ -110,14 +110,14 @@ const Navigation = () => {
           <div className="hidden lg:block flex-shrink-0">
             <motion.button
               onClick={() => scrollToSection('#contact')}
-              className="bg-gradient-to-r from-slate-600 to-slate-500 text-white font-semibold text-sm xl:text-base px-4 xl:px-6 py-2 rounded-lg hover:from-slate-500 hover:to-slate-400 transition-all duration-300 shadow-lg hover:shadow-slate-500/30 relative overflow-hidden group"
+              className="bg-gradient-to-r from-gold to-gold-400 text-midnight font-semibold text-sm xl:text-base px-4 xl:px-6 py-2 rounded-lg hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg hover:shadow-gold/30 relative overflow-hidden group"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
               whileHover={{ 
                 scale: 1.05, 
                 y: -2,
-                boxShadow: "0 15px 30px rgba(100, 116, 139, 0.4)",
+                boxShadow: "0 20px 40px rgba(255, 215, 0, 0.4)",
                 rotate: [0, -1, 1, 0]
               }}
               whileTap={{ scale: 0.98 }}
@@ -128,7 +128,7 @@ const Navigation = () => {
               />
               <motion.div
                 className="absolute inset-0 bg-white/20 rounded-lg scale-0 group-hover:scale-100"
-                transition={{ duration: 0.5, ease: "easeOut" }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
               />
               <span className="relative z-10">Get Started</span>
             </motion.button>
@@ -165,7 +165,7 @@ const Navigation = () => {
             <div className="pt-4 mt-4 border-t border-gold/20">
               <Button
                 onClick={() => scrollToSection('#contact')}
-                className="w-full bg-gold hover:bg-gold-600 text-midnight font-medium py-3"
+                className="w-full bg-gradient-to-r from-gold to-gold-400 hover:from-gold-400 hover:to-gold-500 text-midnight font-medium py-3 shadow-lg hover:shadow-gold/30 transition-all duration-300"
               >
                 Get Started
               </Button>
