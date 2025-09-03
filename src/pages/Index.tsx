@@ -1,18 +1,21 @@
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { motion } from 'framer-motion';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
-import GlobalInvestorMap from '@/components/GlobalInvestorMap';
-import ProvenPerformance from '@/components/ProvenPerformance';
-import GoldMetricsContainer from '@/components/GoldMetricsContainer';
-import CompanyJourney from '@/components/CompanyJourney';
-import InvestorPartners from '@/components/InvestorPartners';
-import GDPGrowthChart from '@/components/GDPGrowthChart';
-import DeveloperPartners from '@/components/DeveloperPartners';
-import ContactSection from '@/components/ContactSection';
 import SilkBackground from '@/components/SilkBackground';
-import TrustFactors from '@/components/TrustFactors';
+import {
+  GlobalInvestorMap,
+  ProvenPerformance,
+  GoldMetricsContainer,
+  CompanyJourney,
+  InvestorPartners,
+  GDPGrowthChart,
+  DeveloperPartners,
+  ContactSection,
+  TrustFactors,
+  ComponentLoader
+} from '@/components/LazyComponents';
 // import GlobalVerticalText from '@/components/GlobalVerticalText'; // Removed
 import logoIcon from '@/assets/logo-icon.png';
 
@@ -35,7 +38,28 @@ const SectionSeparator = ({ className = "", opacity = 20 }: { className?: string
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay: 0.6 }}
     >
-      <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: '#0F1A3C' }} />
+      <div className="flex items-center justify-center w-full max-w-md">
+        {/* Left golden line */}
+        <motion.div 
+          className="flex-1 h-px bg-gradient-to-r from-transparent to-gold/60"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+        />
+        {/* Central blue dot */}
+        <div className="mx-4">
+          <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: '#0F1A3C' }} />
+        </div>
+        {/* Right golden line */}
+        <motion.div 
+          className="flex-1 h-px bg-gradient-to-l from-transparent to-gold/60"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+        />
+      </div>
     </motion.div>
   </div>
 );
@@ -65,39 +89,57 @@ const Index = () => {
         <div className="bg-background">
           <SectionSeparator className="py-8 sm:py-12 md:py-16" opacity={30} />
           
-          <ProvenPerformance />
+          <Suspense fallback={<ComponentLoader />}>
+            <ProvenPerformance />
+          </Suspense>
           
           <SectionSeparator />
           
-          <GlobalInvestorMap />
+          <Suspense fallback={<ComponentLoader />}>
+            <GlobalInvestorMap />
+          </Suspense>
           
           <SectionSeparator />
           
-          <TrustFactors />
+          <Suspense fallback={<ComponentLoader />}>
+            <TrustFactors />
+          </Suspense>
           
           <SectionSeparator />
           
-          <GoldMetricsContainer />
+          <Suspense fallback={<ComponentLoader />}>
+            <GoldMetricsContainer />
+          </Suspense>
           
           <SectionSeparator />
           
-          <CompanyJourney />
+          <Suspense fallback={<ComponentLoader />}>
+            <CompanyJourney />
+          </Suspense>
           
           <SectionSeparator />
           
-          <InvestorPartners />
+          <Suspense fallback={<ComponentLoader />}>
+            <InvestorPartners />
+          </Suspense>
           
           <SectionSeparator />
           
-          <DeveloperPartners />
+          <Suspense fallback={<ComponentLoader />}>
+            <DeveloperPartners />
+          </Suspense>
           
           <SectionSeparator />
           
-          <GDPGrowthChart />
+          <Suspense fallback={<ComponentLoader />}>
+            <GDPGrowthChart />
+          </Suspense>
           
           <SectionSeparator />
           
-          <ContactSection />
+          <Suspense fallback={<ComponentLoader />}>
+            <ContactSection />
+          </Suspense>
         </div>
       </div>
       

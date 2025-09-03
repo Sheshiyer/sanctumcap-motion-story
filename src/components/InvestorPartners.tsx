@@ -99,8 +99,7 @@ const InvestorPartners = () => {
           </h3>
           <p className="text-xl text-midnight/85 max-w-4xl mx-auto leading-relaxed">
             Trusted by{' '}
-            <span className="text-gold font-semibold">leading investors and institutions</span>{' '}
-            worldwide, building lasting partnerships for mutual growth
+            <span className="text-gold font-semibold">Investors Worldwide</span>, building lasting partnerships for mutual growth
           </p>
         </motion.div>
 

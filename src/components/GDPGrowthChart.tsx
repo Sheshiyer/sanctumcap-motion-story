@@ -4,8 +4,6 @@ import { motion } from 'framer-motion';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts';
 
 const gdpData = [
-  { year: 2008, value: 1, label: '$1 Trillion' },
-  { year: 2015, value: 2, label: '$2 Trillion' },
   { year: 2022, value: 3, label: '$3 Trillion' },
   { year: 2025, value: 4, label: '$4 Trillion (Expected)', projected: true },
   { year: 2047, value: 31, label: '$29-33 Trillion (Projected)', projected: true }
@@ -36,7 +34,7 @@ const GDPGrowthChart = () => {
           className="text-center mb-16"
         >
           <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 tracking-tight">
-            THE SMARTER WAY TO INVEST IN INDIA'S GROWTH
+            Invest Smarter in India's Growth
           </h3>
           <p className="text-xl text-white/80 max-w-4xl mx-auto">
             India's GDP is on a rapid growth trajectory, offering unparalleled opportunities for investors. 

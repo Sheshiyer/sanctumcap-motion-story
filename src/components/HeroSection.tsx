@@ -3,9 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { motion, useAnimation, useScroll, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { TrendingUp, Globe, Award, Users, Trophy } from 'lucide-react';
-import logoWithText from '../assets/logo-with-text.png';
-import logoCompact from '../assets/logo-compact.png';
-import logoIcon from '../assets/logo-icon.png';
+import sanctumCapLogo from '../assets/sanctumcap logo.png';
 // import GlobalVerticalText from './GlobalVerticalText'; // Removed
 import GeometricMatrix from './GeometricMatrix';
 import { SectionLoader, StaggerContainer, LoadingItem } from './LoadingStates';
@@ -60,7 +58,7 @@ const HeroSection = () => {
 
 
   return (
-    <motion.section ref={heroRef} id="home" className="relative min-h-[80vh] w-full overflow-visible bg-midnight">
+    <motion.section ref={heroRef} id="home" className="relative min-h-[80vh] w-full overflow-visible" style={{backgroundColor: '#E7E7E9'}}>
       <LoadingTransition
         isLoading={isLoading}
         loadingComponent={
@@ -73,37 +71,22 @@ const HeroSection = () => {
         style={{ scaleX }}
       />
       
-      {/* Clean Background - Fixed */}
+      {/* Clean Light Background */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.05)_0%,transparent_70%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
       </div>
-      
-      {/* Geometric Matrix Background - Fixed */}
-      <div className="absolute inset-0 z-[1]">
-        <GeometricMatrix className="opacity-100 w-full h-full" />
-      </div>
-      
-      {/* Background Noise Layer with Brand Blue Double Gradients & Golden Glow */}
-      <div 
-        className="absolute inset-0 z-[2] opacity-[0.25]"
-        style={{
-          background: `
-            radial-gradient(circle at 30% 40%, rgba(212, 175, 55, 0.4) 0%, transparent 50%),
-            radial-gradient(circle at 70% 60%, rgba(212, 175, 55, 0.3) 0%, transparent 40%),
-            radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.2) 0%, transparent 60%),
-            linear-gradient(135deg, #0F1A3C 0%, #18275A 50%, #0F1A3C 100%),
-            linear-gradient(45deg, #18275A 0%, #0F1A3C 50%, #18275A 100%),
-            url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")
-          `,
-          mixBlendMode: 'overlay',
-          boxShadow: 'inset 0 0 100px rgba(212, 175, 55, 0.15), inset 0 0 200px rgba(212, 175, 55, 0.08)'
-        }}
-      />
 
 
+
+      {/* Blue horizontal stripe behind logo - seamless with navigation */}
+      <div className="absolute left-0 right-0 z-5" style={{
+        top: '0px',
+        height: '280px',
+        backgroundColor: '#0D1A36'
+      }} />
 
       {/* Above the Fold Content - Fixed */}
-      <div className="relative z-10 pt-24 pb-16 w-full min-h-screen">
+      <div className="relative z-10 pt-20 pb-16 w-full min-h-screen">
         <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-visible">
           {/* Logo and Trusted Badge - Above the Fold */}
           <motion.div
@@ -120,49 +103,28 @@ const HeroSection = () => {
               opacity: logoOpacity
             }}
           >
-            {/* Responsive Logo Display - Viewport Relative */}
-            <div className="mb-12 md:mb-16">
-              {/* Large screens - Logo with text */}
-              <img 
-                src={logoWithText} 
-                alt="SanctumCap" 
-                className="hidden lg:block h-32 max-h-[15rem] w-auto mx-auto"
-              />
-              {/* Medium screens - Compact logo */}
-              <img 
-                src={logoCompact} 
-                alt="SanctumCap" 
-                className="hidden md:block lg:hidden h-28 max-h-[12rem] w-auto mx-auto"
-              />
-              {/* Small screens - Icon only */}
-              <div className="md:hidden flex flex-col items-center">
-                <img 
-                  src={logoIcon} 
-                  alt="SanctumCap" 
-                  className="h-24 max-h-[10rem] w-auto mb-4"
-                />
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                  className="text-gold font-semibold text-[1.2rem] md:text-[1.4rem] tracking-wider"
-                >
-                  SANCTUMCAP
-                </motion.div>
-              </div>
+            {/* New SanctumCap Logo */}
+            <div className="mb-0">
+              <img
+              src={sanctumCapLogo}
+              alt="SanctumCap"
+              className="h-44 max-h-[20rem] w-auto mx-auto"
+            />
             </div>
-            
-            {/* Trusted Badge - Immediately below logo */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <span className="inline-flex items-center gap-2 px-[1rem] py-[0.5rem] bg-gold/10 border border-gold/20 rounded-full text-gold text-[0.875rem] md:text-[1rem] font-medium">
-                <Trophy className="w-[1rem] h-[1rem]" />
-                Trusted by Global Investors Since 2015
-              </span>
-            </motion.div>
+          </motion.div>
+
+          {/* Trusted Badge - Below Blue Patch */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-center relative z-20"
+            style={{ paddingTop: '32px', paddingBottom: '24px' }}
+          >
+            <span className="inline-flex items-center gap-2 px-[1rem] py-[0.5rem] bg-white/80 border border-gray-300 rounded-full text-[0.875rem] md:text-[1rem] font-medium" style={{color: '#0D1A36'}}>
+              <Trophy className="w-[1rem] h-[1rem]" style={{color: '#B8860B'}} />
+              Trusted by Global Investors Since 2015
+            </span>
           </motion.div>
 
           {/* Main Headline - Compact for Above the Fold */}
@@ -171,30 +133,29 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="font-black text-white mb-6 leading-tight tracking-tight motion-text-fix"
+              className="font-black mb-6 leading-tight tracking-tight motion-text-fix"
               style={{ 
                 fontFamily: 'Arial Black, sans-serif',
                 fontSize: 'clamp(1.8rem, 4vw, 3.5rem)',
-                overflow: 'visible'
+                overflow: 'visible',
+                color: '#B8860B'
               }}
               whileHover={{ scale: 1.02 }}
             >
               <motion.span 
-                className="block bg-gradient-to-r from-gold via-gold-400 to-sandstone bg-clip-text text-transparent font-black"
-                whileHover={{ 
-                  backgroundImage: "linear-gradient(45deg, #FFD700, #FFA500, #FFD700, #FFA500)",
-                  backgroundSize: "200% 200%"
-                }}
+                className="block font-black"
+                style={{ color: '#B8860B' }}
               >
                 HIGH ALPHA
               </motion.span>
               <motion.span 
-                className="block text-white/95 mt-2"
-                style={{ fontSize: 'clamp(1.2rem, 2.8vw, 2.2rem)' }}
-                whileHover={{ color: "#FFD700" }}
-                transition={{ duration: 0.3 }}
+                className="block mt-2"
+                style={{ 
+                  fontSize: 'clamp(1.2rem, 2.8vw, 2.2rem)',
+                  color: '#0D1A36'
+                }}
               >
-                INVESTMENT OPPORTUNITIES
+                Investment Opportunities
               </motion.span>
             </motion.h1>
 
@@ -202,12 +163,16 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="text-white/85 mb-8 max-w-3xl mx-auto leading-relaxed motion-text-fix"
-              style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', overflow: 'visible' }}
+              className="mb-8 max-w-3xl mx-auto leading-relaxed motion-text-fix"
+              style={{ 
+                fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', 
+                overflow: 'visible',
+                color: '#0D1A36'
+              }}
             >
-              Join investors from <span className="text-gold font-semibold">India, USA, Ireland, Japan, and Singapore</span> in 
+              Join investors from <span className="font-semibold" style={{color: '#B8860B'}}>India, USA, Ireland, Japan, and Singapore</span> in 
               building wealth through strategic investment opportunities with proven{' '}
-              <span className="text-gold font-semibold">24%+ CAGR</span> returns.
+              <span className="font-semibold" style={{color: '#B8860B'}}>24%+ CAGR</span> returns.
             </motion.p>
 
             <motion.div
@@ -244,7 +209,7 @@ const HeroSection = () => {
               </motion.button>
               
               <motion.button
-                className="border-2 border-slate-400 text-slate-300 font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:bg-slate-400 hover:text-midnight transition-all duration-300 relative overflow-hidden group w-full sm:w-auto"
+                className="border border-[#CCCCCC] text-[#333333] font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:bg-slate-400 hover:text-midnight transition-all duration-300 relative overflow-hidden group w-full sm:w-auto"
                 whileHover={{ 
                   scale: 1.05, 
                   y: -2,
@@ -276,21 +241,28 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4 }}
-          className="text-white/80 mb-[0.75rem] font-medium tracking-wider hidden sm:block"
-          style={{ fontSize: 'clamp(0.7rem, 1.5vw, 0.8rem)' }}
+          className="mb-[0.75rem] font-medium tracking-wider hidden sm:block"
+          style={{ 
+            fontSize: 'clamp(0.7rem, 1.5vw, 0.8rem)',
+            color: '#0D1A36'
+          }}
         >
           SCROLL DOWN
         </motion.p>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
-          className="w-6 h-10 border-2 border-gold/60 rounded-full flex justify-center cursor-pointer hover:border-gold transition-colors"
+          className="w-6 h-10 border-2 rounded-full flex justify-center cursor-pointer transition-colors"
+          style={{
+            borderColor: '#B8860B',
+          }}
           onClick={() => scrollToSection('#metrics')}
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
-            className="w-1 h-3 bg-gold rounded-full mt-2"
+            className="w-1 h-3 rounded-full mt-2"
+            style={{ backgroundColor: '#B8860B' }}
           />
         </motion.div>
       </motion.div>

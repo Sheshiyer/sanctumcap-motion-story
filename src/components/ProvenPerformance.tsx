@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { TrendingUp, Globe, Award, Users, IndianRupee } from 'lucide-react';
+import { TrendingUp, Globe, Award, Users, IndianRupee, Banknote } from 'lucide-react';
 
 const ProvenPerformance = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -32,13 +32,13 @@ const ProvenPerformance = () => {
     },
     {
       icon: Users,
-      value: '500',
+      value: '100+',
       label: 'Global Investors'
     },
     {
-      icon: Globe,
-      value: '5',
-      label: 'Countries'
+      icon: Banknote,
+      value: '20+ Cr',
+      label: 'Total Payouts'
     }
   ];
 
