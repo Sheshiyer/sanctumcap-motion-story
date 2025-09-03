@@ -42,8 +42,8 @@ const timelineItems = [
     id: 'ongoing',
     year: 'Ongoing',
     title: 'Ongoing Investments',
-    description: '~₹25 Cr invested, Valued currently at ~₹30 Cr+',
-    metric: '₹25 Cr → ₹30 Cr+',
+    description: '~₹25 Cr invested, Valued currently at ~₹50 Cr+',
+    metric: '₹25 Cr → ₹50 Cr+',
     image: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=600&h=400&fit=crop'
   }
 ];
@@ -68,7 +68,7 @@ const CompanyJourney = () => {
             className="inline-block px-4 py-2 bg-gold/10 border border-gold/20 rounded-full text-sm font-medium mb-6"
             style={{ color: '#0F1A3C' }}
           >
-            🚀 Company Timeline
+            Company Timeline
           </motion.div>
           <h3 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 tracking-tight">
             <span style={{color: '#0F1A3C'}}>OUR</span>{' '}
