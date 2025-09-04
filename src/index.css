@@ -432,6 +432,34 @@
     color: hsl(var(--primary));
   }
 
+  /* Safari-specific fixes */
+  @supports (-webkit-appearance: none) {
+    /* Safari-only styles */
+    .bg-clip-text {
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    /* Fix for Safari transform issues */
+    .motion-text-fix {
+      -webkit-transform-style: preserve-3d;
+      -webkit-backface-visibility: hidden;
+    }
+  }
+
+  /* iOS Safari specific fixes */
+  @supports (-webkit-touch-callout: none) {
+    /* iOS Safari only */
+    body {
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Fix viewport issues on iOS */
+    .container {
+      -webkit-transform: translateZ(0);
+    }
+  }
+
   /* Prevent text cropping in motion divs */
   div[style*="transform"] {
     overflow: visible;
@@ -487,6 +515,29 @@
     }
   }
 
+  /* Mobile Safari optimizations */
+  @media (max-width: 768px) {
+    /* Disable complex animations on mobile */
+    .animate-float,
+    .animate-pulse-slow,
+    .animate-sacred-pulse {
+      animation: none !important;
+    }
+    
+    /* Simplify transforms for better performance */
+    .gpu-accelerated {
+      transform: none;
+      will-change: auto;
+    }
+    
+    /* Reduce backdrop blur complexity */
+    *[style*="backdrop-filter"],
+    *[class*="backdrop-"] {
+      -webkit-backdrop-filter: none !important;
+      backdrop-filter: none !important;
+    }
+  }
+
   /* Focus styles */
   .focus-visible {
     outline: 2px solid hsl(var(--gold));
@@ -495,28 +546,48 @@
   }
 }
 
-/* Custom gradient utilities */
+/* Custom gradient utilities with mobile fallbacks */
 @layer utilities {
   .bg-gradient-primary {
+    background: #0F1A3C; /* Solid fallback for mobile */
     background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--midnight)) 100%);
   }
 
   .bg-gradient-gold {
+    background: #D4AF37; /* Solid fallback for mobile */
     background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--sandstone)) 100%);
   }
 
   .bg-gradient-hero {
+    background: #0F1A3C; /* Solid fallback for mobile */
     background: linear-gradient(135deg, hsl(var(--midnight)) 0%, hsl(var(--primary)) 50%, hsl(var(--charcoal)) 100%);
   }
 
   .overlay-dark {
+    background: rgba(15, 26, 60, 0.85); /* Simplified fallback */
     background: linear-gradient(180deg, rgba(15, 26, 60, 0.8) 0%, rgba(28, 28, 45, 0.9) 100%);
   }
 
   .glass-morphism {
+    background: rgba(28, 28, 45, 0.9); /* Solid fallback for mobile */
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     background: rgba(28, 28, 45, 0.8);
     border: 1px solid rgba(230, 230, 235, 0.1);
+  }
+
+  /* Mobile-specific simplifications */
+  @media (max-width: 768px) {
+    .bg-gradient-primary,
+    .bg-gradient-gold,
+    .bg-gradient-hero {
+      background: var(--fallback-bg, #0F1A3C) !important;
+    }
+    
+    .glass-morphism {
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      background: rgba(28, 28, 45, 0.95) !important;
+    }
   }
 }

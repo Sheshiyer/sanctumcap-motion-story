@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import globalMapImage from '@/assets/global-map.png';
 import { CardSkeleton, StaggerContainer, LoadingItem } from './LoadingStates';
 import { LoadingTransition, SmoothReveal } from './PageTransition';
+import { getSafeMotionProps, shouldDisableAnimations } from '../utils/mobile-detection';
 
 const GlobalInvestorMap = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -72,13 +73,15 @@ const GlobalInvestorMap = () => {
       <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto relative z-10 overflow-visible">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50, scale: 0.9 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ 
-            duration: 1,
-            ease: [0.25, 0.46, 0.45, 0.94]
-          }}
-          viewport={{ once: true, margin: "-100px" }}
+          {...getSafeMotionProps({
+            initial: { opacity: 0, y: 50, scale: 0.9 },
+            whileInView: { opacity: 1, y: 0, scale: 1 },
+            transition: { 
+              duration: 1,
+              ease: [0.25, 0.46, 0.45, 0.94]
+            },
+            viewport: { once: true, margin: "-100px" }
+          })}
           className="text-center mb-16"
         >
           <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-midnight mb-6 tracking-tight">
@@ -95,14 +98,16 @@ const GlobalInvestorMap = () => {
 
         {/* Map Background Container with Advanced Parallax */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8, rotateX: 15 }}
-          whileInView={{ opacity: 1, scale: 1, rotateX: 0 }}
-          transition={{ 
-            duration: 1.2, 
-            delay: 0.3,
-            ease: [0.25, 0.46, 0.45, 0.94]
-          }}
-          viewport={{ once: true, margin: "-50px" }}
+          {...getSafeMotionProps({
+            initial: { opacity: 0, scale: 0.8, rotateX: 15 },
+            whileInView: { opacity: 1, scale: 1, rotateX: 0 },
+            transition: { 
+              duration: 1.2, 
+              delay: 0.3,
+              ease: [0.25, 0.46, 0.45, 0.94]
+            },
+            viewport: { once: true, margin: "-50px" }
+          })}
           className="relative w-full mb-16"
         >
           {/* Background Map */}
@@ -119,23 +124,25 @@ const GlobalInvestorMap = () => {
             {investorCountries.map((country, index) => (
               <motion.div
                 key={country.name}
-                initial={{ opacity: 0, scale: 0.8, y: 50 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                whileHover={{ 
-                  scale: 1.08, 
-                  y: -8,
-                  rotateY: 5,
-                  transition: { type: "spring", stiffness: 300, damping: 20 }
-                }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: index * 0.1,
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 15
-                }}
-                viewport={{ once: true }}
+                {...getSafeMotionProps({
+                  initial: { opacity: 0, scale: 0.8, y: 50 },
+                  whileInView: { opacity: 1, scale: 1, y: 0 },
+                  whileHover: { 
+                    scale: 1.08, 
+                    y: -8,
+                    rotateY: 5,
+                    transition: { type: "spring", stiffness: 300, damping: 20 }
+                  },
+                  whileTap: { scale: 0.95 },
+                  transition: { 
+                    duration: 0.6, 
+                    delay: index * 0.1,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 15
+                  },
+                  viewport: { once: true }
+                })}
                 className="group relative bg-midnight backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gold/20 hover:border-gold/40 transition-all duration-300 shadow-lg hover:shadow-xl overflow-visible cursor-pointer"
               >
                 {/* Texture Overlay */}
@@ -168,11 +175,13 @@ const GlobalInvestorMap = () => {
                       style={{
                         background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 50%, rgba(212, 175, 55, 0.1) 100%)'
                       }}
-                      whileHover={{ 
-                        rotate: 360,
-                        scale: 1.2,
-                        boxShadow: "0 0 20px rgba(212, 175, 55, 0.3)"
-                      }}
+                      {...getSafeMotionProps({
+                        whileHover: { 
+                          rotate: 360,
+                          scale: 1.2,
+                          boxShadow: "0 0 20px rgba(212, 175, 55, 0.3)"
+                        }
+                      })}
                       transition={{ duration: 0.8, ease: "easeInOut" }}
                     >
                       <motion.div 

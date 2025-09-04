@@ -9,6 +9,7 @@ import GeometricMatrix from './GeometricMatrix';
 import { SectionLoader, StaggerContainer, LoadingItem } from './LoadingStates';
 import { LoadingTransition } from './PageTransition';
 import { SmoothReveal } from './PageTransition';
+import { getSafeMotionProps, shouldDisableAnimations } from '../utils/mobile-detection';
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -90,17 +91,19 @@ const HeroSection = () => {
         <div className="w-full max-w-[100vw] px-[4vw] md:px-[6vw] lg:px-[8vw] mx-auto overflow-visible">
           {/* Logo and Trusted Badge - Above the Fold */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.5, y: 50, rotateX: 45 }}
-            animate={{ opacity: 1, scale: 1, y: 0, rotateX: 0 }}
-            transition={{ 
-              duration: 1.2, 
-              ease: [0.25, 0.46, 0.45, 0.94],
-              staggerChildren: 0.2
-            }}
+            {...getSafeMotionProps({
+              initial: { opacity: 0, scale: 0.5, y: 50, rotateX: 45 },
+              animate: { opacity: 1, scale: 1, y: 0, rotateX: 0 },
+              transition: { 
+                duration: 1.2, 
+                ease: [0.25, 0.46, 0.45, 0.94],
+                staggerChildren: 0.2
+              }
+            })}
             className="text-center mb-16 md:mb-20 relative z-20"
             style={{ 
-              scale: logoScale,
-              opacity: logoOpacity
+              scale: shouldDisableAnimations() ? 1 : logoScale,
+              opacity: shouldDisableAnimations() ? 1 : logoOpacity
             }}
           >
             {/* New SanctumCap Logo */}
@@ -115,9 +118,11 @@ const HeroSection = () => {
 
           {/* Trusted Badge - Below Blue Patch */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            {...getSafeMotionProps({
+              initial: { opacity: 0, y: 20 },
+              animate: { opacity: 1, y: 0 },
+              transition: { duration: 0.8, delay: 0.4 }
+            })}
             className="text-center relative z-20"
             style={{ paddingTop: '32px', paddingBottom: '24px' }}
           >
@@ -130,9 +135,12 @@ const HeroSection = () => {
           {/* Main Headline - Compact for Above the Fold */}
           <div className="text-center mb-8 md:mb-12">
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              {...getSafeMotionProps({
+                initial: { opacity: 0, y: 20 },
+                animate: { opacity: 1, y: 0 },
+                transition: { duration: 0.8, delay: 0.6 },
+                whileHover: { scale: 1.02 }
+              })}
               className="font-black mb-6 leading-tight tracking-tight motion-text-fix"
               style={{ 
                 fontFamily: 'Arial Black, sans-serif',
@@ -140,7 +148,6 @@ const HeroSection = () => {
                 overflow: 'visible',
                 color: '#B8860B'
               }}
-              whileHover={{ scale: 1.02 }}
             >
               <motion.span 
                 className="block font-black"
@@ -160,9 +167,11 @@ const HeroSection = () => {
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              {...getSafeMotionProps({
+                initial: { opacity: 0, y: 30 },
+                animate: { opacity: 1, y: 0 },
+                transition: { duration: 0.8, delay: 0.8 }
+              })}
               className="mb-8 max-w-3xl mx-auto leading-relaxed motion-text-fix"
               style={{ 
                 fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', 
@@ -177,9 +186,11 @@ const HeroSection = () => {
 
             <motion.div
               className="flex flex-col sm:flex-row gap-6 sm:gap-6 justify-center mb-16 sm:mb-8"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
+              {...getSafeMotionProps({
+                initial: { opacity: 0, y: 30 },
+                animate: { opacity: 1, y: 0 },
+                transition: { duration: 0.8, delay: 1.2 }
+              })}
             >
               <motion.button
                 onClick={() => {
@@ -189,39 +200,49 @@ const HeroSection = () => {
                   }
                 }}
                 className="bg-gradient-to-r from-gold to-gold-400 text-midnight font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg hover:shadow-gold/30 relative overflow-hidden group w-full sm:w-auto"
-                whileHover={{ 
-                  scale: 1.05, 
-                  y: -2,
-                  boxShadow: "0 20px 40px rgba(255, 215, 0, 0.4)"
-                }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                {...getSafeMotionProps({
+                  whileHover: { 
+                    scale: 1.05, 
+                    y: -2,
+                    boxShadow: "0 20px 40px rgba(255, 215, 0, 0.4)"
+                  },
+                  whileTap: { scale: 0.98 },
+                  transition: { type: "spring", stiffness: 400, damping: 25 }
+                })}
               >
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-slate-400 to-slate-300 opacity-0 group-hover:opacity-100"
-                  transition={{ duration: 0.3 }}
+                  {...getSafeMotionProps({
+                    transition: { duration: 0.3 }
+                  })}
                 />
                 <motion.div
                   className="absolute inset-0 bg-white/20 rounded-xl scale-0 group-hover:scale-100"
-                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  {...getSafeMotionProps({
+                    transition: { duration: 0.6, ease: "easeOut" }
+                  })}
                 />
                 <span className="relative z-10">Explore Opportunities</span>
               </motion.button>
               
               <motion.button
                 className="border border-[#CCCCCC] text-[#333333] font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:bg-slate-400 hover:text-midnight transition-all duration-300 relative overflow-hidden group w-full sm:w-auto"
-                whileHover={{ 
-                  scale: 1.05, 
-                  y: -2,
-                  boxShadow: "0 10px 30px rgba(100, 116, 139, 0.3)"
-                }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                {...getSafeMotionProps({
+                  whileHover: { 
+                    scale: 1.05, 
+                    y: -2,
+                    boxShadow: "0 10px 30px rgba(100, 116, 139, 0.3)"
+                  },
+                  whileTap: { scale: 0.98 },
+                  transition: { type: "spring", stiffness: 400, damping: 25 }
+                })}
                 onClick={() => document.getElementById('developers')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 <motion.div
                   className="absolute inset-0 bg-slate-400 scale-x-0 group-hover:scale-x-100 origin-left"
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  {...getSafeMotionProps({
+                    transition: { duration: 0.4, ease: "easeInOut" }
+                  })}
                 />
                 <span className="relative z-10 group-hover:text-midnight transition-colors duration-300">Learn More</span>
               </motion.button>
