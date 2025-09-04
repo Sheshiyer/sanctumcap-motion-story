@@ -153,6 +153,16 @@ class MobileDebugger {
     if (!this.overlay) return;
     
     this.isVisible = true;
+    
+    // Add diagnostic logs when overlay is first shown
+    if (this.logs.length === 0) {
+      this.info('Debug overlay opened');
+      this.info(`Device: ${navigator.userAgent}`);
+      this.info(`Viewport: ${window.innerWidth}x${window.innerHeight}`);
+      this.info(`Memory: ${this.getMemoryInfo()}`);
+      this.info(`Connection: ${this.getConnectionInfo()}`);
+    }
+    
     this.overlay.style.display = 'block';
     this.updateOverlayContent();
   }
@@ -236,8 +246,8 @@ ${this.logs.map(log => `
   }
 
   public log(level: 'info' | 'warn' | 'error', message: string, error?: Error) {
-    // Skip logging in production unless debug is explicitly enabled
-    if (this.isProduction && !window.location.search.includes('debug=true')) {
+    // Skip logging in production unless debug is explicitly enabled or overlay is visible
+    if (this.isProduction && !window.location.search.includes('debug=true') && !this.isVisible) {
       return;
     }
     
