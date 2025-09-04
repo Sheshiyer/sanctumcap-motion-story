@@ -402,12 +402,34 @@
   /* Ensure text elements don't get clipped during animations */
   h1, h2, h3, h4, h5, h6, p {
     overflow: visible;
+    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
   }
 
   /* Global fix for framer-motion text cropping */
   [data-framer-component-type] {
     overflow: visible !important;
+  }
+
+  /* Safari fallbacks for critical colors */
+  .bg-primary {
+    background-color: #0F1A3C; /* Fallback */
+    background-color: hsl(var(--primary));
+  }
+  
+  .bg-gold {
+    background-color: #D4AF37; /* Fallback */
+    background-color: hsl(var(--gold));
+  }
+  
+  .text-gold {
+    color: #D4AF37; /* Fallback */
+    color: hsl(var(--gold));
+  }
+  
+  .text-primary {
+    color: #0F1A3C; /* Fallback */
+    color: hsl(var(--primary));
   }
 
   /* Prevent text cropping in motion divs */
@@ -418,6 +440,9 @@
   /* Prevent clipping of gradient text during animations */
   .bg-clip-text {
     overflow: visible !important;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
   }
 
@@ -489,6 +514,7 @@
   }
 
   .glass-morphism {
+    -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     background: rgba(28, 28, 45, 0.8);
     border: 1px solid rgba(230, 230, 235, 0.1);

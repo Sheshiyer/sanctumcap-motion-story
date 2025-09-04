@@ -69,8 +69,15 @@ export const initializePerformanceOptimizations = () => {
   preloadCriticalResources();
   addResourceHints();
   
-  // Defer non-critical resources
-  requestIdleCallback(() => {
-    prefetchResources();
-  }, { timeout: 2000 });
+  // Defer non-critical resources with Safari compatibility
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(() => {
+      prefetchResources();
+    }, { timeout: 2000 });
+  } else {
+    // Safari fallback - use setTimeout instead
+    setTimeout(() => {
+      prefetchResources();
+    }, 100);
+  }
 };
