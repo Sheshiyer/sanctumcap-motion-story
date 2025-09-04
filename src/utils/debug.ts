@@ -136,7 +136,7 @@ class MobileDebugger {
     document.body.appendChild(this.overlay);
   }
 
-  private toggleOverlay() {
+  public toggleOverlay() {
     if (this.isVisible) {
       this.hideOverlay();
     } else {
@@ -144,7 +144,12 @@ class MobileDebugger {
     }
   }
 
-  private showOverlay() {
+  public showOverlay() {
+    // Create overlay if it doesn't exist (e.g., in production)
+    if (!this.overlay) {
+      this.createOverlay();
+    }
+    
     if (!this.overlay) return;
     
     this.isVisible = true;
@@ -152,7 +157,7 @@ class MobileDebugger {
     this.updateOverlayContent();
   }
 
-  private hideOverlay() {
+  public hideOverlay() {
     if (!this.overlay) return;
     
     this.isVisible = false;
