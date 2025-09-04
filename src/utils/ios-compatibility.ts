@@ -90,14 +90,78 @@ class iOSCompatibilityTester {
       {
         name: 'CSS Flexbox',
         test: () => CSS.supports('display', 'flex'),
-        critical: false,
-        description: 'CSS Flexbox support'
+        critical: true,
+        description: 'CSS Flexbox layout support'
       },
       {
         name: 'CSS Custom Properties',
-        test: () => CSS.supports('color', 'var(--test)'),
+        test: () => CSS.supports('--test', 'red'),
         critical: false,
-        description: 'CSS custom properties (variables)'
+        description: 'CSS custom properties (variables) support'
+      },
+      {
+        name: 'WebP Support',
+        test: () => {
+          return new Promise<boolean>((resolve) => {
+            const webP = new Image();
+            webP.onload = webP.onerror = () => {
+              resolve(webP.height === 2);
+            };
+            webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+          });
+        },
+        critical: false,
+        description: 'WebP image format support'
+      },
+      {
+        name: 'Dynamic Imports',
+        test: () => {
+          try {
+            // Test if dynamic import syntax is supported
+            const func = new Function('return typeof import');
+            return func() === 'function';
+          } catch {
+            return false;
+          }
+        },
+        critical: true,
+        description: 'Dynamic ES6 module imports'
+      },
+      {
+        name: 'React DOM Root',
+        test: () => {
+          try {
+            return typeof document.getElementById === 'function' && 
+                   document.getElementById('root') !== null;
+          } catch {
+            return false;
+          }
+        },
+        critical: true,
+        description: 'React root element availability'
+      },
+      {
+        name: 'CSS Modules Support',
+        test: () => {
+          try {
+            const testDiv = document.createElement('div');
+            testDiv.style.setProperty('--test-var', 'test');
+            return testDiv.style.getPropertyValue('--test-var') === 'test';
+          } catch {
+            return false;
+          }
+        },
+        critical: false,
+        description: 'CSS custom properties manipulation'
+      },
+      {
+        name: 'Viewport Meta Tag',
+        test: () => {
+          const viewportMeta = document.querySelector('meta[name="viewport"]');
+          return viewportMeta !== null;
+        },
+        critical: true,
+        description: 'Viewport meta tag for mobile responsiveness'
       },
       {
         name: 'CSS Backdrop Filter',
@@ -383,6 +447,17 @@ const compatibilityTester = new iOSCompatibilityTester();
 
 // Auto-run tests on iOS devices
 if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+  // Capture any early JavaScript errors
+  window.addEventListener('error', (event) => {
+    mobileDebugger.error(`JavaScript Error: ${event.message}`, event.error);
+    mobileDebugger.error(`Error at: ${event.filename}:${event.lineno}:${event.colno}`);
+  });
+  
+  // Capture unhandled promise rejections
+  window.addEventListener('unhandledrejection', (event) => {
+    mobileDebugger.error(`Unhandled Promise Rejection: ${event.reason}`);
+  });
+  
   // Run tests after a short delay to ensure DOM is ready
   setTimeout(() => {
     compatibilityTester.runAllTests();

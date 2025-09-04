@@ -161,6 +161,11 @@ class MobileDebugger {
       this.info(`Viewport: ${window.innerWidth}x${window.innerHeight}`);
       this.info(`Memory: ${this.getMemoryInfo()}`);
       this.info(`Connection: ${this.getConnectionInfo()}`);
+      
+      // Check iOS compatibility if on iOS device
+      if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+        this.checkiOSCompatibility();
+      }
     }
     
     this.overlay.style.display = 'block';
@@ -316,6 +321,43 @@ ${this.logs.map(log => `
     this.info('Debug utility initialized successfully');
     this.warn('This is a test warning');
     this.error('This is a test error', new Error('Test error for debugging'));
+  }
+  
+  private async checkiOSCompatibility() {
+    try {
+      // Import iOS compatibility tester dynamically to avoid circular imports
+      const { default: iOSCompatibilityTester } = await import('./ios-compatibility');
+      
+      // Get compatibility test results
+      const results = iOSCompatibilityTester.getResults();
+      const criticalFailures = iOSCompatibilityTester.getCriticalFailures();
+      
+      if (criticalFailures.length > 0) {
+        this.error(`iOS Critical Failures: ${criticalFailures.join(', ')}`);
+        criticalFailures.forEach(failure => {
+          this.error(`Critical: ${failure} test failed`);
+        });
+      } else {
+        this.info('iOS compatibility: All critical tests passed');
+      }
+      
+      // Log iOS version info
+      const iosVersion = iOSCompatibilityTester.checkiOSVersion();
+      const safariVersion = iOSCompatibilityTester.checkSafariVersion();
+      
+      this.info(`iOS Version: ${iosVersion.version || 'unknown'} (Supported: ${iosVersion.isSupported})`);
+      this.info(`Safari Version: ${safariVersion.version || 'unknown'} (Supported: ${safariVersion.isSupported})`);
+      
+      // Log specific test results
+      results.forEach((passed, testName) => {
+        if (!passed) {
+          this.warn(`iOS Test Failed: ${testName}`);
+        }
+      });
+      
+    } catch (error) {
+      this.error('Failed to check iOS compatibility', error as Error);
+    }
   }
 }
 
