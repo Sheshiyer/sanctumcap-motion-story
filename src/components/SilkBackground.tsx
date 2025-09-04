@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useIsMobile } from '../hooks/use-mobile';
 
 interface SilkBackgroundProps {
   speed?: number;
@@ -20,6 +21,21 @@ const SilkBackground: React.FC<SilkBackgroundProps> = ({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number>();
   const timeRef = useRef<number>(0);
+  const isMobile = useIsMobile();
+
+  // Provide a simple gradient fallback for mobile devices
+  if (isMobile) {
+    return (
+      <div
+        className={`absolute inset-0 pointer-events-none ${className}`}
+        style={{
+          zIndex: -1,
+          background: `linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 50%, rgba(212, 175, 55, 0.02) 100%)`,
+          mixBlendMode: 'screen'
+        }}
+      />
+    );
+  }
 
   useEffect(() => {
     const canvas = canvasRef.current;
