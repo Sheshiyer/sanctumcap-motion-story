@@ -1,4 +1,5 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
+import mobileDebugger from '../utils/debug';
 
 interface Props {
   children: ReactNode;
@@ -22,6 +23,23 @@ class ErrorBoundary extends Component<Props, State> {
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error('ErrorBoundary caught an error:', error, errorInfo);
+    
+    // Log to mobile debugger with detailed context
+    mobileDebugger.error(
+      `React Error Boundary: ${error.message}`,
+      error
+    );
+    
+    // Log component stack for debugging
+    mobileDebugger.error(
+      `Component Stack: ${errorInfo.componentStack}`,
+      new Error('Component Stack Trace')
+    );
+    
+    // Log additional context
+    mobileDebugger.info(`Error occurred at: ${new Date().toISOString()}`);
+    mobileDebugger.info(`User Agent: ${navigator.userAgent}`);
+    mobileDebugger.info(`URL: ${window.location.href}`);
   }
 
   public render() {
@@ -40,12 +58,24 @@ class ErrorBoundary extends Component<Props, State> {
             <p className="text-gray-600 mb-6">
               We're sorry, but something unexpected happened. Please try refreshing the page.
             </p>
-            <button
-              onClick={() => window.location.reload()}
-              className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg transition-colors"
-            >
-              Refresh Page
-            </button>
+            <div className="space-y-3">
+              <button
+                onClick={() => window.location.reload()}
+                className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg transition-colors mr-3"
+              >
+                Refresh Page
+              </button>
+              <button
+                onClick={() => {
+                  if ((window as any).mobileDebugger) {
+                    (window as any).mobileDebugger.showOverlay();
+                  }
+                }}
+                className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg transition-colors"
+              >
+                Show Debug Info
+              </button>
+            </div>
             {process.env.NODE_ENV === 'development' && this.state.error && (
               <details className="mt-6 text-left">
                 <summary className="cursor-pointer text-sm text-gray-500">
